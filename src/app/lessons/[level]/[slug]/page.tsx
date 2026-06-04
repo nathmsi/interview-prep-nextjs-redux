@@ -39,6 +39,24 @@ export default async function LessonPage({ params }: PageProps) {
         className="prose-zinc max-w-none dark:prose-invert"
         dangerouslySetInnerHTML={{ __html: html }}
       />
+      {lesson.slug === "quiz-questions" && (
+        <p className="rounded-lg border border-sky-200 bg-sky-50 p-3 text-sm text-sky-900 dark:border-sky-900 dark:bg-sky-950/50 dark:text-sky-200">
+          Try every question before opening{" "}
+          <Link href="/lessons/react/quiz-solutions" className="underline font-medium">
+            quiz solutions
+          </Link>
+          .
+        </p>
+      )}
+      {lesson.slug === "quiz-solutions" && (
+        <p className="rounded-lg border border-red-200 bg-red-50 p-3 text-sm text-red-900 dark:border-red-900 dark:bg-red-950/50 dark:text-red-200">
+          Spoilers — only read this after attempting the{" "}
+          <Link href="/lessons/react/quiz-questions" className="underline font-medium">
+            20 questions
+          </Link>
+          .
+        </p>
+      )}
       {lesson.kind === "exercise" && lesson.exercisePath && (
         <section className="rounded-lg border border-amber-200 bg-amber-50 p-4 dark:border-amber-900 dark:bg-amber-950/30">
           <h2 className="font-semibold">Exercise & solution</h2>

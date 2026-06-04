@@ -18,5 +18,8 @@ Read-only lessons: **concept → interview angle → one example**. No exercises
 | 12 | use | [12-use-hook.md](./12-use-hook.md) |
 | 13 | useImperativeHandle | [13-use-imperative-handle.md](./13-use-imperative-handle.md) |
 | 14 | Interview Q&A recap | [14-interview-questions.md](./14-interview-questions.md) |
+| 15 | **Quiz — 20 questions** (basic → pro) | [quiz/questions.md](./quiz/questions.md) |
+| 16 | **Quiz — solutions** (separate file) | [quiz/solutions.md](./quiz/solutions.md) |
 
-Web: `/lessons/react/01-use-state`, etc.
+Web: `/lessons/react/01-use-state`, etc.  
+Quiz: `/lessons/react/quiz-questions` · Solutions: `/lessons/react/quiz-solutions`

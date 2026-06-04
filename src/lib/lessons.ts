@@ -259,6 +259,26 @@ const reactHookLessons: LessonMeta[] = [
     summary: "Classic questions with short answers (rules, stale closure, keys).",
     lessonPath: "lessons/react/14-interview-questions.md",
   },
+  {
+    slug: "quiz-questions",
+    track: "react",
+    level: "react",
+    number: 15,
+    kind: "course",
+    title: "Quiz — 20 questions (basic → pro)",
+    summary: "Self-test: 20 interview questions. Answers in a separate file.",
+    lessonPath: "lessons/react/quiz/questions.md",
+  },
+  {
+    slug: "quiz-solutions",
+    track: "react",
+    level: "react",
+    number: 16,
+    kind: "course",
+    title: "Quiz — solutions (spoilers)",
+    summary: "Answers for the 20-question React quiz. Open after attempting.",
+    lessonPath: "lessons/react/quiz/solutions.md",
+  },
 ];
 
 export const lessons: LessonMeta[] = [...exerciseLessons, ...reactHookLessons];
