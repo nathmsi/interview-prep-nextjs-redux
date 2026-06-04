@@ -1,11 +1,32 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ReactQuizAccordion } from "@/components/quiz/ReactQuizAccordion";
+import { TypeScriptQuizAccordion } from "@/components/quiz/TypeScriptQuizAccordion";
 import { getLesson, lessonTracks, type LessonTrack } from "@/lib/lessons";
 import { readLessonMarkdown, renderSimpleMarkdown } from "@/lib/markdown";
 
 type PageProps = {
   params: Promise<{ level: string; slug: string }>;
+};
+
+const quizPages: Partial<
+  Record<
+    LessonTrack,
+    { badge: string; title: string; subtitle: string; Accordion: () => React.JSX.Element }
+  >
+> = {
+  react: {
+    badge: "React quiz",
+    title: "React interview quiz — 20 questions",
+    subtitle: "Basic → Pro · React 18/19",
+    Accordion: ReactQuizAccordion,
+  },
+  typescript: {
+    badge: "TypeScript quiz",
+    title: "TypeScript interview quiz — 20 questions",
+    subtitle: "Basic → Pro · TypeScript 5.x",
+    Accordion: TypeScriptQuizAccordion,
+  },
 };
 
 export default async function LessonPage({ params }: PageProps) {
@@ -18,9 +39,10 @@ export default async function LessonPage({ params }: PageProps) {
     notFound();
   }
 
-  const isInteractiveQuiz = lesson.slug === "quiz-questions";
+  const quiz = lesson.slug === "quiz-questions" ? quizPages[lesson.track] : undefined;
 
-  if (isInteractiveQuiz) {
+  if (quiz) {
+    const { badge, title, subtitle, Accordion } = quiz;
     return (
       <article className="space-y-6">
         <div className="flex flex-wrap gap-3 text-sm">
@@ -28,14 +50,14 @@ export default async function LessonPage({ params }: PageProps) {
             ← Lessons
           </Link>
           <span className="rounded-full bg-sky-100 px-2 py-0.5 text-sky-800 dark:bg-sky-950 dark:text-sky-200">
-            React quiz
+            {badge}
           </span>
         </div>
         <header>
-          <h1 className="text-2xl font-bold">React interview quiz — 20 questions</h1>
-          <p className="mt-1 text-sm text-zinc-500">Basic → Pro · React 18/19</p>
+          <h1 className="text-2xl font-bold">{title}</h1>
+          <p className="mt-1 text-sm text-zinc-500">{subtitle}</p>
         </header>
-        <ReactQuizAccordion />
+        <Accordion />
       </article>
     );
   }
@@ -66,9 +88,15 @@ export default async function LessonPage({ params }: PageProps) {
         <p className="rounded-lg border border-sky-200 bg-sky-50 p-3 text-sm text-sky-900 dark:border-sky-900 dark:bg-sky-950/50 dark:text-sky-200">
           Prefer the interactive quiz?{" "}
           <Link href="/lessons/react/quiz-questions" className="underline font-medium">
-            Open quiz with accordion solutions
+            Open React quiz with accordion solutions
           </Link>
-          .
+          {" · "}
+          <Link
+            href="/lessons/typescript/quiz-questions"
+            className="underline font-medium"
+          >
+            TypeScript quiz
+          </Link>
         </p>
       )}
       {lesson.kind === "exercise" && lesson.exercisePath && (

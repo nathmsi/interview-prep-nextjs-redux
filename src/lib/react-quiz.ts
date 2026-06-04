@@ -1,19 +1,7 @@
-export type QuizLevel = "basic" | "intermediate" | "advanced" | "pro";
+import type { QuizItem } from "./quiz-types";
 
-export type QuizItem = {
-  id: number;
-  level: QuizLevel;
-  title: string;
-  question: string;
-  solution: string;
-};
-
-export const quizLevelLabels: Record<QuizLevel, string> = {
-  basic: "Basic",
-  intermediate: "Intermediate",
-  advanced: "Advanced",
-  pro: "Pro",
-};
+export type { QuizItem, QuizLevel } from "./quiz-types";
+export { quizLevelLabels, quizLevels } from "./quiz-types";
 
 export const reactQuizItems: QuizItem[] = [
   {
@@ -187,5 +175,3 @@ export const reactQuizItems: QuizItem[] = [
       "Server HTML does not match the client first render. Causes: non-deterministic render (Date.now, Math.random), browser-only APIs during first client render, invalid HTML nesting, locale differences. Fix: stable server markup, client-only logic in useEffect or client components.",
   },
 ];
-
-export const quizLevels: QuizLevel[] = ["basic", "intermediate", "advanced", "pro"];

@@ -3,7 +3,10 @@ import Link from "next/link";
 const links = [
   { href: "/", label: "Home" },
   { href: "/lessons", label: "Lessons" },
-  { href: "/lessons/react/quiz-questions", label: "React quiz (20Q)" },
+  { href: "/lessons/javascript/01-basic-interview", label: "JS" },
+  { href: "/lessons/css/01-interview-questions", label: "CSS" },
+  { href: "/lessons/typescript/quiz-questions", label: "TS quiz" },
+  { href: "/lessons/react/quiz-questions", label: "React quiz" },
   { href: "/demo", label: "Live demo" },
 ];
 

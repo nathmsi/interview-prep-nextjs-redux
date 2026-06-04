@@ -58,7 +58,10 @@ Data: `src/lib/db.ts` (resets when the server restarts).
 
 ## Curriculum
 
-0. **React** — 14 hook courses (theory + example, **no exercises**) → [lessons/react/README.md](./lessons/react/README.md)  
+0. **JavaScript** — [basic / medium / hard interview Q&A](./lessons/javascript/README.md) (TypeScript examples throughout)  
+0b. **TypeScript** — [20-question quiz](https://interview-prep-nextjs-redux.vercel.app/lessons/typescript/quiz-questions) (interactive)  
+0c. **CSS** — [interview Q&A](./lessons/css/01-interview-questions.md)  
+0d. **React** — 14 hook courses + [quiz](https://interview-prep-nextjs-redux.vercel.app/lessons/react/quiz-questions) → [lessons/react/README.md](./lessons/react/README.md)  
 1. **Easy** — Server vs Client, Redux Provider + typed hooks  
 2. **Medium** — thunks, cart slice, route handlers, selectors  
 3. **Hard** — RTK Query, optimistic updates, hydration / RSC  

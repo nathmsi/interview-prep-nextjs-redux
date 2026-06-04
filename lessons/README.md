@@ -1,5 +1,17 @@
 # Curriculum — Next.js + Redux + TypeScript
 
+## JavaScript (course only)
+
+3 interview levels in [javascript/](./javascript/) — basic, medium, hard Q&A with **TypeScript** tie-ins where useful.
+
+## CSS (course only)
+
+[css/01-interview-questions.md](./css/01-interview-questions.md) — layout, responsive, a11y, CSS in React/Next.
+
+## TypeScript
+
+Interactive [quiz](../src/lib/typescript-quiz.ts) at `/lessons/typescript/quiz-questions`.
+
 ## React hooks (course only)
 
 14 lessons in [react/](./react/) — interview Q&A + one code example each. **No exercises.**

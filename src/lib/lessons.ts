@@ -1,5 +1,10 @@
 export type LessonLevel = "easy" | "medium" | "hard";
-export type LessonTrack = LessonLevel | "react";
+export type LessonTrack =
+  | LessonLevel
+  | "react"
+  | "typescript"
+  | "javascript"
+  | "css";
 
 export type LessonKind = "exercise" | "course";
 
@@ -281,7 +286,72 @@ const reactHookLessons: LessonMeta[] = [
   },
 ];
 
-export const lessons: LessonMeta[] = [...exerciseLessons, ...reactHookLessons];
+const typescriptLessons: LessonMeta[] = [
+  {
+    slug: "quiz-questions",
+    track: "typescript",
+    level: "typescript",
+    number: 1,
+    kind: "course",
+    title: "TypeScript quiz — 20 questions (basic → pro)",
+    summary: "Interactive quiz: your answer + accordion solution under each question.",
+    lessonPath: "lessons/typescript/quiz/questions.md",
+  },
+];
+
+const javascriptLessons: LessonMeta[] = [
+  {
+    slug: "01-basic-interview",
+    track: "javascript",
+    level: "javascript",
+    number: 1,
+    kind: "course",
+    title: "JavaScript — basic interview Q&A",
+    summary: "Types, scope, equality, arrays, functions — with TypeScript tie-ins.",
+    lessonPath: "lessons/javascript/01-basic-interview.md",
+  },
+  {
+    slug: "02-medium-interview",
+    track: "javascript",
+    level: "javascript",
+    number: 2,
+    kind: "course",
+    title: "JavaScript — medium interview Q&A",
+    summary: "Closures, this, prototypes, promises, event loop — with TypeScript examples.",
+    lessonPath: "lessons/javascript/02-medium-interview.md",
+  },
+  {
+    slug: "03-hard-interview",
+    track: "javascript",
+    level: "javascript",
+    number: 3,
+    kind: "course",
+    title: "JavaScript — hard interview Q&A",
+    summary: "Memory, concurrency, advanced patterns, TypeScript guards & utility types.",
+    lessonPath: "lessons/javascript/03-hard-interview.md",
+  },
+];
+
+const cssLessons: LessonMeta[] = [
+  {
+    slug: "01-interview-questions",
+    track: "css",
+    level: "css",
+    number: 1,
+    kind: "course",
+    title: "CSS — interview Q&A",
+    summary: "Layout, specificity, responsive, performance, a11y, CSS in React/Next.",
+    lessonPath: "lessons/css/01-interview-questions.md",
+  },
+];
+
+export const lessons: LessonMeta[] = [
+  ...exerciseLessons,
+  ...reactHookLessons,
+  ...typescriptLessons,
+  ...javascriptLessons,
+  ...cssLessons,
+];
 
 export function getLessonsByTrack(track: LessonTrack): LessonMeta[] {
   return lessons.filter((l) => l.track === track);
@@ -296,4 +366,12 @@ export function getLesson(track: LessonTrack, slug: string): LessonMeta | undefi
   return lessons.find((l) => l.track === track && l.slug === slug);
 }
 
-export const lessonTracks: LessonTrack[] = ["easy", "medium", "hard", "react"];
+export const lessonTracks: LessonTrack[] = [
+  "javascript",
+  "typescript",
+  "css",
+  "react",
+  "easy",
+  "medium",
+  "hard",
+];
