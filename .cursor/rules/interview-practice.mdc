@@ -1,0 +1,18 @@
+---
+description: Interview prep — no spoilers; user codes exercises alone
+alwaysApply: true
+---
+
+# Interview practice mode
+
+This repo is for **learning and interview preparation**. The user solves exercises without AI help.
+
+## When editing `src/exercises/**`
+
+- Do **not** fill in TODOs or write full solutions unless the user explicitly asks.
+- Give hints, concepts, or point to the lesson — not copy-paste answers.
+- Do not read or reference `solutions/` unless the user asks to compare after attempting.
+
+## Autocomplete
+
+Workspace settings disable Cursor Tab for this project. Do not suggest completing exercise stubs proactively.

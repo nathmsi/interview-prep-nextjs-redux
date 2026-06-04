@@ -1,5 +1,11 @@
 # Curriculum — Next.js + Redux + TypeScript
 
+## React hooks (course only)
+
+14 lessons in [react/](./react/) — interview Q&A + one code example each. **No exercises.**
+
+## Next.js + Redux (hands-on)
+
 | Level | # | Topic | Exercise |
 |-------|---|--------|----------|
 | **Easy** | 01 | Server vs Client Components | `src/exercises/easy/01-server-vs-client/` |

@@ -1,8 +1,14 @@
 import Link from "next/link";
-import { getLessonsByLevel } from "@/lib/lessons";
+import { getLessonsByTrack } from "@/lib/lessons";
 
 export default function HomePage() {
-  const levels = ["easy", "medium", "hard"] as const;
+  const tracks = ["react", "easy", "medium", "hard"] as const;
+  const trackTitles: Record<(typeof tracks)[number], string> = {
+    react: "React hooks (course + examples)",
+    easy: "Easy",
+    medium: "Medium",
+    hard: "Hard",
+  };
 
   return (
     <div className="space-y-8">
@@ -12,7 +18,7 @@ export default function HomePage() {
         </h1>
         <p className="mt-2 max-w-2xl text-zinc-600 dark:text-zinc-400">
           Practice repo with a real Next.js server (Route Handlers), a typed Redux Toolkit
-          store, and easy / medium / hard lessons with solutions.
+          store, React hook courses (no exercises), and easy / medium / hard labs with solutions.
         </p>
       </section>
 
@@ -42,14 +48,14 @@ npm run dev
         </p>
       </section>
 
-      {levels.map((level) => (
-        <section key={level}>
-          <h2 className="mb-3 text-lg font-semibold capitalize">{level}</h2>
+      {tracks.map((track) => (
+        <section key={track}>
+          <h2 className="mb-3 text-lg font-semibold">{trackTitles[track]}</h2>
           <ul className="space-y-2">
-            {getLessonsByLevel(level).map((lesson) => (
+            {getLessonsByTrack(track).map((lesson) => (
               <li key={lesson.slug}>
                 <Link
-                  href={`/lessons/${level}/${lesson.slug}`}
+                  href={`/lessons/${track}/${lesson.slug}`}
                   className="block rounded-lg border border-zinc-200 p-3 transition hover:border-zinc-400 dark:border-zinc-800 dark:hover:border-zinc-600"
                 >
                   <span className="font-medium">

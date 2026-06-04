@@ -1,9 +1,13 @@
 import { describe, it, expect } from "vitest";
-import { getLesson, getLessonsByLevel, lessons } from "@/lib/lessons";
+import { getLesson, getLessonsByLevel, getLessonsByTrack, lessons } from "@/lib/lessons";
 
 describe("lessons metadata", () => {
-  it("9 lessons total", () => {
-    expect(lessons).toHaveLength(9);
+  it("23 lessons total (9 labs + 14 react courses)", () => {
+    expect(lessons).toHaveLength(23);
+  });
+
+  it("14 react hook courses", () => {
+    expect(getLessonsByTrack("react")).toHaveLength(14);
   });
 
   it("getLessonsByLevel", () => {

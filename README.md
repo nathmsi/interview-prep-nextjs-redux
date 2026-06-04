@@ -58,6 +58,7 @@ Data: `src/lib/db.ts` (resets when the server restarts).
 
 ## Curriculum
 
+0. **React** — 14 hook courses (theory + example, **no exercises**) → [lessons/react/README.md](./lessons/react/README.md)  
 1. **Easy** — Server vs Client, Redux Provider + typed hooks  
 2. **Medium** — thunks, cart slice, route handlers, selectors  
 3. **Hard** — RTK Query, optimistic updates, hydration / RSC  
@@ -75,5 +76,12 @@ Data: `src/lib/db.ts` (resets when the server restarts).
 2. Implement the exercise without opening `solutions/`.  
 3. Run `npm test` until green.  
 4. Compare the solution and try the live demo.
+
+## Cursor / AI (no spoilers)
+
+This workspace disables **Cursor Tab** and inline AI suggestions (see `.vscode/settings.json`).  
+`solutions/` is in `.cursorignore` so indexing skips reference answers.
+
+To toggle Tab manually: Command Palette → **Disable Cursor Tab** / **Enable Cursor Tab**.
 
 Good luck.

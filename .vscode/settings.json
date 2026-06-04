@@ -1,0 +1,20 @@
+{
+  // Disable Cursor Tab / inline AI completions in this repo (interview practice)
+  "editor.inlineSuggest.enabled": false,
+  "cursor.tabCompletion": "off",
+  "cursor.cpp.disabledLanguages": [
+    "typescript",
+    "typescriptreact",
+    "javascript",
+    "javascriptreact",
+    "markdown",
+    "json"
+  ],
+  "editor.quickSuggestions": {
+    "other": false,
+    "comments": false,
+    "strings": false
+  },
+  "editor.suggestOnTriggerCharacters": false,
+  "editor.wordBasedSuggestions": "off"
+}
