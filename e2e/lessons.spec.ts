@@ -11,6 +11,16 @@ test.describe("Subjects", () => {
     ).toBeVisible();
   });
 
+  test("ai subject page lists skills and rules lesson", async ({ page }) => {
+    await page.goto("/subjects/ai");
+    await expect(
+      page.getByRole("heading", { name: "AI & coding", exact: true })
+    ).toBeVisible();
+    await expect(
+      page.getByRole("link", { name: /Skills, Rules/i })
+    ).toBeVisible();
+  });
+
   test("css subject page lists its lessons", async ({ page }) => {
     await page.goto("/subjects/css");
     await expect(page.getByRole("heading", { name: "CSS", exact: true })).toBeVisible();

@@ -5,7 +5,8 @@ export type InterviewTrack =
   | "react"
   | "nextjs"
   | "css"
-  | "libraries";
+  | "libraries"
+  | "ai";
 
 export type LessonTrack = LessonLevel | InterviewTrack;
 
@@ -491,6 +492,69 @@ const cssLessons: LessonMeta[] = [
   },
 ];
 
+const aiLessons: LessonMeta[] = [
+  {
+    slug: "01-mindset-and-workflow",
+    track: "ai",
+    level: "ai",
+    number: 1,
+    kind: "course",
+    title: "AI for coding — mindset & VERIFY workflow",
+    summary: "When to use AI, when to slow down, verify-before-merge loop.",
+    lessonPath: "lessons/ai/01-mindset-and-workflow.md",
+  },
+  {
+    slug: "02-prompts-and-context",
+    track: "ai",
+    level: "ai",
+    number: 2,
+    kind: "course",
+    title: "AI for coding — prompts & context",
+    summary: "Prompt templates, @ files, iteration, good vs bad requests.",
+    lessonPath: "lessons/ai/02-prompts-and-context.md",
+  },
+  {
+    slug: "03-skills-rules-and-docs",
+    track: "ai",
+    level: "ai",
+    number: 3,
+    kind: "course",
+    title: "AI for coding — Skills, Rules & AGENTS.md",
+    summary: "Cursor Skills vs Rules, .cursorignore, project playbooks.",
+    lessonPath: "lessons/ai/03-skills-rules-and-docs.md",
+  },
+  {
+    slug: "04-documentation-for-ai",
+    track: "ai",
+    level: "ai",
+    number: 4,
+    kind: "course",
+    title: "AI for coding — documentation that helps",
+    summary: "README structure, ADRs, types as docs, repo map for agents.",
+    lessonPath: "lessons/ai/04-documentation-for-ai.md",
+  },
+  {
+    slug: "05-review-tests-security",
+    track: "ai",
+    level: "ai",
+    number: 5,
+    kind: "course",
+    title: "AI for coding — review, tests & security",
+    summary: "Diff review checklist, hallucinations, secrets, CI bar.",
+    lessonPath: "lessons/ai/05-review-tests-security.md",
+  },
+  {
+    slug: "06-interview-talking-points",
+    track: "ai",
+    level: "ai",
+    number: 6,
+    kind: "course",
+    title: "AI for coding — interview Q&A",
+    summary: "How to talk about AI tools professionally in interviews.",
+    lessonPath: "lessons/ai/06-interview-talking-points.md",
+  },
+];
+
 const librariesLessons: LessonMeta[] = [
   {
     slug: "01-essential-libraries",
@@ -522,6 +586,7 @@ export const lessons: LessonMeta[] = [
   ...javascriptLessons,
   ...cssLessons,
   ...librariesLessons,
+  ...aiLessons,
 ];
 
 export function getLessonsByTrack(track: LessonTrack): LessonMeta[] {
@@ -545,6 +610,7 @@ export const lessonTracks: LessonTrack[] = [
   "nextjs",
   "css",
   "libraries",
+  "ai",
   "easy",
   "medium",
   "hard",

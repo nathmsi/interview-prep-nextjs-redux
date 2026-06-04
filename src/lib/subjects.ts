@@ -6,7 +6,8 @@ export type SubjectId =
   | "react"
   | "nextjs"
   | "css"
-  | "libraries";
+  | "libraries"
+  | "ai";
 
 export type Subject = {
   id: SubjectId;
@@ -28,6 +29,7 @@ export const subjectIds: SubjectId[] = [
   "nextjs",
   "css",
   "libraries",
+  "ai",
 ];
 
 export function isSubjectId(value: string): value is SubjectId {
@@ -42,6 +44,7 @@ export const interviewTracks: LessonTrack[] = [
   "nextjs",
   "css",
   "libraries",
+  "ai",
 ];
 
 export const subjects: Subject[] = [
@@ -86,6 +89,14 @@ export const subjects: Subject[] = [
     description: "Essential npm ecosystem — what to use, when, and why (interview angle).",
     tracks: ["libraries"],
     entryHref: "/lessons/libraries/01-essential-libraries",
+  },
+  {
+    id: "ai",
+    label: "AI & coding",
+    description:
+      "Use AI well: prompts, Cursor Skills & Rules, docs for context, review & security.",
+    tracks: ["ai"],
+    entryHref: "/lessons/ai/01-mindset-and-workflow",
   },
 ];
 

@@ -10,6 +10,7 @@
 | Next.js | [nextjs/](./nextjs/) | 10 chapters |
 | CSS | [css/](./css/) | Q&A + styling libraries |
 | Libraries | [libraries/](./libraries/) | Essential libs + UI/tooling |
+| AI & coding | [ai/](./ai/) | Prompts, Skills, Rules, docs, review |
 
 ## Hidden from UI (code exercises only)
 

@@ -14,6 +14,7 @@ Technical interview preparation for **front-end developers**: JavaScript, TypeSc
 | **Next.js** | 10-lesson framework course (App Router, API, RSC…) |
 | **CSS** | Interview Q&A + styling libraries (Tailwind, Modules, shadcn…) |
 | **Libraries** | What to use and why (React Query, Zod, RHF, testing…) |
+| **AI & coding** | Prompts, Cursor Skills/Rules, docs, verify before merge |
 
 Browse: `npm run dev` → http://localhost:3000  
 

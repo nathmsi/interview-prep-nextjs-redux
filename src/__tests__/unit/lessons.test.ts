@@ -2,8 +2,12 @@ import { describe, it, expect } from "vitest";
 import { getLesson, getLessonsByLevel, getLessonsByTrack, lessons } from "@/lib/lessons";
 
 describe("lessons metadata", () => {
-  it("46 lessons total (9 hidden labs + 37 interview courses)", () => {
-    expect(lessons).toHaveLength(46);
+  it("52 lessons total (9 hidden labs + 43 interview courses)", () => {
+    expect(lessons).toHaveLength(52);
+  });
+
+  it("6 AI & coding courses", () => {
+    expect(getLessonsByTrack("ai")).toHaveLength(6);
   });
 
   it("4 typescript courses including quiz", () => {

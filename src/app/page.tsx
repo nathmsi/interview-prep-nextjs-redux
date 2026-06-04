@@ -11,7 +11,8 @@ export default function HomePage() {
         </h1>
         <p className="max-w-2xl text-lg text-zinc-600 dark:text-zinc-400">
           Courses and quizzes for technical interviews — JavaScript, TypeScript,
-          React, Next.js, CSS, and the libraries you should know. Read in the
+          React, Next.js, CSS, libraries, and using AI effectively (Skills,
+          Rules, docs). Read in the
           browser; practice coding in your editor.
         </p>
       </header>
