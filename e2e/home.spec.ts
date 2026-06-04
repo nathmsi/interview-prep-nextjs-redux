@@ -6,7 +6,12 @@ test.describe("Home", () => {
     await expect(
       page.getByRole("heading", { name: /Interview Recap/i })
     ).toBeVisible();
-    await expect(page.getByText("Server vs Client Components")).toBeVisible();
+    await expect(
+      page.getByRole("link", { name: /01 — Server vs Client Components/i })
+    ).toBeVisible();
+    await expect(
+      page.getByRole("link", { name: /Start Next.js course/i })
+    ).toBeVisible();
   });
 
   test("link to demo", async ({ page }) => {
