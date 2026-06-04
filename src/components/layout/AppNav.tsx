@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { subjects } from "@/lib/subjects";
+import { subjects, subjectPageHref } from "@/lib/subjects";
 
 export function AppNav() {
   return (
@@ -16,7 +16,7 @@ export function AppNav() {
             {subjects.map((s) => (
               <li key={s.id}>
                 <Link
-                  href={subjectHubHref(s.id)}
+                  href={subjectPageHref(s.id)}
                   className="rounded-md px-2.5 py-1.5 text-zinc-600 hover:bg-zinc-100 hover:text-zinc-900 dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-100"
                 >
                   {s.label}
@@ -28,8 +28,4 @@ export function AppNav() {
       </div>
     </nav>
   );
-}
-
-function subjectHubHref(id: string): string {
-  return `/lessons#${id}`;
 }

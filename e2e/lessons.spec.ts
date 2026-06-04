@@ -1,16 +1,24 @@
 import { test, expect } from "@playwright/test";
 
-test.describe("Lessons", () => {
-  test("lessons index by subject", async ({ page }) => {
-    await page.goto("/lessons");
-    await expect(page.getByRole("heading", { name: /Lessons by subject/i })).toBeVisible();
-    await expect(page.locator("#javascript")).toBeVisible();
-    await expect(page.locator("#libraries")).toBeVisible();
+test.describe("Subjects", () => {
+  test("css subject page lists its lessons", async ({ page }) => {
+    await page.goto("/subjects/css");
+    await expect(page.getByRole("heading", { name: "CSS", exact: true })).toBeVisible();
     await expect(
-      page.getByRole("link", { name: /JavaScript — basic interview/i })
+      page.getByRole("link", { name: /CSS — interview Q&A/i })
+    ).toBeVisible();
+    await expect(
+      page.getByRole("link", { name: /styling libraries/i })
     ).toBeVisible();
   });
 
+  test("/lessons redirects to /subjects", async ({ page }) => {
+    await page.goto("/lessons");
+    await expect(page).toHaveURL(/\/subjects$/);
+  });
+});
+
+test.describe("Lessons", () => {
   test("easy exercise lesson still reachable (not in nav)", async ({ page }) => {
     await page.goto("/lessons/easy/01-server-vs-client");
     await expect(

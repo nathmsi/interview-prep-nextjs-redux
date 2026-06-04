@@ -13,8 +13,26 @@ export type Subject = {
   label: string;
   description: string;
   tracks: LessonTrack[];
+  /** First lesson to start the subject */
   entryHref: string;
 };
+
+export function subjectPageHref(id: SubjectId): string {
+  return `/subjects/${id}`;
+}
+
+export const subjectIds: SubjectId[] = [
+  "javascript",
+  "typescript",
+  "react",
+  "nextjs",
+  "css",
+  "libraries",
+];
+
+export function isSubjectId(value: string): value is SubjectId {
+  return (subjectIds as string[]).includes(value);
+}
 
 /** Tracks shown on home, nav, and /lessons (interview prep only). */
 export const interviewTracks: LessonTrack[] = [
@@ -80,4 +98,9 @@ export function lessonCountForSubject(subject: Subject): number {
     (n, track) => n + getLessonsByTrack(track).length,
     0
   );
+}
+
+/** Map lesson track to subject hub (interview tracks only). */
+export function subjectIdForTrack(track: LessonTrack): SubjectId | undefined {
+  return isSubjectId(track) ? track : undefined;
 }

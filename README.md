@@ -15,7 +15,9 @@ Technical interview preparation for **front-end developers**: JavaScript, TypeSc
 | **CSS** | Interview Q&A + styling libraries (Tailwind, Modules, shadcn…) |
 | **Libraries** | What to use and why (React Query, Zod, RHF, testing…) |
 
-Browse: `npm run dev` → http://localhost:3000
+Browse: `npm run dev` → http://localhost:3000  
+
+Each subject has its own page: `/subjects/javascript`, `/subjects/css`, `/subjects/react`, etc.
 
 ## Hands-on exercises (repo only, not in site UI)
 

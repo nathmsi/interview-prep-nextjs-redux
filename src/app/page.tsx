@@ -32,9 +32,9 @@ export default function HomePage() {
           Full lesson index
         </h2>
         <p className="mt-1 text-zinc-600 dark:text-zinc-400">
-          Browse every lesson by subject on{" "}
-          <Link href="/lessons" className="font-medium underline">
-            /lessons
+          Browse all subjects on{" "}
+          <Link href="/subjects" className="font-medium underline">
+            /subjects
           </Link>
           .
         </p>

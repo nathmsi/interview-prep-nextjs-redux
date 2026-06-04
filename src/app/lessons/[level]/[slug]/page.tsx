@@ -4,6 +4,19 @@ import { ReactQuizAccordion } from "@/components/quiz/ReactQuizAccordion";
 import { TypeScriptQuizAccordion } from "@/components/quiz/TypeScriptQuizAccordion";
 import { getLesson, lessonTracks, type LessonTrack } from "@/lib/lessons";
 import { readLessonMarkdown, renderSimpleMarkdown } from "@/lib/markdown";
+import { getSubject, subjectIdForTrack, subjectPageHref } from "@/lib/subjects";
+
+function subjectBackLink(track: LessonTrack) {
+  const subjectId = subjectIdForTrack(track);
+  if (!subjectId) {
+    return { href: "/subjects", label: "← Subjects" };
+  }
+  const subject = getSubject(subjectId);
+  return {
+    href: subjectPageHref(subjectId),
+    label: `← ${subject?.label ?? "Subject"}`,
+  };
+}
 
 type PageProps = {
   params: Promise<{ level: string; slug: string }>;
@@ -40,14 +53,15 @@ export default async function LessonPage({ params }: PageProps) {
   }
 
   const quiz = lesson.slug === "quiz-questions" ? quizPages[lesson.track] : undefined;
+  const back = subjectBackLink(lesson.track);
 
   if (quiz) {
     const { badge, title, subtitle, Accordion } = quiz;
     return (
       <article className="space-y-6">
         <div className="flex flex-wrap gap-3 text-sm">
-          <Link href="/lessons" className="text-zinc-500 hover:underline">
-            ← Lessons
+          <Link href={back.href} className="text-zinc-500 hover:underline">
+            {back.label}
           </Link>
           <span className="rounded-full bg-sky-100 px-2 py-0.5 text-sky-800 dark:bg-sky-950 dark:text-sky-200">
             {badge}
@@ -68,8 +82,8 @@ export default async function LessonPage({ params }: PageProps) {
   return (
     <article className="space-y-6">
       <div className="flex flex-wrap gap-3 text-sm">
-        <Link href="/lessons" className="text-zinc-500 hover:underline">
-          ← Lessons
+        <Link href={back.href} className="text-zinc-500 hover:underline">
+          {back.label}
         </Link>
         <span className="rounded-full bg-zinc-200 px-2 py-0.5 capitalize dark:bg-zinc-800">
           {lesson.track}

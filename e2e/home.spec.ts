@@ -15,11 +15,12 @@ test.describe("Home", () => {
     await expect(nav.getByRole("link", { name: "Libraries", exact: true })).toBeVisible();
   });
 
-  test("subject cards link to first lesson", async ({ page }) => {
+  test("subject cards open dedicated subject page", async ({ page }) => {
     await page.goto("/");
     await page
       .getByRole("link", { name: /JavaScript.*basic, medium/i })
       .click();
-    await expect(page).toHaveURL(/\/lessons\/javascript\/01-basic-interview/);
+    await expect(page).toHaveURL(/\/subjects\/javascript$/);
+    await expect(page.getByRole("heading", { name: "JavaScript", exact: true })).toBeVisible();
   });
 });

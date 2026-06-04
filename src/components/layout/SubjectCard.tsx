@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { Subject } from "@/lib/subjects";
-import { lessonCountForSubject } from "@/lib/subjects";
+import { lessonCountForSubject, subjectPageHref } from "@/lib/subjects";
 
 type Props = {
   subject: Subject;
@@ -11,7 +11,7 @@ export function SubjectCard({ subject }: Props) {
 
   return (
     <Link
-      href={subject.entryHref}
+      href={subjectPageHref(subject.id)}
       className="group block rounded-xl border border-zinc-200 bg-white p-5 shadow-sm transition hover:border-zinc-400 hover:shadow-md dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-zinc-600"
     >
       <h2 className="text-lg font-semibold text-zinc-900 group-hover:underline dark:text-zinc-50">
