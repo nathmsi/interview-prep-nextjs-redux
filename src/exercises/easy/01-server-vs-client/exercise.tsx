@@ -13,9 +13,12 @@ export async function ServerProductCount({
 }: {
   products: Product[];
 }): Promise<React.ReactElement> {
-  throw new Error("TODO: return <p>… with product count</p>");
+  return <div data-testid="product-count">
+    {products.length} products
+  </div>
 }
 
+"use client"
 export function ClientAddButton({
   label,
   onAdd,
@@ -23,5 +26,5 @@ export function ClientAddButton({
   label: string;
   onAdd: () => void;
 }): React.ReactElement {
-  throw new Error("TODO: use client + button");
+  return <button data-testid="add-btn" onClick={onAdd}>{label}</button>
 }

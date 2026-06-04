@@ -18,7 +18,11 @@ export const cartExerciseSlice = createSlice({
       _state,
       _action: PayloadAction<{ productId: string; quantity?: number }>
     ) => {
-      throw new Error("TODO");
+      const { productId, quantity } = _action.payload;
+      _state.items.push({
+        productId,
+        quantity: quantity ?? 1
+      });
     },
   },
 });
@@ -27,5 +31,5 @@ export const { addItem } = cartExerciseSlice.actions;
 export const cartExerciseReducer = cartExerciseSlice.reducer;
 
 export function selectItemCount(state: { cartExercise: CartExerciseState }): number {
-  throw new Error("TODO: sum quantities");
+  return state.cartExercise.items.reduce((acc,item)=>acc+=item.quantity,0);
 }

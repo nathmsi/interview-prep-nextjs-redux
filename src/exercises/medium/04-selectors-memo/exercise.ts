@@ -23,10 +23,20 @@ export type LineItem = CartItem & {
 export const selectCartLineItems = createSelector(
   [selectItems, selectById],
   (_items, _byId): LineItem[] => {
-    throw new Error("TODO");
+    return _items.reduce<LineItem[]>((acc,item)=>{
+      const itemsById = _byId[item.productId];
+      acc.push({
+        productId: itemsById.id,
+        name: itemsById.name,
+        unitPrice: itemsById.price,
+        lineTotal: item.quantity * itemsById.price,
+        quantity: item.quantity
+      })
+      return acc;
+    },[]);
   }
 );
 
 export const selectCartTotal = createSelector([selectCartLineItems], (_lines) => {
-  throw new Error("TODO");
+  return _lines.reduce((acc,line) => acc += line.lineTotal ,0);
 });

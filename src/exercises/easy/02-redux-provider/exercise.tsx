@@ -14,12 +14,17 @@ import counterReducer, {
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 
 function makeExerciseStore() {
-  return configureStore({ reducer: { counter: counterReducer } });
+  return configureStore({ reducer: { counter: counterReducer, } });
 }
 
 function CounterInner(): React.ReactElement {
-  throw new Error("TODO: useAppSelector + dispatch increment/decrement");
-  return <></>;
+  const counterValue = useAppSelector(state => state.counter.value);
+  const dispacth = useAppDispatch();
+  return <>
+    <button data-testid="inc" onClick={() => dispacth(decrement())}>increment</button>
+    <span data-testid="value">{counterValue}</span>
+    <button data-testid="dec" onClick={() => dispacth(increment())}>decrement</button>
+  </>;
 }
 
 export function CounterExercise() {

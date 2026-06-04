@@ -13,9 +13,7 @@ export const exerciseProductsApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: "/api" }),
   endpoints: (builder) => ({
     getProducts: builder.query<Product[], void>({
-      query: () => {
-        throw new Error("TODO");
-      },
+     query: (id) => `products/${id}`,
     }),
   }),
 });

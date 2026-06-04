@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { ReactQuizAccordion } from "@/components/quiz/ReactQuizAccordion";
 import { getLesson, lessonTracks, type LessonTrack } from "@/lib/lessons";
 import { readLessonMarkdown, renderSimpleMarkdown } from "@/lib/markdown";
 
@@ -15,6 +16,28 @@ export default async function LessonPage({ params }: PageProps) {
   const lesson = getLesson(level as LessonTrack, slug);
   if (!lesson) {
     notFound();
+  }
+
+  const isInteractiveQuiz = lesson.slug === "quiz-questions";
+
+  if (isInteractiveQuiz) {
+    return (
+      <article className="space-y-6">
+        <div className="flex flex-wrap gap-3 text-sm">
+          <Link href="/lessons" className="text-zinc-500 hover:underline">
+            ← Lessons
+          </Link>
+          <span className="rounded-full bg-sky-100 px-2 py-0.5 text-sky-800 dark:bg-sky-950 dark:text-sky-200">
+            React quiz
+          </span>
+        </div>
+        <header>
+          <h1 className="text-2xl font-bold">React interview quiz — 20 questions</h1>
+          <p className="mt-1 text-sm text-zinc-500">Basic → Pro · React 18/19</p>
+        </header>
+        <ReactQuizAccordion />
+      </article>
+    );
   }
 
   const md = await readLessonMarkdown(lesson.lessonPath);
@@ -39,20 +62,11 @@ export default async function LessonPage({ params }: PageProps) {
         className="prose-zinc max-w-none dark:prose-invert"
         dangerouslySetInnerHTML={{ __html: html }}
       />
-      {lesson.slug === "quiz-questions" && (
-        <p className="rounded-lg border border-sky-200 bg-sky-50 p-3 text-sm text-sky-900 dark:border-sky-900 dark:bg-sky-950/50 dark:text-sky-200">
-          Try every question before opening{" "}
-          <Link href="/lessons/react/quiz-solutions" className="underline font-medium">
-            quiz solutions
-          </Link>
-          .
-        </p>
-      )}
       {lesson.slug === "quiz-solutions" && (
-        <p className="rounded-lg border border-red-200 bg-red-50 p-3 text-sm text-red-900 dark:border-red-900 dark:bg-red-950/50 dark:text-red-200">
-          Spoilers — only read this after attempting the{" "}
+        <p className="rounded-lg border border-sky-200 bg-sky-50 p-3 text-sm text-sky-900 dark:border-sky-900 dark:bg-sky-950/50 dark:text-sky-200">
+          Prefer the interactive quiz?{" "}
           <Link href="/lessons/react/quiz-questions" className="underline font-medium">
-            20 questions
+            Open quiz with accordion solutions
           </Link>
           .
         </p>

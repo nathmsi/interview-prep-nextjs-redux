@@ -3,8 +3,8 @@ import Link from "next/link";
 const links = [
   { href: "/", label: "Home" },
   { href: "/lessons", label: "Lessons" },
-  { href: "/demo", label: "Live demo (API + Redux)" },
-  { href: "/api/health", label: "API health" },
+  { href: "/lessons/react/quiz-questions", label: "React quiz (20Q)" },
+  { href: "/demo", label: "Live demo" },
 ];
 
 export function AppNav() {

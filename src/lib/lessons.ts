@@ -266,7 +266,7 @@ const reactHookLessons: LessonMeta[] = [
     number: 15,
     kind: "course",
     title: "Quiz — 20 questions (basic → pro)",
-    summary: "Self-test: 20 interview questions. Answers in a separate file.",
+    summary: "Interactive quiz: your answer + accordion solution under each question.",
     lessonPath: "lessons/react/quiz/questions.md",
   },
   {

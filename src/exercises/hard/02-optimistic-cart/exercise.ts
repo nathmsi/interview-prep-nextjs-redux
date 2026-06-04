@@ -12,5 +12,16 @@ export const optimisticAddToCart = createAsyncThunk<
   { productId: string },
   { state: { cart: CartState } }
 >("cart/optimisticAdd", async ({ productId }, { dispatch, getState, rejectWithValue }) => {
-  throw new Error("TODO: optimistic add + syncCartToServer + rollback");
+    try {
+      const { cart } = getState();
+      if (cart.productsById[productId]) {
+        dispatch(replaceItems([]))
+      } else {
+        dispatch(addItem({
+          productId,
+        }));
+      }
+    } catch (error) {
+      rejectWithValue(error);
+    }
 });

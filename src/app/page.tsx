@@ -48,6 +48,26 @@ npm run dev
         </p>
       </section>
 
+      <section className="rounded-lg border border-sky-200 bg-sky-50 p-4 dark:border-sky-900 dark:bg-sky-950/40">
+        <h2 className="font-semibold text-sky-900 dark:text-sky-200">
+          React interview quiz
+        </h2>
+        <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-400">
+          20 questions from basic to pro. Answers in a separate page — try first without spoilers.
+        </p>
+        <div className="mt-3 flex flex-wrap gap-3">
+          <Link
+            href="/lessons/react/quiz-questions"
+            className="rounded-lg bg-sky-700 px-4 py-2 text-sm font-medium text-white hover:bg-sky-800"
+          >
+            Start quiz →
+          </Link>
+          <span className="text-sm text-sky-700 dark:text-sky-300">
+            Solutions in accordion under each question
+          </span>
+        </div>
+      </section>
+
       {tracks.map((track) => (
         <section key={track}>
           <h2 className="mb-3 text-lg font-semibold">{trackTitles[track]}</h2>
