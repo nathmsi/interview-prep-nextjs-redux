@@ -3,6 +3,7 @@ import { getLessonsByTrack } from "@/lib/lessons";
 
 export default function HomePage() {
   const tracks = [
+    "nextjs",
     "javascript",
     "typescript",
     "css",
@@ -12,6 +13,7 @@ export default function HomePage() {
     "hard",
   ] as const;
   const trackTitles: Record<(typeof tracks)[number], string> = {
+    nextjs: "Next.js (full framework course)",
     javascript: "JavaScript (interview Q&A)",
     typescript: "TypeScript",
     css: "CSS",
@@ -57,6 +59,19 @@ npm run dev
             /api/cart
           </Link>
         </p>
+      </section>
+
+      <section className="rounded-lg border border-zinc-800 bg-zinc-900 p-4 text-zinc-50 dark:border-zinc-700">
+        <h2 className="font-semibold">Next.js — 10-lesson course</h2>
+        <p className="mt-1 text-sm text-zinc-400">
+          App Router, RSC, Route Handlers (/api), caching, Server Actions, middleware, deploy.
+        </p>
+        <Link
+          href="/lessons/nextjs/01-overview-and-tooling"
+          className="mt-3 inline-block rounded-lg bg-zinc-100 px-4 py-2 text-sm font-medium text-zinc-900 hover:bg-white"
+        >
+          Start Next.js course →
+        </Link>
       </section>
 
       <section className="grid gap-4 sm:grid-cols-2">

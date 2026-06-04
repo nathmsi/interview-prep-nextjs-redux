@@ -1,5 +1,9 @@
 # Curriculum — Next.js + Redux + TypeScript
 
+## Next.js (course only)
+
+10 lessons in [nextjs/](./nextjs/) — pure framework: routing, RSC, **Route Handlers** (`/api`), caching, Server Actions, middleware, config & Vercel deploy. Hands-on API lives in `src/app/api/` in this repo.
+
 ## JavaScript (course only)
 
 3 interview levels in [javascript/](./javascript/) — basic, medium, hard Q&A with **TypeScript** tie-ins where useful.

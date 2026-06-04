@@ -2,6 +2,7 @@ import Link from "next/link";
 import { lessons, lessonTracks, type LessonTrack } from "@/lib/lessons";
 
 const trackLabels: Record<LessonTrack, string> = {
+  nextjs: "Next.js",
   javascript: "JavaScript",
   typescript: "TypeScript",
   css: "CSS",
@@ -25,6 +26,12 @@ export default function LessonsIndexPage() {
         <strong>Easy / medium / hard</strong> = Next.js + Redux with hands-on exercises.
       </p>
       <div className="flex flex-wrap gap-4 rounded-lg border border-zinc-200 bg-zinc-50 p-4 dark:border-zinc-800 dark:bg-zinc-900/50">
+        <Link
+          href="/lessons/nextjs/01-overview-and-tooling"
+          className="font-medium text-zinc-900 underline dark:text-zinc-100"
+        >
+          Next.js course (10 lessons)
+        </Link>
         <Link
           href="/lessons/typescript/quiz-questions"
           className="font-medium text-violet-800 underline dark:text-violet-200"

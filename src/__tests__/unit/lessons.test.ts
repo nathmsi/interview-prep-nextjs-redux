@@ -2,8 +2,13 @@ import { describe, it, expect } from "vitest";
 import { getLesson, getLessonsByLevel, getLessonsByTrack, lessons } from "@/lib/lessons";
 
 describe("lessons metadata", () => {
-  it("30 lessons total (9 labs + 16 react + 1 TS + 3 JS + 1 CSS)", () => {
-    expect(lessons).toHaveLength(30);
+  it("40 lessons total (9 labs + 10 nextjs + 16 react + 1 TS + 3 JS + 1 CSS)", () => {
+    expect(lessons).toHaveLength(40);
+  });
+
+  it("10 nextjs framework courses", () => {
+    expect(getLessonsByTrack("nextjs")).toHaveLength(10);
+    expect(getLesson("nextjs", "04-route-handlers-api")?.title).toContain("API");
   });
 
   it("3 javascript interview courses", () => {

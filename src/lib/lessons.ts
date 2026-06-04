@@ -1,6 +1,7 @@
 export type LessonLevel = "easy" | "medium" | "hard";
 export type LessonTrack =
   | LessonLevel
+  | "nextjs"
   | "react"
   | "typescript"
   | "javascript"
@@ -332,6 +333,109 @@ const javascriptLessons: LessonMeta[] = [
   },
 ];
 
+const nextjsLessons: LessonMeta[] = [
+  {
+    slug: "01-overview-and-tooling",
+    track: "nextjs",
+    level: "nextjs",
+    number: 1,
+    kind: "course",
+    title: "Next.js — overview & tooling",
+    summary: "What Next adds to React, CLI, app/ structure, built-in modules.",
+    lessonPath: "lessons/nextjs/01-overview-and-tooling.md",
+  },
+  {
+    slug: "02-app-router-routing",
+    track: "nextjs",
+    level: "nextjs",
+    number: 2,
+    kind: "course",
+    title: "Next.js — App Router & routing",
+    summary: "page, layout, dynamic segments, Link, redirects, route groups.",
+    lessonPath: "lessons/nextjs/02-app-router-routing.md",
+  },
+  {
+    slug: "03-server-client-components",
+    track: "nextjs",
+    level: "nextjs",
+    number: 3,
+    kind: "course",
+    title: "Next.js — Server vs Client Components",
+    summary: "RSC, use client, composition, serializable props, Redux boundary.",
+    lessonPath: "lessons/nextjs/03-server-client-components.md",
+  },
+  {
+    slug: "04-route-handlers-api",
+    track: "nextjs",
+    level: "nextjs",
+    number: 4,
+    kind: "course",
+    title: "Next.js — Route Handlers (API)",
+    summary: "REST in app/api, GET/POST, dynamic [id], this repo /api/products & cart.",
+    lessonPath: "lessons/nextjs/04-route-handlers-api.md",
+  },
+  {
+    slug: "05-data-fetching-caching",
+    track: "nextjs",
+    level: "nextjs",
+    number: 5,
+    kind: "course",
+    title: "Next.js — data fetching & caching",
+    summary: "fetch cache, ISR, revalidatePath/tag, dynamic routes, Suspense.",
+    lessonPath: "lessons/nextjs/05-data-fetching-caching.md",
+  },
+  {
+    slug: "06-layouts-loading-errors",
+    track: "nextjs",
+    level: "nextjs",
+    number: 6,
+    kind: "course",
+    title: "Next.js — layouts, loading & errors",
+    summary: "layout.tsx, loading, error, not-found, metadata & SEO.",
+    lessonPath: "lessons/nextjs/06-layouts-loading-errors.md",
+  },
+  {
+    slug: "07-server-actions-forms",
+    track: "nextjs",
+    level: "nextjs",
+    number: 7,
+    kind: "course",
+    title: "Next.js — Server Actions & forms",
+    summary: "use server, forms, revalidation, useActionState, vs Route Handlers.",
+    lessonPath: "lessons/nextjs/07-server-actions-forms.md",
+  },
+  {
+    slug: "08-middleware-auth-env",
+    track: "nextjs",
+    level: "nextjs",
+    number: 8,
+    kind: "course",
+    title: "Next.js — middleware, auth & env",
+    summary: "Edge middleware, cookies, NEXT_PUBLIC_, security patterns.",
+    lessonPath: "lessons/nextjs/08-middleware-auth-env.md",
+  },
+  {
+    slug: "09-config-build-deploy",
+    track: "nextjs",
+    level: "nextjs",
+    number: 9,
+    kind: "course",
+    title: "Next.js — config, build & deploy",
+    summary: "next.config, images, build output, Vercel, Docker standalone.",
+    lessonPath: "lessons/nextjs/09-config-build-deploy.md",
+  },
+  {
+    slug: "10-interview-questions",
+    track: "nextjs",
+    level: "nextjs",
+    number: 10,
+    kind: "course",
+    title: "Next.js — interview Q&A recap",
+    summary: "Full-stack Next interview cheat sheet: RSC, API, cache, deploy, Redux.",
+    lessonPath: "lessons/nextjs/10-interview-questions.md",
+  },
+];
+
 const cssLessons: LessonMeta[] = [
   {
     slug: "01-interview-questions",
@@ -347,6 +451,7 @@ const cssLessons: LessonMeta[] = [
 
 export const lessons: LessonMeta[] = [
   ...exerciseLessons,
+  ...nextjsLessons,
   ...reactHookLessons,
   ...typescriptLessons,
   ...javascriptLessons,
@@ -367,6 +472,7 @@ export function getLesson(track: LessonTrack, slug: string): LessonMeta | undefi
 }
 
 export const lessonTracks: LessonTrack[] = [
+  "nextjs",
   "javascript",
   "typescript",
   "css",
