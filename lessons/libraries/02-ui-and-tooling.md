@@ -4,6 +4,12 @@
 
 ---
 
+## Verify it
+
+`npm run lint` uses `eslint-config-next`. `npm run typecheck` runs `tsc --noEmit`.
+
+---
+
 ## Accessible UI primitives
 
 ### Radix UI

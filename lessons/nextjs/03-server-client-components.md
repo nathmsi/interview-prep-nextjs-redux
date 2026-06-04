@@ -4,6 +4,13 @@
 
 ---
 
+## Verify it (this repo)
+
+- **Server:** lesson pages under `src/app/lessons/...` (no `"use client"` on `page.tsx`)
+- **Client:** `src/components/quiz/*Accordion.tsx`, `src/app/demo/layout.tsx` + Provider
+
+---
+
 ## Default: Server Components
 
 Every component in `app/` is a **Server Component** unless the file starts with:

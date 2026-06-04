@@ -1,32 +1,77 @@
 # useEffect — side effects after render
 
-> **React 19** · Course only
+> **React 19** · Runs after paint (commit phase)
 
-## What it does
+## Learning goals
 
-Runs code **after** React commits the DOM update. Use for: subscriptions, timers, manual DOM, syncing with non-React systems, logging.
+- Choose correct dependency array
+- Always cleanup subscriptions/timers
+- Know when **not** to use an effect (derived state)
 
-**Do not use** for deriving UI from props/state (compute during render instead).
+---
+
+## Interview answer (30 seconds)
+
+> `useEffect` runs **after** the browser paints. I use it for subscriptions, timers, and syncing with non-React systems — **not** for computing values I can derive during render. Cleanup prevents leaks and races. Missing deps cause **stale closures**; wrong deps cause **infinite loops**.
+
+---
 
 ## Dependency array
 
 | Deps | Behavior |
 |------|----------|
-| omitted | runs after **every** render |
-| `[]` | runs once after mount |
-| `[a, b]` | runs when `a` or `b` change |
+| omitted | after **every** render |
+| `[]` | once after mount |
+| `[a, b]` | when `a` or `b` change |
 
-## Cleanup
+---
 
-Return a function from the effect to unsubscribe / clear timers — runs before re-run and on unmount.
+## Verify it — cleanup runs
 
-## Interview questions
+```tsx
+"use client";
+import { useEffect, useState } from "react";
 
-- **Stale closure in effect?** Missing deps → effect sees old values. Fix: add deps or use functional updates.
-- **useEffect vs useLayoutEffect?** Layout runs synchronously after DOM paint, before browser paint — for measurements.
-- **Fetching in useEffect?** Still valid on client; on server prefer async Server Components or `use` + Suspense.
+export function Timer() {
+  const [sec, setSec] = useState(0);
+  useEffect(() => {
+    const id = setInterval(() => setSec((s) => s + 1), 1000);
+    return () => clearInterval(id);
+  }, []);
+  return <p>{sec}</p>;
+}
+```
 
-## Example
+**Expected:** unmount component → interval cleared (no ghost updates). Check React DevTools or log in cleanup.
+
+---
+
+## Verify it — infinite loop trap
+
+```tsx
+// BAD — do not ship
+useEffect(() => {
+  setCount(count + 1); // runs every render → loop
+});
+```
+
+**Fix:** add deps `[count]` only if needed, or use functional `setCount(c => c+1)` with correct deps, or derive without effect.
+
+---
+
+## Do not use effect for
+
+```tsx
+// BAD
+useEffect(() => setFullName(first + " " + last), [first, last]);
+
+// GOOD — during render
+const fullName = `${first} ${last}`;
+```
+
+---
+
+## Example — OnlineStatus
 
 ```tsx
 "use client";
@@ -50,3 +95,5 @@ export function OnlineStatus() {
   return <span>{online ? "Online" : "Offline"}</span>;
 }
 ```
+
+Next: [useRef →](./03-use-ref.md)

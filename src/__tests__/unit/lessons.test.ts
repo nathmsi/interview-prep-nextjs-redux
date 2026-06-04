@@ -2,8 +2,12 @@ import { describe, it, expect } from "vitest";
 import { getLesson, getLessonsByLevel, getLessonsByTrack, lessons } from "@/lib/lessons";
 
 describe("lessons metadata", () => {
-  it("43 lessons total (9 hidden labs + 34 interview courses)", () => {
-    expect(lessons).toHaveLength(43);
+  it("46 lessons total (9 hidden labs + 37 interview courses)", () => {
+    expect(lessons).toHaveLength(46);
+  });
+
+  it("4 typescript courses including quiz", () => {
+    expect(getLessonsByTrack("typescript")).toHaveLength(4);
   });
 
   it("10 nextjs framework courses", () => {
@@ -24,9 +28,9 @@ describe("lessons metadata", () => {
     expect(getLessonsByTrack("react")).toHaveLength(16);
   });
 
-  it("typescript quiz lesson", () => {
-    expect(getLessonsByTrack("typescript")).toHaveLength(1);
+  it("typescript quiz lesson metadata", () => {
     expect(getLesson("typescript", "quiz-questions")?.title).toContain("TypeScript");
+    expect(getLesson("typescript", "01-types-and-narrowing")).toBeDefined();
   });
 
   it("getLessonsByLevel", () => {

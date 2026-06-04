@@ -19,6 +19,18 @@ In interviews: Next = **React + opinions** for production web apps (especially S
 
 ---
 
+## Verify it (this repo)
+
+```bash
+npm run dev
+# open http://localhost:3000
+# open http://localhost:3000/api/health → {"status":"ok",...}
+```
+
+**Files to open:** `src/app/layout.tsx`, `src/app/page.tsx`, `src/app/api/health/route.ts`.
+
+---
+
 ## Core tools Next ships
 
 ### CLI & scripts

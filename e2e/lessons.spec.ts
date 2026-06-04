@@ -1,6 +1,16 @@
 import { test, expect } from "@playwright/test";
 
 test.describe("Subjects", () => {
+  test("typescript subject page lists theory + quiz", async ({ page }) => {
+    await page.goto("/subjects/typescript");
+    await expect(
+      page.getByRole("link", { name: /types, inference/i })
+    ).toBeVisible();
+    await expect(
+      page.getByRole("link", { name: /20 questions/i })
+    ).toBeVisible();
+  });
+
   test("css subject page lists its lessons", async ({ page }) => {
     await page.goto("/subjects/css");
     await expect(page.getByRole("heading", { name: "CSS", exact: true })).toBeVisible();

@@ -4,6 +4,12 @@
 
 ---
 
+## Verify it (this repo)
+
+Open `src/app/globals.css` and any page using Tailwind classes (e.g. home `rounded-xl`). Confirm utilities apply in DevTools Styles panel.
+
+---
+
 ## Native CSS + design tokens
 
 **What:** plain CSS, CSS variables, layers (`@layer`).

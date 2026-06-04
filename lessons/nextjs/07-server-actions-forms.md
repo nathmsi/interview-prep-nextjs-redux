@@ -4,6 +4,12 @@
 
 ---
 
+## Verify it
+
+Create `"use server"` action + `<form action={fn}>` — submit with JS disabled still works (progressive enhancement).
+
+---
+
 ## What is a Server Action?
 
 An **async function** that runs on the **server**, invoked from a form or client transition. Marked with:

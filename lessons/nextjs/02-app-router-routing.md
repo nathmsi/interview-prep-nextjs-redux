@@ -4,6 +4,16 @@
 
 ---
 
+## Verify it (this repo)
+
+| URL | File |
+|-----|------|
+| `/` | `src/app/page.tsx` |
+| `/subjects/css` | `src/app/subjects/[subject]/page.tsx` |
+| `/lessons/react/01-use-state` | `src/app/lessons/[level]/[slug]/page.tsx` |
+
+---
+
 ## File conventions (the “special files”)
 
 | File | Purpose |

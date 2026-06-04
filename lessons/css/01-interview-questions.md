@@ -6,6 +6,12 @@ Course only — answers you can give in a front-end interview (often paired with
 
 ---
 
+## Verify it — flexbox in DevTools
+
+Create a `div` with `display:flex`, `justify-content:center`, `align-items:center`, fixed height 200px — child centers visually.
+
+---
+
 ## Box model & layout
 
 **Q: content-box vs border-box?**  

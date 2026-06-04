@@ -4,6 +4,18 @@
 
 ---
 
+## Verify it (curl)
+
+```bash
+curl -s http://localhost:3000/api/health | jq .
+curl -s http://localhost:3000/api/products | jq 'length'
+curl -s "http://localhost:3000/api/products?category=books" | jq '.[0].title'
+```
+
+**Real file:** `src/app/api/products/route.ts` — compare with lesson snippets.
+
+---
+
 ## What is a Route Handler?
 
 A **Route Handler** is a server function that responds to HTTP requests. File: `route.ts` (not `page.tsx`).

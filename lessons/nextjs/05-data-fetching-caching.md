@@ -4,6 +4,12 @@
 
 ---
 
+## Verify it
+
+In a Server Component, `fetch(url, { cache: 'no-store' })` forces dynamic data. Check Network tab: document request includes fresh data each navigation when dynamic.
+
+---
+
 ## `fetch` in Server Components
 
 Next **extends** the Web `fetch` API with caching semantics:

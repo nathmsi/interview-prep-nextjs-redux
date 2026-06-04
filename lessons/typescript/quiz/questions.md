@@ -1,11 +1,12 @@
 # TypeScript interview quiz
 
+**Prerequisite:** [Types & narrowing](./01-types-and-narrowing.md) · [Generics](./02-generics-utility-types.md)
+
 This lesson is **interactive on the web app**.
 
-Open **http://localhost:3000/lessons/typescript/quiz-questions** (or your deployed URL) for:
+Open **/lessons/typescript/quiz-questions** for:
 
 - 20 questions (basic → pro)
-- A text area for your answer under each question
-- **Show solution** accordion below each question
+- Your answer + **Show solution** accordion per question
 
-Markdown backup only — use the app for the full experience.
+Read the theory lessons first, then attempt the quiz without spoilers.

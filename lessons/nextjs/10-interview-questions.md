@@ -4,6 +4,12 @@
 
 ---
 
+## Verify it — quick drill
+
+Explain RSC vs Client, Route Handler vs Server Action, and `revalidatePath` in 2 minutes without notes.
+
+---
+
 ## Fundamentals
 
 **Q: What does Next.js add to React?**  

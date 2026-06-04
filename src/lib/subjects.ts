@@ -55,9 +55,9 @@ export const subjects: Subject[] = [
   {
     id: "typescript",
     label: "TypeScript",
-    description: "Types, generics, utilities — interactive 20-question quiz.",
+    description: "Types, narrowing, generics, utilities — 3 lessons + 20-question quiz.",
     tracks: ["typescript"],
-    entryHref: "/lessons/typescript/quiz-questions",
+    entryHref: "/lessons/typescript/01-types-and-narrowing",
   },
   {
     id: "react",

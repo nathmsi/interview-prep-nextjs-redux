@@ -4,6 +4,16 @@
 
 ---
 
+## Verify it
+
+```bash
+npm run build && npm run start
+```
+
+Production serves same routes; `/api/health` still JSON.
+
+---
+
 ## `next.config.ts`
 
 ```ts

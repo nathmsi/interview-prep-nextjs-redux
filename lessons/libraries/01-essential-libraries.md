@@ -4,6 +4,12 @@
 
 ---
 
+## Verify it
+
+In this repo: `npm test` runs Vitest; `npm run test:e2e` runs Playwright — name them when asked "how do you test React?"
+
+---
+
 ## Data fetching & server state
 
 ### TanStack Query (React Query)

@@ -1,85 +1,105 @@
 # React hooks — interview Q&A recap
 
-> **React 19** · Course only
+> **Verifiable talking points** · pair with hook lessons 01–13
 
-Quick answers you can say out loud in a technical interview.
+## Learning goals
+
+- Answer rules of hooks, stale closure, keys in under 60s each
+- Connect React 19 APIs (useActionState, useOptimistic, `use`) to one sentence each
 
 ---
 
 ## Rules & mental model
 
-**Q: What are the rules of hooks?**  
-A: Only call at the top level; only from React functions (components or custom hooks). No hooks in loops, conditions, or nested functions.
+**Q: Rules of hooks?**  
+A: Top level only; only in React functions (components/custom hooks).
 
-**Q: What is the render phase vs commit phase?**  
-A: Render = call component, compute JSX (must be pure). Commit = apply DOM updates. Effects run after commit.
+**Verify:** ESLint `react-hooks/rules-of-hooks` fails on conditional hooks.
 
-**Q: Why did my infinite loop happen?**  
-A: `useEffect(() => { setX(1) })` without deps, or deps that change every render (new object/array identity).
+---
+
+**Q: Render vs commit?**  
+A: Render = compute UI (pure). Commit = apply DOM. Effects run **after** commit.
+
+---
+
+**Q: Infinite loop in useEffect?**  
+A: `setState` in effect with missing/wrong deps.
+
+**Verify pattern:** effect without `[]` that sets state → loop; fix deps or remove effect.
 
 ---
 
 ## State & closures
 
 **Q: Stale closure?**  
-A: Event handler or effect captures old state. Fix: correct deps, functional updates `setS(s => ...)`, or ref for latest value.
+A: Handler/effect captures old state → functional update `setS(s => ...)` or fix deps.
 
-**Q: When lift state up?**  
-A: When two siblings must share the same data — move state to common parent (or context / external store).
+**Verify:**
+
+```tsx
+// stale risk
+useEffect(() => { setTimeout(() => setCount(count + 1), 1000); }, []);
+// better
+useEffect(() => { setTimeout(() => setCount((c) => c + 1), 1000); }, []);
+```
 
 ---
 
 ## Lists & keys
 
 **Q: Why keys?**  
-A: Help React match items across renders. Wrong keys → bugs, lost input focus, wrong animation.
+A: Identity across renders — wrong keys break state/focus.
 
 **Q: Index as key?**  
-A: OK only if list is static, never reordered/filtered. Otherwise use stable ids.
+A: Only if list is static, never reordered/filtered.
 
 ---
 
 ## Performance
 
 **Q: React.memo?**  
-A: Skips re-render if props shallow-equal. Use when profiling shows wasted renders on heavy children.
+A: Skip re-render if props shallow-equal — measure first.
 
 **Q: When NOT to optimize?**  
-A: Premature `useMemo` everywhere; measure first.
+A: Premature `useMemo` everywhere.
 
 ---
 
-## React 19 specifics
+## React 19
 
-**Q: What's new for forms?**  
-A: `useActionState`, form `action` prop, better pending states; often paired with Server Actions in Next.js.
-
-**Q: useOptimistic vs manual optimistic UI?**  
-A: Built-in hook keeps optimistic state in sync with transitions and committed state.
-
-**Q: What is the `use` hook?**  
-A: Read promise (Suspense) or context in render; can be conditional unlike other hooks.
+| API | One line |
+|-----|----------|
+| `useActionState` | Form action + pending + returned state |
+| `useOptimistic` | Temporary UI until mutation settles |
+| `use` | Read promise/context in render (Suspense) |
 
 ---
 
-## Next.js tie-in (often asked with React)
+## Next.js tie-in
 
 **Q: Hooks in Server Components?**  
-A: No — hooks are client-only. Server Components use async/await, `use` on server, or fetch directly.
+A: **No** — server uses async/await; client boundary `"use client"`.
 
-**Q: Where does Redux live?**  
-A: Client Components + Provider in layout — same as any hook-based library.
+**Q: Redux?**  
+A: Client Provider + hooks only.
 
 ---
 
-## Custom hooks (bonus)
-
-**Q: Why extract a custom hook?**  
-A: Reuse stateful logic (name must start with `use`). Share behavior, not JSX.
+## Custom hooks
 
 ```tsx
 function useToggle(initial = false) {
   const [on, setOn] = useState(initial);
-  return { on, toggle: () => setOn((v) => !v), setOn };
+  return { on, toggle: () => setOn((v) => !v) };
 }
 ```
+
+**Verify:** same rules as hooks — name starts with `use`.
+
+---
+
+## Study path
+
+1. Lessons [01](./01-use-state.md)–[13](./13-use-imperative-handle.md)  
+2. [Quiz (interactive)](/lessons/react/quiz-questions)

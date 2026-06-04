@@ -4,6 +4,12 @@
 
 ---
 
+## Verify it
+
+`process.env` without `NEXT_PUBLIC_` is undefined in browser bundle — inspect client JS in DevTools.
+
+---
+
 ## Middleware (`middleware.ts`)
 
 Runs **before** a request completes — on the **Edge** runtime (limited Node APIs).

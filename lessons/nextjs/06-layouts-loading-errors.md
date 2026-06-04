@@ -4,6 +4,13 @@
 
 ---
 
+## Verify it (this repo)
+
+- Root layout: `src/app/layout.tsx` (html, body, nav)
+- Metadata export on same file — View Source for `<title>`
+
+---
+
 ## Layouts (`layout.tsx`)
 
 - Wrap **child** `page.tsx` and nested layouts

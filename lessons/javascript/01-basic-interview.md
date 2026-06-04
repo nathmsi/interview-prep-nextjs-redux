@@ -1,158 +1,156 @@
 # JavaScript — basic interview Q&A
 
-> **ES2020+** · Course only · JS answers with **TypeScript** where it helps
+> **ES2020+** · Every section has a **Verify it** block (DevTools console or `node file.js`)
 
-Short answers you can say out loud. Practice explaining, then check the code.
+## Learning goals
+
+- Name primitives and falsy values without hesitation
+- Prefer `===`, `const`, block scope
+- Use `?.` and `??` correctly (not `||` for `0`)
+
+---
+
+## Interview answer (30 seconds)
+
+> JavaScript has 7 primitives plus `null`; everything else is an object. I use **strict equality**, **block scope** with `const`, and **immutable updates** (spread, `map`) instead of mutating. For external data I validate before trust — in TS that means `unknown` and narrowing.
 
 ---
 
 ## Types & values
 
-**Q: What are the primitive types in JavaScript?**  
-A: `string`, `number`, `boolean`, `bigint`, `symbol`, `undefined`, `null`. Everything else is an object (including arrays and functions).
+**Q: Primitive types?**  
+A: `string`, `number`, `boolean`, `bigint`, `symbol`, `undefined`, `null`.
 
-**TypeScript tie-in:** primitives map to lowercase types; `null` and `undefined` are separate unless you use `strictNullChecks`.
+### Verify it — typeof
 
-```ts
-let name: string = "Ada";
-let count: number = 0;
-let active: boolean = true;
-let nothing: null = null;
-let missing: undefined = undefined;
+```js
+console.log(typeof "a");     // "string"
+console.log(typeof 1);       // "number"
+console.log(typeof true);    // "boolean"
+console.log(typeof undefined); // "undefined"
+console.log(typeof null);    // "object" ← historical bug
 ```
 
-**Q: typeof null?**  
-A: `"object"` — a long-standing JS bug. In interviews, mention you still use `=== null` or optional chaining, not `typeof` for null checks.
+**Q: `==` vs `===`?**  
+A: `===` no coercion. `0 == false` is `true` with `==` only.
 
-**Q: == vs ===?**  
-A: `===` is strict equality (no coercion). `==` coerces types (`0 == false` is true). Prefer `===` almost always.
+### Verify it — equality
 
-```ts
-// TS often flags loose == in eslint; use ===
-if (value === null || value === undefined) { /* ... */ }
+```js
+console.log(0 == false);   // true
+console.log(0 === false);  // false
+console.log("" == false);  // true
+console.log(null == undefined); // true
+console.log(null === undefined); // false
 ```
 
 ---
 
 ## var, let, const
 
-**Q: Difference between var, let, and const?**  
-A: `var` is function-scoped and hoisted (initialized as `undefined`). `let`/`const` are block-scoped; `const` must be assigned once (the binding is constant, not deep immutability of objects).
+**Q: Differences?**  
+A: `var` — function-scoped, hoisted as `undefined`. `let`/`const` — block-scoped. `const` = binding fixed, object contents can still mutate.
+
+### Verify it — loop trap
 
 ```js
-for (var i = 0; i < 3; i++) {}
-console.log(i); // 3
+const outputs = [];
+for (var i = 0; i < 3; i++) outputs.push(() => i);
+console.log(outputs.map((fn) => fn())); // [3, 3, 3]
 
-for (let j = 0; j < 3; j++) {}
-// console.log(j); // ReferenceError
-```
-
-**TypeScript:** prefer `const` + inference; use explicit types at boundaries (API, public functions).
-
-```ts
-const ids: readonly number[] = [1, 2, 3];
-// ids.push(4); // error if readonly
-```
-
----
-
-## Functions
-
-**Q: Arrow function vs function declaration?**  
-A: Declarations are hoisted; arrows are not. Arrows have no own `this`, `arguments`, or `new`. Use arrows for callbacks; use `function` for methods that need dynamic `this` (or use class fields).
-
-```ts
-type Handler = (event: MouseEvent) => void;
-
-const onClick: Handler = (event) => {
-  console.log(event.target);
-};
-```
-
-**Q: Default parameters?**  
-A: Evaluated at call time; later params can use earlier ones.
-
-```js
-function greet(name = "guest", suffix = `, ${name}`) {
-  return `Hello${suffix}`;
-}
+const fixed = [];
+for (let j = 0; j < 3; j++) fixed.push(() => j);
+console.log(fixed.map((fn) => fn())); // [0, 1, 2]
 ```
 
 ---
 
 ## Arrays & objects
 
-**Q: map vs forEach?**  
-A: `map` returns a new array; `forEach` returns `undefined` (side effects only).
+**Q: `map` vs `forEach`?**  
+A: `map` returns new array; `forEach` returns `undefined`.
 
-**Q: Spread vs rest?**  
-A: Same `...` syntax: rest collects in parameters/destructuring; spread expands iterables or object properties.
+### Verify it
 
-```ts
-function sum(...nums: number[]): number {
-  return nums.reduce((a, b) => a + b, 0);
-}
+```js
+const doubled = [1, 2, 3].map((n) => n * 2);
+console.log(doubled); // [2, 4, 6]
 
-const defaults = { theme: "dark" as const };
-const user = { name: "Lee", ...defaults };
+let sum = 0;
+[1, 2, 3].forEach((n) => (sum += n));
+console.log(sum); // 6
 ```
 
-**Q: Shallow vs deep copy?**  
-A: Spread/`Object.assign`/`Array.from` are shallow. Deep copy needs `structuredClone` (modern), recursion, or a library — know interview tradeoffs.
+**Q: Shallow copy?**  
+A: Spread copies one level only.
 
-```ts
+### Verify it
+
+```js
 const original = { a: { b: 1 } };
 const shallow = { ...original };
-shallow.a.b = 2;
-// original.a.b is now 2
+shallow.a.b = 99;
+console.log(original.a.b); // 99 — same nested reference
 ```
 
 ---
 
-## Truthiness & optional access
+## Truthiness & `?.` / `??`
 
-**Q: Falsy values?**  
-A: `false`, `0`, `-0`, `0n`, `""`, `null`, `undefined`, `NaN`.
+**Falsy:** `false`, `0`, `-0`, `0n`, `""`, `null`, `undefined`, `NaN`.
 
-**Q: Optional chaining and nullish coalescing?**  
-A: `?.` short-circuits on `null`/`undefined`. `??` only replaces `null`/`undefined` (not `0` or `""`).
+### Verify it — `??` vs `||`
 
-```ts
-const city = user?.address?.city ?? "Unknown";
+```js
+const count = 0;
+console.log(count || 10);  // 10 — wrong if 0 is valid
+console.log(count ?? 10);  // 0 — correct
+
+const user = null;
+console.log(user?.profile?.name ?? "Guest"); // "Guest"
 ```
 
 ---
 
-## Strings & numbers
+## Numbers
 
-**Q: Template literals?**  
-A: Backticks with `${expression}`; multi-line strings without `\n` hacks.
+### Verify it
 
-**Q: Number quirks?**  
-A: `0.1 + 0.2 !== 0.3` (IEEE 754). `Number.isNaN(NaN)` is true; `NaN === NaN` is false. Use `Number.isFinite`, `Number.isInteger` instead of global `isNaN` when possible.
+```js
+console.log(0.1 + 0.2 === 0.3); // false
+console.log(Number.isNaN(NaN)); // true
+console.log(NaN === NaN);       // false
+```
+
+Use `Number.isFinite`, not global `isNaN("hello")` (coerces).
 
 ---
 
-## Error handling (basic)
-
-**Q: try / catch / finally?**  
-A: `catch` receives any thrown value. `finally` runs always. In TS, narrow in `catch`:
+## TypeScript tie-in (same file, `tsc`)
 
 ```ts
-try {
-  JSON.parse(raw);
-} catch (e: unknown) {
-  const message = e instanceof Error ? e.message : "Parse failed";
-  console.error(message);
+let raw: unknown = JSON.parse('{"ok":true}');
+if (typeof raw === "object" && raw !== null && "ok" in raw) {
+  console.log((raw as { ok: boolean }).ok); // true
 }
 ```
 
 ---
 
-## Quick checklist before medium level
+## Common mistakes
 
-- Explain primitives vs objects and `typeof null`
-- Prefer `===`, `const`, block scope
-- Know map/filter/reduce and spread/rest
-- Mention `?.` and `??` for safe access
-- Tie answers to **TypeScript** at API boundaries: `unknown` in catch, typed handlers, `readonly` for immutable lists
+| Mistake | Correct |
+|---------|---------|
+| `if (x)` when `0` is valid | `x != null` or `??` |
+| `typeof null === "object"` for checks | `x === null` |
+| Mutating state `arr.push` in React | new array `[...arr, item]` |
+
+---
+
+## Checklist
+
+- [ ] Ran typeof + equality snippets
+- [ ] Explained var loop vs let loop output
+- [ ] Demonstrated `??` vs `||` with `0`
+
+Next: [Medium →](./02-medium-interview.md)
