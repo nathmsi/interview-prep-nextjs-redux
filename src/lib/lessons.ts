@@ -1,11 +1,13 @@
 export type LessonLevel = "easy" | "medium" | "hard";
-export type LessonTrack =
-  | LessonLevel
-  | "nextjs"
-  | "react"
-  | "typescript"
+export type InterviewTrack =
   | "javascript"
-  | "css";
+  | "typescript"
+  | "react"
+  | "nextjs"
+  | "css"
+  | "libraries";
+
+export type LessonTrack = LessonLevel | InterviewTrack;
 
 export type LessonKind = "exercise" | "course";
 
@@ -447,6 +449,39 @@ const cssLessons: LessonMeta[] = [
     summary: "Layout, specificity, responsive, performance, a11y, CSS in React/Next.",
     lessonPath: "lessons/css/01-interview-questions.md",
   },
+  {
+    slug: "02-styling-libraries",
+    track: "css",
+    level: "css",
+    number: 2,
+    kind: "course",
+    title: "CSS — styling libraries & approaches",
+    summary: "Tailwind, CSS Modules, Sass, CSS-in-JS, shadcn/ui — when to pick what.",
+    lessonPath: "lessons/css/02-styling-libraries.md",
+  },
+];
+
+const librariesLessons: LessonMeta[] = [
+  {
+    slug: "01-essential-libraries",
+    track: "libraries",
+    level: "libraries",
+    number: 1,
+    kind: "course",
+    title: "Essential front-end libraries",
+    summary: "React Query, Zustand, Zod, React Hook Form, testing libs — what & why.",
+    lessonPath: "lessons/libraries/01-essential-libraries.md",
+  },
+  {
+    slug: "02-ui-and-tooling",
+    track: "libraries",
+    level: "libraries",
+    number: 2,
+    kind: "course",
+    title: "UI kits, bundlers & DX tooling",
+    summary: "Radix, MUI, Vite, ESLint, Prettier, Storybook — interview talking points.",
+    lessonPath: "lessons/libraries/02-ui-and-tooling.md",
+  },
 ];
 
 export const lessons: LessonMeta[] = [
@@ -456,6 +491,7 @@ export const lessons: LessonMeta[] = [
   ...typescriptLessons,
   ...javascriptLessons,
   ...cssLessons,
+  ...librariesLessons,
 ];
 
 export function getLessonsByTrack(track: LessonTrack): LessonMeta[] {
@@ -471,13 +507,17 @@ export function getLesson(track: LessonTrack, slug: string): LessonMeta | undefi
   return lessons.find((l) => l.track === track && l.slug === slug);
 }
 
+/** All tracks valid in /lessons/[track]/[slug] (includes hidden exercise labs). */
 export const lessonTracks: LessonTrack[] = [
-  "nextjs",
   "javascript",
   "typescript",
-  "css",
   "react",
+  "nextjs",
+  "css",
+  "libraries",
   "easy",
   "medium",
   "hard",
 ];
+
+export const exerciseTracks: LessonLevel[] = ["easy", "medium", "hard"];

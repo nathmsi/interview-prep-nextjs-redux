@@ -1,143 +1,59 @@
 import Link from "next/link";
-import { getLessonsByTrack } from "@/lib/lessons";
+import { SubjectCard } from "@/components/layout/SubjectCard";
+import { subjects } from "@/lib/subjects";
 
 export default function HomePage() {
-  const tracks = [
-    "nextjs",
-    "javascript",
-    "typescript",
-    "css",
-    "react",
-    "easy",
-    "medium",
-    "hard",
-  ] as const;
-  const trackTitles: Record<(typeof tracks)[number], string> = {
-    nextjs: "Next.js (full framework course)",
-    javascript: "JavaScript (interview Q&A)",
-    typescript: "TypeScript",
-    css: "CSS",
-    react: "React hooks (course + examples)",
-    easy: "Easy",
-    medium: "Medium",
-    hard: "Hard",
-  };
-
   return (
-    <div className="space-y-8">
-      <section>
-        <h1 className="text-3xl font-bold tracking-tight">
-          Interview Recap — Next.js + React + Redux
+    <div className="space-y-10">
+      <header className="space-y-3">
+        <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
+          Front-end interview preparation
         </h1>
-        <p className="mt-2 max-w-2xl text-zinc-600 dark:text-zinc-400">
-          Practice repo with a real Next.js server (Route Handlers), a typed Redux Toolkit
-          store, JavaScript / TypeScript / CSS / React interview courses, and easy / medium / hard labs.
+        <p className="max-w-2xl text-lg text-zinc-600 dark:text-zinc-400">
+          Courses and quizzes for technical interviews — JavaScript, TypeScript,
+          React, Next.js, CSS, and the libraries you should know. Read in the
+          browser; practice coding in your editor.
         </p>
-      </section>
+      </header>
 
-      <section className="rounded-lg border border-emerald-200 bg-emerald-50 p-4 dark:border-emerald-900 dark:bg-emerald-950/40">
-        <h2 className="font-semibold text-emerald-900 dark:text-emerald-200">
-          Get started
+      <section>
+        <h2 className="mb-4 text-sm font-semibold uppercase tracking-wide text-zinc-500">
+          Subjects
         </h2>
-        <pre className="mt-2 overflow-x-auto rounded bg-white/80 p-3 text-sm dark:bg-zinc-900">
-{`cd interview-prep-nextjs-redux
-npm install
-npm run dev
-# → http://localhost:3000`}
-        </pre>
-        <p className="mt-2 text-sm">
-          API:{" "}
-          <Link href="/api/health" className="underline">
-            /api/health
-          </Link>
-          ,{" "}
-          <Link href="/api/products" className="underline">
-            /api/products
-          </Link>
-          ,{" "}
-          <Link href="/api/cart" className="underline">
-            /api/cart
-          </Link>
-        </p>
-      </section>
-
-      <section className="rounded-lg border border-zinc-800 bg-zinc-900 p-4 text-zinc-50 dark:border-zinc-700">
-        <h2 className="font-semibold">Next.js — 10-lesson course</h2>
-        <p className="mt-1 text-sm text-zinc-400">
-          App Router, RSC, Route Handlers (/api), caching, Server Actions, middleware, deploy.
-        </p>
-        <Link
-          href="/lessons/nextjs/01-overview-and-tooling"
-          className="mt-3 inline-block rounded-lg bg-zinc-100 px-4 py-2 text-sm font-medium text-zinc-900 hover:bg-white"
-        >
-          Start Next.js course →
-        </Link>
-      </section>
-
-      <section className="grid gap-4 sm:grid-cols-2">
-        <div className="rounded-lg border border-sky-200 bg-sky-50 p-4 dark:border-sky-900 dark:bg-sky-950/40">
-          <h2 className="font-semibold text-sky-900 dark:text-sky-200">
-            React interview quiz
-          </h2>
-          <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-400">
-            20 questions · hooks & patterns · accordion solutions
-          </p>
-          <Link
-            href="/lessons/react/quiz-questions"
-            className="mt-3 inline-block rounded-lg bg-sky-700 px-4 py-2 text-sm font-medium text-white hover:bg-sky-800"
-          >
-            Start React quiz →
-          </Link>
-        </div>
-        <div className="rounded-lg border border-violet-200 bg-violet-50 p-4 dark:border-violet-900 dark:bg-violet-950/40">
-          <h2 className="font-semibold text-violet-900 dark:text-violet-200">
-            TypeScript interview quiz
-          </h2>
-          <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-400">
-            20 questions · types & generics · accordion solutions
-          </p>
-          <Link
-            href="/lessons/typescript/quiz-questions"
-            className="mt-3 inline-block rounded-lg bg-violet-700 px-4 py-2 text-sm font-medium text-white hover:bg-violet-800"
-          >
-            Start TypeScript quiz →
-          </Link>
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {subjects.map((subject) => (
+            <SubjectCard key={subject.id} subject={subject} />
+          ))}
         </div>
       </section>
 
-      {tracks.map((track) => (
-        <section key={track}>
-          <h2 className="mb-3 text-lg font-semibold">{trackTitles[track]}</h2>
-          <ul className="space-y-2">
-            {getLessonsByTrack(track).map((lesson) => (
-              <li key={lesson.slug}>
-                <Link
-                  href={`/lessons/${track}/${lesson.slug}`}
-                  className="block rounded-lg border border-zinc-200 p-3 transition hover:border-zinc-400 dark:border-zinc-800 dark:hover:border-zinc-600"
-                >
-                  <span className="font-medium">
-                    {String(lesson.number).padStart(2, "0")} — {lesson.title}
-                  </span>
-                  <span className="mt-1 block text-sm text-zinc-500">
-                    {lesson.summary}
-                  </span>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </section>
-      ))}
-
-      <p className="text-sm text-zinc-500">
-        Full index:{" "}
-        <Link href="/lessons" className="underline">
-          /lessons
-        </Link>
-        {" · "}
-        <Link href="/demo" className="underline">
-          interactive demo
-        </Link>
-      </p>
+      <section className="rounded-lg border border-zinc-200 bg-zinc-50 p-4 text-sm dark:border-zinc-800 dark:bg-zinc-900/50">
+        <h2 className="font-semibold text-zinc-900 dark:text-zinc-100">
+          Full lesson index
+        </h2>
+        <p className="mt-1 text-zinc-600 dark:text-zinc-400">
+          Browse every lesson by subject on{" "}
+          <Link href="/lessons" className="font-medium underline">
+            /lessons
+          </Link>
+          .
+        </p>
+        <p className="mt-2 text-zinc-500">
+          Hands-on Redux / Next.js labs stay in{" "}
+          <code className="rounded bg-white px-1 dark:bg-zinc-950">
+            src/exercises/
+          </code>{" "}
+          and{" "}
+          <code className="rounded bg-white px-1 dark:bg-zinc-950">
+            solutions/
+          </code>{" "}
+          — run{" "}
+          <code className="rounded bg-white px-1 dark:bg-zinc-950">
+            npm run test:exercises
+          </code>{" "}
+          locally (not linked in this UI).
+        </p>
+      </section>
     </div>
   );
 }

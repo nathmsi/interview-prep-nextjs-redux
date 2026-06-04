@@ -1,23 +1,25 @@
 import { test, expect } from "@playwright/test";
 
 test.describe("Home", () => {
-  test("shows title and easy lessons", async ({ page }) => {
+  test("shows interview prep hub and subjects", async ({ page }) => {
     await page.goto("/");
     await expect(
-      page.getByRole("heading", { name: /Interview Recap/i })
+      page.getByRole("heading", { name: /Front-end interview preparation/i })
     ).toBeVisible();
-    await expect(
-      page.getByRole("link", { name: /01 — Server vs Client Components/i })
-    ).toBeVisible();
-    await expect(
-      page.getByRole("link", { name: /Start Next.js course/i })
-    ).toBeVisible();
+    const nav = page.getByRole("navigation");
+    await expect(nav.getByRole("link", { name: "JavaScript", exact: true })).toBeVisible();
+    await expect(nav.getByRole("link", { name: "TypeScript", exact: true })).toBeVisible();
+    await expect(nav.getByRole("link", { name: "React", exact: true })).toBeVisible();
+    await expect(nav.getByRole("link", { name: "Next.js", exact: true })).toBeVisible();
+    await expect(nav.getByRole("link", { name: "CSS", exact: true })).toBeVisible();
+    await expect(nav.getByRole("link", { name: "Libraries", exact: true })).toBeVisible();
   });
 
-  test("link to demo", async ({ page }) => {
+  test("subject cards link to first lesson", async ({ page }) => {
     await page.goto("/");
-    await page.getByRole("link", { name: /interactive demo/i }).click();
-    await expect(page).toHaveURL(/\/demo/);
-    await expect(page.getByRole("heading", { name: /Live demo/i })).toBeVisible();
+    await page
+      .getByRole("link", { name: /JavaScript.*basic, medium/i })
+      .click();
+    await expect(page).toHaveURL(/\/lessons\/javascript\/01-basic-interview/);
   });
 });

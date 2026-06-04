@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import { StoreProvider } from "@/components/providers/StoreProvider";
 import { AppNav } from "@/components/layout/AppNav";
 import "./globals.css";
 
@@ -15,9 +14,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Interview Prep — Next.js + Redux + TypeScript",
+  title: "Front Interview Prep — JavaScript, React, Next.js, CSS",
   description:
-    "Interview lessons and exercises: Next.js App Router, API routes, Redux Toolkit.",
+    "Front-end technical interview preparation: JavaScript, TypeScript, React, Next.js, CSS, and essential libraries.",
 };
 
 export default function RootLayout({
@@ -30,10 +29,8 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} min-h-screen bg-zinc-50 text-zinc-900 antialiased dark:bg-zinc-950 dark:text-zinc-50`}
       >
-        <StoreProvider>
-          <AppNav />
-          <main className="mx-auto max-w-5xl px-4 py-8">{children}</main>
-        </StoreProvider>
+        <AppNav />
+        <main className="mx-auto max-w-6xl px-4 py-8">{children}</main>
       </body>
     </html>
   );
