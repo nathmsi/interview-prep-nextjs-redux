@@ -1,11 +1,11 @@
 # Lesson 04 (medium) — createSelector
 
-> **Niveau:** Medium  
-> **Exercice:** `src/exercises/medium/04-selectors-memo/`
+> **Level:** Medium  
+> **Exercise:** `src/exercises/medium/04-selectors-memo/`
 
-## Pourquoi
+## Why
 
-Sans mémo, un selector recalculé à chaque render peut recréer des tableaux → re-renders enfants.
+Without memoization, a selector recreated every render can return new array references → child re-renders.
 
 ```ts
 export const selectCartTotal = createSelector(
@@ -14,11 +14,11 @@ export const selectCartTotal = createSelector(
 );
 ```
 
-## Entretien
+## Interview questions
 
-- Différence selector inline `(s) => s.cart.items.map(...)` vs `createSelector` ?
-- Reselect recalcule seulement si les inputs changent (référence shallow).
+- Inline `(s) => s.cart.items.map(...)` vs `createSelector`?
+- Reselect only recalculates when inputs change (shallow reference equality).
 
-## À faire
+## Your task
 
-Implémenter `selectCartLineItems` et `selectCartTotal` dans l'exercice.
+Implement `selectCartLineItems` and `selectCartTotal` in the exercise.

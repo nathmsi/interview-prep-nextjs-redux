@@ -1,19 +1,19 @@
 # Lesson 01 — Server vs Client Components
 
-> **Niveau:** Easy  
-> **Exercice:** `src/exercises/easy/01-server-vs-client/`
+> **Level:** Easy  
+> **Exercise:** `src/exercises/easy/01-server-vs-client/`
 
-## Objectif entretien
+## Interview goal
 
-Expliquer la différence entre **Server Component** (défaut App Router) et **Client Component** (`"use client"`).
+Explain the difference between **Server Components** (App Router default) and **Client Components** (`"use client"`).
 
-## Règles clés
+## Key rules
 
-- Les Server Components peuvent `await fetch()` directement, accéder au filesystem, et ne envoient pas de JS inutile au client.
-- Les Client Components peuvent utiliser `useState`, `useEffect`, event handlers, **Redux**.
-- On ne peut pas importer un Client Component dans un Server Component *sans* que le parent client enveloppe l'enfant — le boundary est le fichier avec `"use client"`.
+- Server Components can `await fetch()` directly, access the filesystem, and send less JS to the client.
+- Client Components can use `useState`, `useEffect`, event handlers, and **Redux**.
+- You cannot use Redux in a Server Component — the boundary is the file with `"use client"`.
 
-## Pattern typique Next.js
+## Typical Next.js pattern
 
 ```tsx
 // app/products/page.tsx — SERVER
@@ -36,12 +36,12 @@ export function ProductList({ initialProducts }: { initialProducts: Product[] })
 }
 ```
 
-## Pièges classiques
+## Common pitfalls
 
-- Passer une **fonction** ou un **objet non sérialisable** du serveur au client → erreur.
-- Mettre `"use client"` sur tout l'arbre → perd les bénéfices RSC.
-- Utiliser Redux dans un Server Component → impossible.
+- Passing a **function** or **non-serializable object** from server to client → error.
+- Putting `"use client"` on the whole tree → loses RSC benefits.
+- Using Redux in a Server Component → impossible.
 
-## À faire
+## Your task
 
-Implémenter `ServerProductCount` (async, fetch serveur) et `ClientAddButton` (click handler) dans l'exercice.
+Implement `ServerProductCount` (async, server fetch) and `ClientAddButton` (click handler) in the exercise.

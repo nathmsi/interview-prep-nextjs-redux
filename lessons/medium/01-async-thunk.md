@@ -1,7 +1,7 @@
 # Lesson 01 (medium) — createAsyncThunk + API Route
 
-> **Niveau:** Medium  
-> **Exercice:** `src/exercises/medium/01-async-thunk/`
+> **Level:** Medium  
+> **Exercise:** `src/exercises/medium/01-async-thunk/`
 
 ## createAsyncThunk
 
@@ -32,16 +32,16 @@ builder
   });
 ```
 
-## Côté UI
+## UI
 
-Dispatcher dans `useEffect` ou au clic. Le **serveur** est `/api/products` (voir `src/app/api/products/route.ts`).
+Dispatch in `useEffect` or on click. The **server** is `/api/products` (see `src/app/api/products/route.ts`).
 
-## Entretien
+## Interview questions
 
-- Thunk vs RTK Query ?
-- Gestion `rejectWithValue` vs `throw` ?
-- Pourquoi `fetch` relatif fonctionne dans le browser sur le même origin ?
+- Thunk vs RTK Query?
+- `rejectWithValue` vs `throw`?
+- Why does relative `fetch` work in the browser on the same origin?
 
-## À faire
+## Your task
 
-Brancher `productsReducer` minimal + thunk dans l'exercice (tests Vitest).
+Wire a minimal `productsReducer` + thunk in the exercise (Vitest tests).

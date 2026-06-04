@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Interview Prep — Next.js + Redux + TypeScript",
   description:
-    "Leçons et exercices d'entretien : Next.js App Router, API routes, Redux Toolkit.",
+    "Interview lessons and exercises: Next.js App Router, API routes, Redux Toolkit.",
 };
 
 export default function RootLayout({
@@ -26,7 +26,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr">
+    <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} min-h-screen bg-zinc-50 text-zinc-900 antialiased dark:bg-zinc-950 dark:text-zinc-50`}
       >

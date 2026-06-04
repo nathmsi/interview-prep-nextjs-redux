@@ -1,15 +1,15 @@
-# Lesson 02 (medium) — Slice panier + POST /api/cart
+# Lesson 02 (medium) — Cart slice + POST /api/cart
 
-> **Niveau:** Medium  
-> **Exercice:** `src/exercises/medium/02-cart-slice/`
+> **Level:** Medium  
+> **Exercise:** `src/exercises/medium/02-cart-slice/`
 
-## Actions synchrones
+## Sync actions
 
 - `addItem({ productId, quantity? })`
 - `removeItem(productId)`
-- Immutabilité gérée par Immer dans RTK.
+- Immutability handled by Immer in RTK.
 
-## Sync serveur
+## Server sync
 
 ```ts
 export const syncCart = createAsyncThunk("cart/sync", async (items: CartItem[]) => {
@@ -22,8 +22,8 @@ export const syncCart = createAsyncThunk("cart/sync", async (items: CartItem[]) 
 });
 ```
 
-Le serveur persiste en mémoire (`src/lib/db.ts`) — parfait pour démo et tests d'intégration manuels.
+The server persists in memory (`src/lib/db.ts`) — great for demos and manual integration tests.
 
-## À faire
+## Your task
 
-Implémenter `cartReducer` avec `addItem` et calcul du nombre d'articles via selector.
+Implement `cartReducer` with `addItem` and item count via a selector.

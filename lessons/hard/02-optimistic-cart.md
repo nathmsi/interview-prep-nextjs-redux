@@ -1,14 +1,14 @@
-# Lesson 02 (hard) — Mises à jour optimistes
+# Lesson 02 (hard) — Optimistic updates
 
-> **Niveau:** Hard  
-> **Exercice:** `src/exercises/hard/02-optimistic-cart/`
+> **Level:** Hard  
+> **Exercise:** `src/exercises/hard/02-optimistic-cart/`
 
 ## Pattern
 
-1. Sauvegarder l'état précédent
-2. Appliquer la mise à jour locale immédiatement
-3. `await` la mutation
-4. Si échec → `replaceItems(previous)`
+1. Save previous state
+2. Apply local update immediately
+3. `await` the mutation
+4. On failure → `replaceItems(previous)`
 
 ```ts
 const previous = getState().cart.items;
@@ -20,12 +20,12 @@ try {
 }
 ```
 
-## Entretien
+## Interview questions
 
-- UX vs cohérence serveur
-- Idempotence des POST
-- Alternative : `onQueryStarted` dans RTK Query
+- UX vs server consistency
+- Idempotent POSTs
+- Alternative: `onQueryStarted` in RTK Query
 
-## À faire
+## Your task
 
-Implémenter `optimisticAddToCart` thunk dans l'exercice.
+Implement the `optimisticAddToCart` thunk in the exercise.

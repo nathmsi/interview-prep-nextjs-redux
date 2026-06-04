@@ -9,7 +9,7 @@ export function CounterPanel() {
 
   return (
     <div className="rounded-lg border border-zinc-200 p-4 dark:border-zinc-800">
-      <h2 className="mb-2 font-semibold">Compteur Redux</h2>
+      <h2 className="mb-2 font-semibold">Redux counter</h2>
       <p className="text-3xl font-mono tabular-nums">{value}</p>
       <div className="mt-3 flex flex-wrap gap-2">
         <button

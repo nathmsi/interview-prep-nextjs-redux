@@ -1,60 +1,79 @@
 # Interview Prep — Next.js + React + Redux (TypeScript)
 
-Repo d'entraînement pour entretiens techniques : **Next.js App Router**, **Route Handlers** (vrai serveur API), **Redux Toolkit** typé, leçons **easy / medium / hard** avec solutions.
+Practice repo for technical interviews: **Next.js App Router**, **Route Handlers** (real API server), typed **Redux Toolkit**, **easy / medium / hard** lessons with solutions.
 
 ## Structure
 
 ```
-lessons/{easy|medium|hard}/*.md     ← théorie (aussi en web /lessons/…)
-src/exercises/{level}/*/exercise.*  ← ton code (TODO)
-solutions/{level}/*/solution.*      ← réponses (après avoir essayé)
-src/app/api/                        ← serveur : products, cart, health
-src/store/                          ← store de référence (démo + patterns)
+lessons/{easy|medium|hard}/*.md     ← theory (also on the web at /lessons/…)
+src/exercises/{level}/*/exercise.*  ← your code (TODO)
+solutions/{level}/*/solution.*      ← answers (after you try)
+src/app/api/                        ← server: products, cart, health
+src/store/                          ← reference store (demo + patterns)
 ```
 
-Index : [lessons/README.md](./lessons/README.md).
+Index: [lessons/README.md](./lessons/README.md).
 
-## Commandes
+## Commands
 
 ```bash
 cd interview-prep-nextjs-redux
 npm install
 npm run dev          # http://localhost:3000 — UI + API
-npm test             # exercices Vitest
+npm test             # unit + API + solution checks (Vitest)
+npm run test:unit    # store, db, components
+npm run test:api     # Route Handlers (integration)
+npm run test:solutions # reference solutions/
+npm run test:exercises # your TODOs (fail until done)
+npm run test:e2e     # Playwright (UI + API)
+npm run test:all     # Vitest + E2E
 npm run test:watch
 npm run typecheck
 npm run build
 ```
 
-## API (serveur intégré)
+## Tests
 
-| Route | Méthode | Description |
-|-------|---------|-------------|
-| `/api/health` | GET | Santé du service |
-| `/api/products` | GET | Liste (`?category=books`) |
-| `/api/products/[id]` | GET | Détail produit |
-| `/api/cart` | GET, POST, DELETE | Panier en mémoire |
+| Type | Folder | Command |
+|------|--------|---------|
+| **Unit** | `src/__tests__/unit/` | `npm run test:unit` |
+| **Components** | `src/__tests__/components/` | included in `test:unit` |
+| **API (integration)** | `src/__tests__/api/` | `npm run test:api` |
+| **Solutions** | `solutions/**/*.verify.test.*` | `npm run test:solutions` |
+| **Exercises** | `src/exercises/` | `npm run test:exercises` |
+| **E2E** | `e2e/` | `npm run test:e2e` |
 
-Données : `src/lib/db.ts` (reset au redémarrage du serveur).
+GitHub Actions CI: `.github/workflows/ci.yml` (typecheck, Vitest, Playwright, build).
 
-## Parcours
+## API (built-in server)
 
-1. **Easy** — Server vs Client, Redux Provider + hooks typés  
-2. **Medium** — thunks, slice panier, route handlers, selectors  
+| Route | Method | Description |
+|-------|--------|-------------|
+| `/api/health` | GET | Service health |
+| `/api/products` | GET | List (`?category=books`) |
+| `/api/products/[id]` | GET | Product detail |
+| `/api/cart` | GET, POST, DELETE | In-memory cart |
+
+Data: `src/lib/db.ts` (resets when the server restarts).
+
+## Curriculum
+
+1. **Easy** — Server vs Client, Redux Provider + typed hooks  
+2. **Medium** — thunks, cart slice, route handlers, selectors  
 3. **Hard** — RTK Query, optimistic updates, hydration / RSC  
 
-## Pages utiles
+## Useful pages
 
-- `/` — accueil + liens leçons  
+- `/` — home + lesson links  
 - `/lessons` — index  
-- `/demo` — catalogue Redux branché sur l'API  
-- `/api/products` — JSON brut pour tests manuels (curl, Postman)
+- `/demo` — Redux catalog wired to the API  
+- `/api/products` — raw JSON for manual tests (curl, Postman)
 
-## Méthode
+## How to work
 
-1. Lire la leçon (`lessons/…` ou `/lessons/easy/…`).  
-2. Implémenter l'exercice sans ouvrir `solutions/`.  
-3. `npm test` jusqu'au vert.  
-4. Comparer la solution et rejouer la démo live.
+1. Read the lesson (`lessons/…` or `/lessons/easy/…`).  
+2. Implement the exercise without opening `solutions/`.  
+3. Run `npm test` until green.  
+4. Compare the solution and try the live demo.
 
-Bon entraînement.
+Good luck.

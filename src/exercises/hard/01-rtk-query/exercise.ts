@@ -2,7 +2,7 @@
  * EXERCISE hard/01 — RTK Query endpoint
  * Lesson: lessons/hard/01-rtk-query.md
  *
- * Crée exerciseProductsApi avec getProducts query sur /api/products
+ * Create exerciseProductsApi with getProducts query on /api/products
  */
 
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";

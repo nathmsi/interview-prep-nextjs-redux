@@ -26,7 +26,7 @@ export default async function LessonPage({ params }: PageProps) {
     <article className="space-y-6">
       <div className="flex flex-wrap gap-3 text-sm">
         <Link href="/lessons" className="text-zinc-500 hover:underline">
-          ← Leçons
+          ← Lessons
         </Link>
         <span className="rounded-full bg-zinc-200 px-2 py-0.5 capitalize dark:bg-zinc-800">
           {lesson.level}
@@ -37,10 +37,10 @@ export default async function LessonPage({ params }: PageProps) {
         dangerouslySetInnerHTML={{ __html: html }}
       />
       <section className="rounded-lg border border-amber-200 bg-amber-50 p-4 dark:border-amber-900 dark:bg-amber-950/30">
-        <h2 className="font-semibold">Exercice & solution</h2>
+        <h2 className="font-semibold">Exercise & solution</h2>
         <ul className="mt-2 space-y-1 text-sm">
           <li>
-            <strong>Exercice:</strong>{" "}
+            <strong>Exercise:</strong>{" "}
             <code>{lesson.exercisePath}/exercise.tsx</code>
           </li>
           <li>
@@ -53,9 +53,9 @@ export default async function LessonPage({ params }: PageProps) {
           </li>
         </ul>
         <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
-          Implémente dans l&apos;exercice, lance{" "}
-          <code className="rounded bg-white px-1 dark:bg-zinc-900">npm test</code>, puis
-          compare avec la solution.
+          Implement the exercise, run{" "}
+          <code className="rounded bg-white px-1 dark:bg-zinc-900">npm test</code>, then
+          compare with the solution.
         </p>
       </section>
     </article>

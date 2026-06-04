@@ -1,9 +1,9 @@
 # Lesson 03 (medium) — Route Handlers (REST)
 
-> **Niveau:** Medium  
-> **Exercice:** `src/exercises/medium/03-route-handlers/`
+> **Level:** Medium  
+> **Exercise:** `src/exercises/medium/03-route-handlers/`
 
-## Fichiers = routes
+## Files = routes
 
 `src/app/api/products/route.ts` → `GET /api/products`
 
@@ -15,19 +15,19 @@ export async function GET(request: NextRequest) {
 }
 ```
 
-## Codes HTTP attendus
+## Expected HTTP codes
 
-| Cas | Code |
-|-----|------|
-| Succès GET | 200 |
-| Body JSON invalide | 400 |
-| Ressource absente | 404 |
+| Case | Code |
+|------|------|
+| Successful GET | 200 |
+| Invalid JSON body | 400 |
+| Missing resource | 404 |
 
-## Entretien
+## Interview questions
 
-- Route Handler vs Server Action ?
-- Comment typer `params` en Next 15 (`Promise<{ id: string }>`) ?
+- Route Handler vs Server Action?
+- How to type `params` in Next 15 (`Promise<{ id: string }>`)?
 
-## À faire
+## Your task
 
-Compléter `validateCartBody` et les tests (pas besoin de lancer Next pour les tests unitaires du validateur).
+Complete `validateCartBody` and the tests (no need to run Next for unit tests on the validator).

@@ -21,7 +21,7 @@ export function RtkQueryPanel() {
         <ul className="mt-2 max-h-40 overflow-auto text-sm">
           {data.map((p) => (
             <li key={p.id}>
-              {p.name} — {p.price}€
+              {p.name} — ${p.price}
             </li>
           ))}
         </ul>

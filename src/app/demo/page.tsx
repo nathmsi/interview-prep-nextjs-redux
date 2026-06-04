@@ -6,9 +6,9 @@ export default function DemoPage() {
   return (
     <div className="space-y-8">
       <div>
-        <h1 className="text-2xl font-bold">Démo live</h1>
+        <h1 className="text-2xl font-bold">Live demo</h1>
         <p className="mt-1 text-sm text-zinc-500">
-          Le serveur tourne dans Next.js (Route Handlers). Redux est client-only via{" "}
+          The server runs inside Next.js (Route Handlers). Redux is client-only via{" "}
           <code className="rounded bg-zinc-200 px-1 dark:bg-zinc-800">StoreProvider</code>.
         </p>
       </div>

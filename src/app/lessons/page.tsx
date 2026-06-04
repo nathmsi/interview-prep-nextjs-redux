@@ -2,9 +2,9 @@ import Link from "next/link";
 import { lessons, type LessonLevel } from "@/lib/lessons";
 
 const levelLabels: Record<LessonLevel, string> = {
-  easy: "Facile",
-  medium: "Moyen",
-  hard: "Difficile",
+  easy: "Easy",
+  medium: "Medium",
+  hard: "Hard",
 };
 
 export default function LessonsIndexPage() {
@@ -15,11 +15,11 @@ export default function LessonsIndexPage() {
 
   return (
     <div className="space-y-8">
-      <h1 className="text-2xl font-bold">Index des leçons</h1>
+      <h1 className="text-2xl font-bold">Lessons index</h1>
       <p className="text-zinc-600 dark:text-zinc-400">
-        Chaque leçon a un fichier markdown, un exercice dans{" "}
+        Each lesson has a markdown file, an exercise in{" "}
         <code className="rounded bg-zinc-200 px-1 dark:bg-zinc-800">src/exercises/</code>{" "}
-        et une solution dans{" "}
+        and a solution in{" "}
         <code className="rounded bg-zinc-200 px-1 dark:bg-zinc-800">solutions/</code>.
       </p>
       {byLevel.map(({ level, items }) => (

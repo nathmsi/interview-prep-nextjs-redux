@@ -56,3 +56,8 @@ export function addToCart(productId: string, quantity = 1): CartItem[] {
 export function clearCart(): void {
   cart = [];
 }
+
+/** Resets cart between tests (API + unit). */
+export function resetCartForTests(): void {
+  cart = [];
+}

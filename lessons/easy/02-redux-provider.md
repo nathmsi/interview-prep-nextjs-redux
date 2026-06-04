@@ -1,9 +1,9 @@
 # Lesson 02 — Redux + Provider (App Router)
 
-> **Niveau:** Easy  
-> **Exercice:** `src/exercises/easy/02-redux-provider/`
+> **Level:** Easy  
+> **Exercise:** `src/exercises/easy/02-redux-provider/`
 
-## Store typé (RTK)
+## Typed store (RTK)
 
 ```ts
 // store/index.ts
@@ -14,14 +14,14 @@ export type RootState = ReturnType<ReturnType<typeof makeStore>["getState"]>;
 export type AppDispatch = ReturnType<typeof makeStore>["dispatch"];
 ```
 
-## Hooks typés (React-Redux 9+)
+## Typed hooks (React-Redux 9+)
 
 ```ts
 export const useAppDispatch = useDispatch.withTypes<AppDispatch>();
 export const useAppSelector = useSelector.withTypes<RootState>();
 ```
 
-## Provider — une instance par requête côté client
+## Provider — one store instance per client tree
 
 ```tsx
 "use client";
@@ -32,14 +32,14 @@ export function StoreProvider({ children }) {
 }
 ```
 
-`useRef` évite de recréer le store à chaque re-render (et en dev avec Strict Mode, pattern recommandé).
+`useRef` avoids recreating the store on every re-render (recommended with Strict Mode).
 
-## En entretien
+## In interviews
 
-- Pourquoi Redux reste **client-only** dans App Router ?
-- Différence `useSelector` vs props du serveur ?
-- `PayloadAction<T>` pour typer les actions.
+- Why is Redux **client-only** in the App Router?
+- `useSelector` vs server-fetched props?
+- `PayloadAction<T>` for typed actions.
 
-## À faire
+## Your task
 
-Compléter `CounterExercise` : afficher `value`, boutons `increment` / `decrement`.
+Complete `CounterExercise`: show `value`, wire `increment` / `decrement` buttons.

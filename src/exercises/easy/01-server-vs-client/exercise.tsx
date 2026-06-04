@@ -13,7 +13,7 @@ export async function ServerProductCount({
 }: {
   products: Product[];
 }): Promise<React.ReactElement> {
-  throw new Error("TODO: return <p>… avec le nombre de produits</p>");
+  throw new Error("TODO: return <p>… with product count</p>");
 }
 
 export function ClientAddButton({

@@ -1,7 +1,7 @@
 # Lesson 01 (hard) — RTK Query
 
-> **Niveau:** Hard  
-> **Exercice:** `src/exercises/hard/01-rtk-query/`
+> **Level:** Hard  
+> **Exercise:** `src/exercises/hard/01-rtk-query/`
 
 ## createApi
 
@@ -19,17 +19,17 @@ export const productsApi = createApi({
 
 ## Store
 
-Ajouter `[productsApi.reducerPath]: productsApi.reducer` et `productsApi.middleware`.
+Add `[productsApi.reducerPath]: productsApi.reducer` and `productsApi.middleware`.
 
-## Hooks générés
+## Generated hooks
 
 `useGetProductsQuery()` — cache, refetch, `isLoading`, `isError`.
 
-## Entretien
+## Interview questions
 
-- Quand préférer RTK Query aux thunks ?
-- `providesTags` / `invalidatesTags` pour cache invalidation.
+- When to prefer RTK Query over thunks?
+- `providesTags` / `invalidatesTags` for cache invalidation.
 
-## Référence complète
+## Full reference
 
-Voir `src/store/api/productsApi.ts` et `solutions/hard/01-rtk-query/`.
+See `src/store/api/productsApi.ts` and `solutions/hard/01-rtk-query/`.

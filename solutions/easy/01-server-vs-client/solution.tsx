@@ -10,7 +10,7 @@ export async function ServerProductCount({
 }) {
   return (
     <p data-testid="product-count">
-      {products.length} produit{products.length !== 1 ? "s" : ""}
+      {products.length} product{products.length !== 1 ? "s" : ""}
     </p>
   );
 }

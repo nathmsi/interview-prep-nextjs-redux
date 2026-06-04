@@ -41,10 +41,10 @@ export function ProductCatalog() {
     <div className="space-y-6">
       <header className="flex flex-wrap items-end justify-between gap-4">
         <div>
-          <h2 className="text-xl font-semibold">Catalogue (Redux + /api/products)</h2>
+          <h2 className="text-xl font-semibold">Catalog (Redux + /api/products)</h2>
           <p className="text-sm text-zinc-500">
-            Panier: {cartCount} article(s) — {cartTotal.toFixed(2)} €
-            {cartStatus === "syncing" && " (sync…)"}
+            Cart: {cartCount} item(s) — ${cartTotal.toFixed(2)}
+            {cartStatus === "syncing" && " (syncing…)"}
           </p>
         </div>
         <div className="flex gap-2">
@@ -65,9 +65,9 @@ export function ProductCatalog() {
         </div>
       </header>
 
-      {status === "loading" && <p className="text-sm text-zinc-500">Chargement…</p>}
+      {status === "loading" && <p className="text-sm text-zinc-500">Loading…</p>}
       {status === "failed" && (
-        <p className="text-sm text-red-600">Erreur: {error}</p>
+        <p className="text-sm text-red-600">Error: {error}</p>
       )}
 
       <ul className="grid gap-3 sm:grid-cols-2">
@@ -78,14 +78,14 @@ export function ProductCatalog() {
           >
             <div className="font-medium">{p.name}</div>
             <div className="text-sm text-zinc-500">
-              {p.category} — {p.price} €
+              {p.category} — ${p.price}
             </div>
             <button
               type="button"
               className="mt-2 rounded bg-emerald-600 px-3 py-1 text-sm text-white hover:bg-emerald-700"
               onClick={() => dispatch(addItem({ productId: p.id }))}
             >
-              Ajouter
+              Add
             </button>
           </li>
         ))}
@@ -108,7 +108,7 @@ function SyncCartButton() {
       className="rounded bg-zinc-900 px-4 py-2 text-sm text-white disabled:opacity-50 dark:bg-zinc-100 dark:text-zinc-900"
       onClick={() => void dispatch(syncCartToServer(items))}
     >
-      Persister le panier (POST /api/cart)
+      Persist cart (POST /api/cart)
     </button>
   );
 }

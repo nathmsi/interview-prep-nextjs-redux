@@ -11,14 +11,14 @@ export default function HomePage() {
           Interview Recap — Next.js + React + Redux
         </h1>
         <p className="mt-2 max-w-2xl text-zinc-600 dark:text-zinc-400">
-          Repo d&apos;entraînement avec un vrai serveur Next.js (Route Handlers), un store
-          Redux Toolkit typé, et des leçons easy / medium / hard avec solutions.
+          Practice repo with a real Next.js server (Route Handlers), a typed Redux Toolkit
+          store, and easy / medium / hard lessons with solutions.
         </p>
       </section>
 
       <section className="rounded-lg border border-emerald-200 bg-emerald-50 p-4 dark:border-emerald-900 dark:bg-emerald-950/40">
         <h2 className="font-semibold text-emerald-900 dark:text-emerald-200">
-          Démarrer
+          Get started
         </h2>
         <pre className="mt-2 overflow-x-auto rounded bg-white/80 p-3 text-sm dark:bg-zinc-900">
 {`cd interview-prep-nextjs-redux
@@ -66,13 +66,13 @@ npm run dev
       ))}
 
       <p className="text-sm text-zinc-500">
-        Index complet:{" "}
+        Full index:{" "}
         <Link href="/lessons" className="underline">
           /lessons
         </Link>
         {" · "}
         <Link href="/demo" className="underline">
-          démo interactive
+          interactive demo
         </Link>
       </p>
     </div>
