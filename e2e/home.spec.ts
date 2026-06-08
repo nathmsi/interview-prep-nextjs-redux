@@ -12,6 +12,7 @@ test.describe("Home", () => {
     await expect(nav.getByRole("link", { name: "React", exact: true })).toBeVisible();
     await expect(nav.getByRole("link", { name: "Next.js", exact: true })).toBeVisible();
     await expect(nav.getByRole("link", { name: "CSS", exact: true })).toBeVisible();
+    await expect(nav.getByRole("link", { name: "Tailwind CSS", exact: true })).toBeVisible();
     await expect(nav.getByRole("link", { name: "Libraries", exact: true })).toBeVisible();
     await expect(nav.getByRole("link", { name: "AI & coding", exact: true })).toBeVisible();
   });

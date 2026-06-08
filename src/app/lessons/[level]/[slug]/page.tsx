@@ -2,7 +2,13 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ReactQuizAccordion } from "@/components/quiz/ReactQuizAccordion";
 import { TypeScriptQuizAccordion } from "@/components/quiz/TypeScriptQuizAccordion";
-import { getLesson, lessonTracks, type LessonTrack } from "@/lib/lessons";
+import { LessonNav } from "@/components/layout/LessonNav";
+import {
+  getAdjacentLessons,
+  getLesson,
+  lessonTracks,
+  type LessonTrack,
+} from "@/lib/lessons";
 import { readLessonMarkdown, renderSimpleMarkdown } from "@/lib/markdown";
 import { getSubject, subjectIdForTrack, subjectPageHref } from "@/lib/subjects";
 
@@ -54,6 +60,7 @@ export default async function LessonPage({ params }: PageProps) {
 
   const quiz = lesson.slug === "quiz-questions" ? quizPages[lesson.track] : undefined;
   const back = subjectBackLink(lesson.track);
+  const { prev, next } = getAdjacentLessons(lesson.track, lesson.slug);
 
   if (quiz) {
     const { badge, title, subtitle, Accordion } = quiz;
@@ -72,6 +79,7 @@ export default async function LessonPage({ params }: PageProps) {
           <p className="mt-1 text-sm text-zinc-500">{subtitle}</p>
         </header>
         <Accordion />
+        <LessonNav prev={prev} next={next} />
       </article>
     );
   }
@@ -139,6 +147,7 @@ export default async function LessonPage({ params }: PageProps) {
           </p>
         </section>
       )}
+      <LessonNav prev={prev} next={next} />
     </article>
   );
 }

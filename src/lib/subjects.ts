@@ -6,6 +6,7 @@ export type SubjectId =
   | "react"
   | "nextjs"
   | "css"
+  | "tailwind"
   | "libraries"
   | "ai";
 
@@ -28,6 +29,7 @@ export const subjectIds: SubjectId[] = [
   "react",
   "nextjs",
   "css",
+  "tailwind",
   "libraries",
   "ai",
 ];
@@ -43,6 +45,7 @@ export const interviewTracks: LessonTrack[] = [
   "react",
   "nextjs",
   "css",
+  "tailwind",
   "libraries",
   "ai",
 ];
@@ -82,6 +85,14 @@ export const subjects: Subject[] = [
     description: "Layout, responsive, a11y, and styling libraries (Tailwind, CSS Modules…).",
     tracks: ["css"],
     entryHref: "/lessons/css/01-interview-questions",
+  },
+  {
+    id: "tailwind",
+    label: "Tailwind CSS",
+    description:
+      "Utility-first CSS with React & Next.js — setup, layout, responsive, dark mode, RSC.",
+    tracks: ["tailwind"],
+    entryHref: "/lessons/tailwind/01-setup-nextjs",
   },
   {
     id: "libraries",

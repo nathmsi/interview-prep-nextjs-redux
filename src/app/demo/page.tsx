@@ -1,6 +1,7 @@
 import { CounterPanel } from "@/components/demo/CounterPanel";
 import { ProductCatalog } from "@/components/demo/ProductCatalog";
 import { RtkQueryPanel } from "@/components/demo/RtkQueryPanel";
+import { FormDemo }from "@/components/demo/FormDemo";
 
 export default function DemoPage() {
   return (
@@ -13,6 +14,7 @@ export default function DemoPage() {
         </p>
       </div>
       <div className="grid gap-6 lg:grid-cols-2">
+        <FormDemo />
         <CounterPanel />
         <RtkQueryPanel />
       </div>

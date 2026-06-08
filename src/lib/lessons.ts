@@ -5,6 +5,7 @@ export type InterviewTrack =
   | "react"
   | "nextjs"
   | "css"
+  | "tailwind"
   | "libraries"
   | "ai";
 
@@ -492,6 +493,159 @@ const cssLessons: LessonMeta[] = [
   },
 ];
 
+const tailwindLessons: LessonMeta[] = [
+  {
+    slug: "01-setup-nextjs",
+    track: "tailwind",
+    level: "tailwind",
+    number: 1,
+    kind: "course",
+    title: "Tailwind — setup with Next.js",
+    summary: "Tailwind v4, PostCSS, globals.css, @import, zero runtime.",
+    lessonPath: "lessons/tailwind/01-setup-nextjs.md",
+  },
+  {
+    slug: "02-utility-first",
+    track: "tailwind",
+    level: "tailwind",
+    number: 2,
+    kind: "course",
+    title: "Tailwind — utility-first fundamentals",
+    summary: "className, design tokens, merging classes, when utilities beat custom CSS.",
+    lessonPath: "lessons/tailwind/02-utility-first.md",
+  },
+  {
+    slug: "03-layout-flex-grid",
+    track: "tailwind",
+    level: "tailwind",
+    number: 3,
+    kind: "course",
+    title: "Tailwind — Flexbox & Grid",
+    summary: "flex, grid, gap, align, justify, responsive layouts in React.",
+    lessonPath: "lessons/tailwind/03-layout-flex-grid.md",
+  },
+  {
+    slug: "04-spacing-sizing-typography",
+    track: "tailwind",
+    level: "tailwind",
+    number: 4,
+    kind: "course",
+    title: "Tailwind — spacing, sizing & typography",
+    summary: "p/m, w/h, max-w, text-*, font-*, leading, tracking.",
+    lessonPath: "lessons/tailwind/04-spacing-sizing-typography.md",
+  },
+  {
+    slug: "05-colors-borders-shadows",
+    track: "tailwind",
+    level: "tailwind",
+    number: 5,
+    kind: "course",
+    title: "Tailwind — colors, borders & shadows",
+    summary: "bg-, text-, border-, ring-, shadow-, opacity, gradients.",
+    lessonPath: "lessons/tailwind/05-colors-borders-shadows.md",
+  },
+  {
+    slug: "06-responsive",
+    track: "tailwind",
+    level: "tailwind",
+    number: 6,
+    kind: "course",
+    title: "Tailwind — responsive design",
+    summary: "sm/md/lg/xl breakpoints, mobile-first, container, hidden/show.",
+    lessonPath: "lessons/tailwind/06-responsive.md",
+  },
+  {
+    slug: "07-states-pseudo",
+    track: "tailwind",
+    level: "tailwind",
+    number: 7,
+    kind: "course",
+    title: "Tailwind — states & pseudo-classes",
+    summary: "hover, focus, active, disabled, first/last, odd/even, aria-*.",
+    lessonPath: "lessons/tailwind/07-states-pseudo.md",
+  },
+  {
+    slug: "08-dark-mode",
+    track: "tailwind",
+    level: "tailwind",
+    number: 8,
+    kind: "course",
+    title: "Tailwind — dark mode",
+    summary: "dark: variant, prefers-color-scheme, class vs media strategy.",
+    lessonPath: "lessons/tailwind/08-dark-mode.md",
+  },
+  {
+    slug: "09-transitions-animations",
+    track: "tailwind",
+    level: "tailwind",
+    number: 9,
+    kind: "course",
+    title: "Tailwind — transitions & animations",
+    summary: "transition, duration, ease, animate-*, motion-safe, micro-interactions.",
+    lessonPath: "lessons/tailwind/09-transitions-animations.md",
+  },
+  {
+    slug: "10-theme-customization",
+    track: "tailwind",
+    level: "tailwind",
+    number: 10,
+    kind: "course",
+    title: "Tailwind — theme & customization",
+    summary: "@theme, CSS variables, extend tokens, plugins overview (v4).",
+    lessonPath: "lessons/tailwind/10-theme-customization.md",
+  },
+  {
+    slug: "11-react-patterns",
+    track: "tailwind",
+    level: "tailwind",
+    number: 11,
+    kind: "course",
+    title: "Tailwind — React component patterns",
+    summary: "Conditional className, variants, cn/clsx, compound components.",
+    lessonPath: "lessons/tailwind/11-react-patterns.md",
+  },
+  {
+    slug: "12-forms-a11y",
+    track: "tailwind",
+    level: "tailwind",
+    number: 12,
+    kind: "course",
+    title: "Tailwind — forms & accessibility",
+    summary: "Input styling, focus-visible, sr-only, ring offsets, labels.",
+    lessonPath: "lessons/tailwind/12-forms-a11y.md",
+  },
+  {
+    slug: "13-advanced-selectors",
+    track: "tailwind",
+    level: "tailwind",
+    number: 13,
+    kind: "course",
+    title: "Tailwind — advanced selectors & arbitrary values",
+    summary: "group/peer, has:, arbitrary props, container queries, @layer.",
+    lessonPath: "lessons/tailwind/13-advanced-selectors.md",
+  },
+  {
+    slug: "14-nextjs-integration",
+    track: "tailwind",
+    level: "tailwind",
+    number: 14,
+    kind: "course",
+    title: "Tailwind — Next.js & RSC integration",
+    summary: "Server Components, next/font, layouts, per-route styles, purge.",
+    lessonPath: "lessons/tailwind/14-nextjs-integration.md",
+  },
+  {
+    slug: "15-interview-questions",
+    track: "tailwind",
+    level: "tailwind",
+    number: 15,
+    kind: "course",
+    title: "Tailwind — interview Q&A recap",
+    summary: "Tradeoffs, performance, readability, vs CSS Modules, common pitfalls.",
+    lessonPath: "lessons/tailwind/15-interview-questions.md",
+  },
+];
+
 const aiLessons: LessonMeta[] = [
   {
     slug: "01-mindset-and-workflow",
@@ -585,6 +739,7 @@ export const lessons: LessonMeta[] = [
   ...typescriptLessons,
   ...javascriptLessons,
   ...cssLessons,
+  ...tailwindLessons,
   ...librariesLessons,
   ...aiLessons,
 ];
@@ -602,6 +757,19 @@ export function getLesson(track: LessonTrack, slug: string): LessonMeta | undefi
   return lessons.find((l) => l.track === track && l.slug === slug);
 }
 
+export function getAdjacentLessons(
+  track: LessonTrack,
+  slug: string
+): { prev?: LessonMeta; next?: LessonMeta } {
+  const trackLessons = getLessonsByTrack(track).sort((a, b) => a.number - b.number);
+  const index = trackLessons.findIndex((l) => l.slug === slug);
+  if (index === -1) return {};
+  return {
+    prev: index > 0 ? trackLessons[index - 1] : undefined,
+    next: index < trackLessons.length - 1 ? trackLessons[index + 1] : undefined,
+  };
+}
+
 /** All tracks valid in /lessons/[track]/[slug] (includes hidden exercise labs). */
 export const lessonTracks: LessonTrack[] = [
   "javascript",
@@ -609,6 +777,7 @@ export const lessonTracks: LessonTrack[] = [
   "react",
   "nextjs",
   "css",
+  "tailwind",
   "libraries",
   "ai",
   "easy",

@@ -50,6 +50,8 @@ Open `src/app/globals.css` and any page using Tailwind classes (e.g. home `round
 
 **Interview:** “Utilities colocate style with markup; design tokens via `theme` config.”
 
+**Deep dive:** full Tailwind track with React & Next.js → `/subjects/tailwind` (15 lessons).
+
 ---
 
 ## CSS Modules

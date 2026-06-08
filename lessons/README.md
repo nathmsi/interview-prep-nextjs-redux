@@ -9,6 +9,7 @@
 | React | [react/](./react/) | Hooks + quiz |
 | Next.js | [nextjs/](./nextjs/) | 10 chapters |
 | CSS | [css/](./css/) | Q&A + styling libraries |
+| Tailwind CSS | [tailwind/](./tailwind/) | 15 chapters — React & Next.js |
 | Libraries | [libraries/](./libraries/) | Essential libs + UI/tooling |
 | AI & coding | [ai/](./ai/) | Prompts, Skills, Rules, docs, review |
 
