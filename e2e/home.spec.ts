@@ -4,7 +4,7 @@ test.describe("Home", () => {
   test("shows interview prep hub and subjects", async ({ page }) => {
     await page.goto("/");
     await expect(
-      page.getByRole("heading", { name: /Front-end interview preparation/i })
+      page.getByRole("heading", { name: /Full-stack interview preparation/i })
     ).toBeVisible();
     const nav = page.getByRole("navigation");
     await expect(nav.getByRole("link", { name: "JavaScript", exact: true })).toBeVisible();
