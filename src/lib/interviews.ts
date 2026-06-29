@@ -11,15 +11,14 @@ export type InterviewPrep = {
 
 export const interviews: InterviewPrep[] = [
   {
-    slug: "palo-alto-networks-cortex",
-    company: "Palo Alto Networks",
-    role: "Senior Frontend Engineer — Cortex Platform",
-    date: "9 juin 2025 — 15:00 IDT",
-    interviewer: "Shai Tubul (Principal Software Engineer)",
+    slug: "monday-com-e2e",
+    company: "monday.com",
+    role: "Frontend Engineer — End2End interview",
+    date: "Étape 2 — après Coding",
     location: "Tel Aviv — Virtual",
     summary:
-      "Round 1 · React/TS · dashboards & data viz · AI workflow · sortie Wix (layoffs)",
-    markdownPath: "lessons/interviews/palo-alto-networks-cortex.md",
+      "6 cas pratiques · pseudo-code · réponses modèles · tradeoffs · edge cases",
+    markdownPath: "lessons/interviews/monday-com-e2e.md",
   },
 ];
 

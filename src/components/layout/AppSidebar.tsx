@@ -41,6 +41,8 @@ export function AppSidebar() {
   const isHome = pathname === "/";
   const isSubjectsIndex = pathname === "/subjects";
   const isInterviews = pathname.startsWith("/interviews");
+  const isAlgo = pathname.startsWith("/algo");
+  const isNodejs = pathname.startsWith("/nodejs");
   const isDemo = pathname.startsWith("/demo");
 
   const sidebarNav = (
@@ -61,6 +63,20 @@ export function AppSidebar() {
         onClick={() => setOpen(false)}
       >
         Interview angles
+      </Link>
+      <Link
+        href="/algo"
+        className={linkClass(isAlgo)}
+        onClick={() => setOpen(false)}
+      >
+        Algorithm exercises
+      </Link>
+      <Link
+        href="/nodejs"
+        className={linkClass(isNodejs)}
+        onClick={() => setOpen(false)}
+      >
+        Node.js backend
       </Link>
 
       <p className="mb-1 mt-5 px-3 text-[11px] font-semibold uppercase tracking-wider text-zinc-400 dark:text-zinc-500">

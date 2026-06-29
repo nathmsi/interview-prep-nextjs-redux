@@ -2,21 +2,18 @@ import { describe, it, expect } from "vitest";
 import { getInterview, interviewHref, interviews } from "@/lib/interviews";
 
 describe("interview prep metadata", () => {
-  it("lists Palo Alto Networks Cortex prep", () => {
+  it("lists monday.com E2E prep", () => {
     expect(interviews).toHaveLength(1);
-    expect(interviews[0]?.company).toBe("Palo Alto Networks");
+    expect(interviews[0]?.company).toBe("monday.com");
   });
 
   it("getInterview finds by slug", () => {
-    const panw = getInterview("palo-alto-networks-cortex");
-    expect(panw?.role).toContain("Cortex");
-    expect(panw?.interviewer).toContain("Shai Tubul");
+    const monday = getInterview("monday-com-e2e");
+    expect(monday?.role).toContain("End2End");
     expect(getInterview("unknown")).toBeUndefined();
   });
 
   it("interviewHref", () => {
-    expect(interviewHref("palo-alto-networks-cortex")).toBe(
-      "/interviews/palo-alto-networks-cortex"
-    );
+    expect(interviewHref("monday-com-e2e")).toBe("/interviews/monday-com-e2e");
   });
 });
