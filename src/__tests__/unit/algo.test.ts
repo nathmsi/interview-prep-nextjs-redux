@@ -23,18 +23,18 @@ describe("algo catalog", () => {
     ]);
   });
 
-  it("exposes 54 exercises across all sections", () => {
-    expect(totalAvailableExercises()).toBe(54);
+  it("exposes 57 exercises across all sections", () => {
+    expect(totalAvailableExercises()).toBe(57);
   });
 
   it("resolves exercise metadata with category folder paths", () => {
     const exercise = getAlgoExercise("01-core-patterns", "01-merge-intervals");
     expect(exercise?.functionName).toBe("mergeIntervals");
     expect(exercise?.exercisePath).toBe(
-      "src/exercises/algo/01-core-patterns/01-merge-intervals"
+      "content/exercises/algo/01-core-patterns/01-merge-intervals"
     );
     expect(exercise?.lessonPath).toBe(
-      "lessons/algo/01-core-patterns/01-merge-intervals.md"
+      "content/lessons/algo/01-core-patterns/01-merge-intervals.md"
     );
   });
 
@@ -56,9 +56,15 @@ describe("algo catalog", () => {
     expect(section?.folder).toBe("01-core-patterns");
   });
 
-  it("section 2 has three hashmap exercises", () => {
+  it("section 2 has five hashmap exercises", () => {
     const section = getAlgoSection("02-hashmap-set");
-    expect(exerciseCount(section)).toBe(3);
+    expect(exerciseCount(section)).toBe(5);
+    expect(getAlgoExercise("02-hashmap-set", "04-valid-anagram")?.testCommand).toBe(
+      "npm run algo:55"
+    );
+    expect(getAlgoExercise("02-hashmap-set", "05-find-anagrams-in-string")?.testCommand).toBe(
+      "npm run algo:56"
+    );
   });
 
   it("section 4 has three binary search exercises", () => {
@@ -77,11 +83,14 @@ describe("algo catalog", () => {
     );
   });
 
-  it("section 8 has twenty-eight fullstack exercises ending at algo:54", () => {
+  it("section 8 has twenty-nine fullstack exercises ending at algo:57", () => {
     const section = getAlgoSection("08-fullstack-js");
-    expect(exerciseCount(section)).toBe(28);
+    expect(exerciseCount(section)).toBe(29);
     expect(getAlgoExercise("08-fullstack-js", "28-sleep")?.testCommand).toBe(
       "npm run algo:54"
+    );
+    expect(getAlgoExercise("08-fullstack-js", "29-rand7")?.testCommand).toBe(
+      "npm run algo:57"
     );
   });
 });

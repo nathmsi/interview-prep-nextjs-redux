@@ -8,8 +8,8 @@ import {
 } from "@/lib/lessons";
 
 describe("lessons metadata", () => {
-  it("67 lessons total (9 hidden labs + 58 interview courses)", () => {
-    expect(lessons).toHaveLength(67);
+  it("79 lessons total (9 hidden labs + 70 interview courses)", () => {
+    expect(lessons).toHaveLength(79);
   });
 
   it("6 AI & coding courses", () => {
@@ -40,8 +40,8 @@ describe("lessons metadata", () => {
     expect(getLesson("tailwind", "14-nextjs-integration")).toBeDefined();
   });
 
-  it("16 react courses including quiz", () => {
-    expect(getLessonsByTrack("react")).toHaveLength(16);
+  it("28 react courses including quiz and coding exercises", () => {
+    expect(getLessonsByTrack("react")).toHaveLength(28);
   });
 
   it("typescript quiz lesson metadata", () => {

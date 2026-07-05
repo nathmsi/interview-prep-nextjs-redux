@@ -35,8 +35,8 @@ const exerciseLessons: LessonMeta[] = [
     kind: "exercise",
     title: "Server vs Client Components",
     summary: "When to use 'use client', server fetch, serializable props.",
-    exercisePath: "src/exercises/easy/01-server-vs-client",
-    lessonPath: "lessons/easy/01-server-vs-client.md",
+    exercisePath: "content/exercises/easy/01-server-vs-client",
+    lessonPath: "content/lessons/easy/01-server-vs-client.md",
   },
   {
     slug: "02-redux-provider",
@@ -46,8 +46,8 @@ const exerciseLessons: LessonMeta[] = [
     kind: "exercise",
     title: "Redux + Provider (App Router)",
     summary: "Typed store, useAppDispatch / useAppSelector, client Provider in layout.",
-    exercisePath: "src/exercises/easy/02-redux-provider",
-    lessonPath: "lessons/easy/02-redux-provider.md",
+    exercisePath: "content/exercises/easy/02-redux-provider",
+    lessonPath: "content/lessons/easy/02-redux-provider.md",
   },
   {
     slug: "01-async-thunk",
@@ -57,8 +57,8 @@ const exerciseLessons: LessonMeta[] = [
     kind: "exercise",
     title: "createAsyncThunk + API Route",
     summary: "Load products from /api/products with pending/fulfilled/rejected states.",
-    exercisePath: "src/exercises/medium/01-async-thunk",
-    lessonPath: "lessons/medium/01-async-thunk.md",
+    exercisePath: "content/exercises/medium/01-async-thunk",
+    lessonPath: "content/lessons/medium/01-async-thunk.md",
   },
   {
     slug: "02-cart-slice",
@@ -68,8 +68,8 @@ const exerciseLessons: LessonMeta[] = [
     kind: "exercise",
     title: "Cart slice + POST /api/cart",
     summary: "Sync actions, extraReducers, sync cart with the server.",
-    exercisePath: "src/exercises/medium/02-cart-slice",
-    lessonPath: "lessons/medium/02-cart-slice.md",
+    exercisePath: "content/exercises/medium/02-cart-slice",
+    lessonPath: "content/lessons/medium/02-cart-slice.md",
   },
   {
     slug: "03-route-handlers",
@@ -79,8 +79,8 @@ const exerciseLessons: LessonMeta[] = [
     kind: "exercise",
     title: "Route Handlers (REST)",
     summary: "Typed GET/POST, validation, HTTP status codes — classic Next.js interview pattern.",
-    exercisePath: "src/exercises/medium/03-route-handlers",
-    lessonPath: "lessons/medium/03-route-handlers.md",
+    exercisePath: "content/exercises/medium/03-route-handlers",
+    lessonPath: "content/lessons/medium/03-route-handlers.md",
   },
   {
     slug: "04-selectors-memo",
@@ -90,8 +90,8 @@ const exerciseLessons: LessonMeta[] = [
     kind: "exercise",
     title: "Selectors & createSelector",
     summary: "Derive cart total and enriched lines without unnecessary re-renders.",
-    exercisePath: "src/exercises/medium/04-selectors-memo",
-    lessonPath: "lessons/medium/04-selectors-memo.md",
+    exercisePath: "content/exercises/medium/04-selectors-memo",
+    lessonPath: "content/lessons/medium/04-selectors-memo.md",
   },
   {
     slug: "01-rtk-query",
@@ -101,8 +101,8 @@ const exerciseLessons: LessonMeta[] = [
     kind: "exercise",
     title: "RTK Query + baseUrl",
     summary: "Cache, tags, invalidation — modern alternative to manual thunks.",
-    exercisePath: "src/exercises/hard/01-rtk-query",
-    lessonPath: "lessons/hard/01-rtk-query.md",
+    exercisePath: "content/exercises/hard/01-rtk-query",
+    lessonPath: "content/lessons/hard/01-rtk-query.md",
   },
   {
     slug: "02-optimistic-cart",
@@ -112,8 +112,8 @@ const exerciseLessons: LessonMeta[] = [
     kind: "exercise",
     title: "Optimistic updates",
     summary: "Instant UI + rollback when the API fails (senior pattern).",
-    exercisePath: "src/exercises/hard/02-optimistic-cart",
-    lessonPath: "lessons/hard/02-optimistic-cart.md",
+    exercisePath: "content/exercises/hard/02-optimistic-cart",
+    lessonPath: "content/lessons/hard/02-optimistic-cart.md",
   },
   {
     slug: "03-hydration-redux",
@@ -123,8 +123,8 @@ const exerciseLessons: LessonMeta[] = [
     kind: "exercise",
     title: "Avoid SSR mismatches",
     summary: "Client-only store, no Redux in Server Components — classic pitfall.",
-    exercisePath: "src/exercises/hard/03-hydration-redux",
-    lessonPath: "lessons/hard/03-hydration-redux.md",
+    exercisePath: "content/exercises/hard/03-hydration-redux",
+    lessonPath: "content/lessons/hard/03-hydration-redux.md",
   },
 ];
 
@@ -137,7 +137,7 @@ const reactHookLessons: LessonMeta[] = [
     kind: "course",
     title: "useState",
     summary: "Local state, updates, functional updaters, lazy init.",
-    lessonPath: "lessons/react/01-use-state.md",
+    lessonPath: "content/lessons/react/01-use-state.md",
   },
   {
     slug: "02-use-effect",
@@ -147,7 +147,7 @@ const reactHookLessons: LessonMeta[] = [
     kind: "course",
     title: "useEffect",
     summary: "Side effects, cleanup, dependency array pitfalls.",
-    lessonPath: "lessons/react/02-use-effect.md",
+    lessonPath: "content/lessons/react/02-use-effect.md",
   },
   {
     slug: "03-use-ref",
@@ -157,7 +157,7 @@ const reactHookLessons: LessonMeta[] = [
     kind: "course",
     title: "useRef",
     summary: "DOM refs, mutable values without re-render.",
-    lessonPath: "lessons/react/03-use-ref.md",
+    lessonPath: "content/lessons/react/03-use-ref.md",
   },
   {
     slug: "04-use-context",
@@ -167,7 +167,7 @@ const reactHookLessons: LessonMeta[] = [
     kind: "course",
     title: "useContext",
     summary: "Avoid prop drilling, provider pattern, when not to use context.",
-    lessonPath: "lessons/react/04-use-context.md",
+    lessonPath: "content/lessons/react/04-use-context.md",
   },
   {
     slug: "05-use-reducer",
@@ -177,7 +177,7 @@ const reactHookLessons: LessonMeta[] = [
     kind: "course",
     title: "useReducer",
     summary: "Complex state, actions, dispatch, vs useState.",
-    lessonPath: "lessons/react/05-use-reducer.md",
+    lessonPath: "content/lessons/react/05-use-reducer.md",
   },
   {
     slug: "06-use-memo-callback",
@@ -187,7 +187,7 @@ const reactHookLessons: LessonMeta[] = [
     kind: "course",
     title: "useMemo & useCallback",
     summary: "Referential stability, when memoization helps (and when it does not).",
-    lessonPath: "lessons/react/06-use-memo-callback.md",
+    lessonPath: "content/lessons/react/06-use-memo-callback.md",
   },
   {
     slug: "07-use-id-layout-effect",
@@ -197,7 +197,7 @@ const reactHookLessons: LessonMeta[] = [
     kind: "course",
     title: "useId & useLayoutEffect",
     summary: "SSR-safe IDs, measure DOM before paint.",
-    lessonPath: "lessons/react/07-use-id-layout-effect.md",
+    lessonPath: "content/lessons/react/07-use-id-layout-effect.md",
   },
   {
     slug: "08-use-transition-deferred",
@@ -207,7 +207,7 @@ const reactHookLessons: LessonMeta[] = [
     kind: "course",
     title: "useTransition & useDeferredValue",
     summary: "Non-blocking updates, keep UI responsive during heavy work.",
-    lessonPath: "lessons/react/08-use-transition-deferred.md",
+    lessonPath: "content/lessons/react/08-use-transition-deferred.md",
   },
   {
     slug: "09-use-sync-external-store",
@@ -217,7 +217,7 @@ const reactHookLessons: LessonMeta[] = [
     kind: "course",
     title: "useSyncExternalStore",
     summary: "Subscribe to external stores (browser APIs, Redux-like).",
-    lessonPath: "lessons/react/09-use-sync-external-store.md",
+    lessonPath: "content/lessons/react/09-use-sync-external-store.md",
   },
   {
     slug: "10-use-action-state",
@@ -227,7 +227,7 @@ const reactHookLessons: LessonMeta[] = [
     kind: "course",
     title: "useActionState (React 19)",
     summary: "Form actions, pending state, return value from server action.",
-    lessonPath: "lessons/react/10-use-action-state.md",
+    lessonPath: "content/lessons/react/10-use-action-state.md",
   },
   {
     slug: "11-use-optimistic",
@@ -237,7 +237,7 @@ const reactHookLessons: LessonMeta[] = [
     kind: "course",
     title: "useOptimistic (React 19)",
     summary: "Show optimistic UI while an async mutation runs.",
-    lessonPath: "lessons/react/11-use-optimistic.md",
+    lessonPath: "content/lessons/react/11-use-optimistic.md",
   },
   {
     slug: "12-use-hook",
@@ -247,7 +247,7 @@ const reactHookLessons: LessonMeta[] = [
     kind: "course",
     title: "use (React 19)",
     summary: "Read promises and context in render — Suspense-friendly.",
-    lessonPath: "lessons/react/12-use-hook.md",
+    lessonPath: "content/lessons/react/12-use-hook.md",
   },
   {
     slug: "13-use-imperative-handle",
@@ -257,7 +257,7 @@ const reactHookLessons: LessonMeta[] = [
     kind: "course",
     title: "useImperativeHandle",
     summary: "Expose a limited API from a child ref (forms, focus).",
-    lessonPath: "lessons/react/13-use-imperative-handle.md",
+    lessonPath: "content/lessons/react/13-use-imperative-handle.md",
   },
   {
     slug: "14-interview-questions",
@@ -267,7 +267,7 @@ const reactHookLessons: LessonMeta[] = [
     kind: "course",
     title: "React hooks — interview Q&A",
     summary: "Classic questions with short answers (rules, stale closure, keys).",
-    lessonPath: "lessons/react/14-interview-questions.md",
+    lessonPath: "content/lessons/react/14-interview-questions.md",
   },
   {
     slug: "quiz-questions",
@@ -277,7 +277,7 @@ const reactHookLessons: LessonMeta[] = [
     kind: "course",
     title: "Quiz — 20 questions (basic → pro)",
     summary: "Interactive quiz: your answer + accordion solution under each question.",
-    lessonPath: "lessons/react/quiz/questions.md",
+    lessonPath: "content/lessons/react/quiz/questions.md",
   },
   {
     slug: "quiz-solutions",
@@ -287,7 +287,137 @@ const reactHookLessons: LessonMeta[] = [
     kind: "course",
     title: "Quiz — solutions (spoilers)",
     summary: "Answers for the 20-question React quiz. Open after attempting.",
-    lessonPath: "lessons/react/quiz/solutions.md",
+    lessonPath: "content/lessons/react/quiz/solutions.md",
+  },
+  {
+    slug: "15-debug-auto-counter",
+    track: "react",
+    level: "react",
+    number: 17,
+    kind: "exercise",
+    title: "Debug — Auto Counter",
+    summary: "Find stale-closure bugs in useEffect and click handler (live interview style).",
+    exercisePath: "content/exercises/react/01-debug-auto-counter",
+    lessonPath: "content/lessons/react/15-debug-auto-counter.md",
+  },
+  {
+    slug: "19-debug-stale-greeting",
+    track: "react",
+    level: "react",
+    number: 18,
+    kind: "exercise",
+    title: "Debug — Stale Greeting",
+    summary: "Greeting does not update when name prop changes — fix useEffect deps.",
+    exercisePath: "content/exercises/react/02-debug-stale-greeting",
+    lessonPath: "content/lessons/react/19-debug-stale-greeting.md",
+  },
+  {
+    slug: "20-debug-todo-list-keys",
+    track: "react",
+    level: "react",
+    number: 19,
+    kind: "exercise",
+    title: "Debug — List Keys",
+    summary: "Index keys break input state on reorder — use stable ids.",
+    exercisePath: "content/exercises/react/03-debug-todo-list-keys",
+    lessonPath: "content/lessons/react/20-debug-todo-list-keys.md",
+  },
+  {
+    slug: "21-debug-interval-cleanup",
+    track: "react",
+    level: "react",
+    number: 20,
+    kind: "exercise",
+    title: "Debug — Interval Cleanup",
+    summary: "Interval keeps firing after unmount — add effect cleanup.",
+    exercisePath: "content/exercises/react/04-debug-interval-cleanup",
+    lessonPath: "content/lessons/react/21-debug-interval-cleanup.md",
+  },
+  {
+    slug: "22-implement-use-toggle",
+    track: "react",
+    level: "react",
+    number: 21,
+    kind: "exercise",
+    title: "Implement useToggle",
+    summary: "Custom hook returning [boolean, toggle] — hook fundamentals.",
+    exercisePath: "content/exercises/react/05-implement-use-toggle",
+    lessonPath: "content/lessons/react/22-implement-use-toggle.md",
+  },
+  {
+    slug: "23-implement-filtered-list",
+    track: "react",
+    level: "react",
+    number: 22,
+    kind: "exercise",
+    title: "Filtered Product List",
+    summary: "Controlled search input filters a list case-insensitively.",
+    exercisePath: "content/exercises/react/06-implement-filtered-list",
+    lessonPath: "content/lessons/react/23-implement-filtered-list.md",
+  },
+  {
+    slug: "24-implement-theme-context",
+    track: "react",
+    level: "react",
+    number: 23,
+    kind: "exercise",
+    title: "Theme Context",
+    summary: "ThemeProvider, useTheme, toggle light/dark — context pattern.",
+    exercisePath: "content/exercises/react/07-implement-theme-context",
+    lessonPath: "content/lessons/react/24-implement-theme-context.md",
+  },
+  {
+    slug: "25-debug-reset-counter",
+    track: "react",
+    level: "react",
+    number: 24,
+    kind: "exercise",
+    title: "Debug — Reset Counter",
+    summary: "Counter must reset when resetKey prop changes.",
+    exercisePath: "content/exercises/react/08-debug-reset-counter",
+    lessonPath: "content/lessons/react/25-debug-reset-counter.md",
+  },
+  {
+    slug: "26-implement-use-fetch",
+    track: "react",
+    level: "react",
+    number: 25,
+    kind: "exercise",
+    title: "useFetch hook",
+    summary: "Fetch with loading, error, and refetch on url change.",
+    exercisePath: "content/exercises/react/09-implement-use-fetch",
+    lessonPath: "content/lessons/react/26-implement-use-fetch.md",
+  },
+  {
+    slug: "27-implement-use-reducer",
+    track: "react",
+    level: "react",
+    number: 26,
+    kind: "exercise",
+    title: "Counter with useReducer",
+    summary: "counterReducer with INCREMENT, DECREMENT, RESET.",
+    exercisePath: "content/exercises/react/10-implement-use-reducer",
+    lessonPath: "content/lessons/react/27-implement-use-reducer.md",
+  },
+  {
+    slug: "16-classic-coding-round",
+    track: "react",
+    level: "react",
+    number: 27,
+    kind: "course",
+    title: "Classic coding interview round",
+    summary: "React theory + debug + LeetCode (rand7, anagrams) — typical IL interview map.",
+    lessonPath: "content/lessons/react/16-classic-coding-round.md",
+  },
+  {
+    slug: "28-react-exercises-index",
+    track: "react",
+    level: "react",
+    number: 28,
+    kind: "course",
+    title: "10 React exercises — index",
+    summary: "All debug & implement exercises with commands and suggested order.",
+    lessonPath: "content/lessons/react/28-react-exercises-index.md",
   },
 ];
 
@@ -300,7 +430,7 @@ const typescriptLessons: LessonMeta[] = [
     kind: "course",
     title: "TypeScript — types, inference & narrowing",
     summary: "Structural typing, unknown, discriminated unions — with Verify it blocks.",
-    lessonPath: "lessons/typescript/01-types-and-narrowing.md",
+    lessonPath: "content/lessons/typescript/01-types-and-narrowing.md",
   },
   {
     slug: "02-generics-utility-types",
@@ -310,7 +440,7 @@ const typescriptLessons: LessonMeta[] = [
     kind: "course",
     title: "TypeScript — generics & utility types",
     summary: "Generics, keyof, Pick, Partial, satisfies — runnable examples.",
-    lessonPath: "lessons/typescript/02-generics-utility-types.md",
+    lessonPath: "content/lessons/typescript/02-generics-utility-types.md",
   },
   {
     slug: "03-interview-questions",
@@ -320,7 +450,7 @@ const typescriptLessons: LessonMeta[] = [
     kind: "course",
     title: "TypeScript — interview Q&A recap",
     summary: "any/unknown/never, strict null, React/Next typing, pitfalls.",
-    lessonPath: "lessons/typescript/03-interview-questions.md",
+    lessonPath: "content/lessons/typescript/03-interview-questions.md",
   },
   {
     slug: "quiz-questions",
@@ -330,7 +460,7 @@ const typescriptLessons: LessonMeta[] = [
     kind: "course",
     title: "TypeScript quiz — 20 questions (basic → pro)",
     summary: "Interactive quiz: your answer + accordion solution under each question.",
-    lessonPath: "lessons/typescript/quiz/questions.md",
+    lessonPath: "content/lessons/typescript/quiz/questions.md",
   },
 ];
 
@@ -343,7 +473,7 @@ const javascriptLessons: LessonMeta[] = [
     kind: "course",
     title: "JavaScript — basic interview Q&A",
     summary: "Types, scope, equality, arrays, functions — with TypeScript tie-ins.",
-    lessonPath: "lessons/javascript/01-basic-interview.md",
+    lessonPath: "content/lessons/javascript/01-basic-interview.md",
   },
   {
     slug: "02-medium-interview",
@@ -353,7 +483,7 @@ const javascriptLessons: LessonMeta[] = [
     kind: "course",
     title: "JavaScript — medium interview Q&A",
     summary: "Closures, this, prototypes, promises, event loop — with TypeScript examples.",
-    lessonPath: "lessons/javascript/02-medium-interview.md",
+    lessonPath: "content/lessons/javascript/02-medium-interview.md",
   },
   {
     slug: "03-hard-interview",
@@ -363,7 +493,7 @@ const javascriptLessons: LessonMeta[] = [
     kind: "course",
     title: "JavaScript — hard interview Q&A",
     summary: "Memory, concurrency, advanced patterns, TypeScript guards & utility types.",
-    lessonPath: "lessons/javascript/03-hard-interview.md",
+    lessonPath: "content/lessons/javascript/03-hard-interview.md",
   },
 ];
 
@@ -376,7 +506,7 @@ const nextjsLessons: LessonMeta[] = [
     kind: "course",
     title: "Next.js — overview & tooling",
     summary: "What Next adds to React, CLI, app/ structure, built-in modules.",
-    lessonPath: "lessons/nextjs/01-overview-and-tooling.md",
+    lessonPath: "content/lessons/nextjs/01-overview-and-tooling.md",
   },
   {
     slug: "02-app-router-routing",
@@ -386,7 +516,7 @@ const nextjsLessons: LessonMeta[] = [
     kind: "course",
     title: "Next.js — App Router & routing",
     summary: "page, layout, dynamic segments, Link, redirects, route groups.",
-    lessonPath: "lessons/nextjs/02-app-router-routing.md",
+    lessonPath: "content/lessons/nextjs/02-app-router-routing.md",
   },
   {
     slug: "03-server-client-components",
@@ -396,7 +526,7 @@ const nextjsLessons: LessonMeta[] = [
     kind: "course",
     title: "Next.js — Server vs Client Components",
     summary: "RSC, use client, composition, serializable props, Redux boundary.",
-    lessonPath: "lessons/nextjs/03-server-client-components.md",
+    lessonPath: "content/lessons/nextjs/03-server-client-components.md",
   },
   {
     slug: "04-route-handlers-api",
@@ -406,7 +536,7 @@ const nextjsLessons: LessonMeta[] = [
     kind: "course",
     title: "Next.js — Route Handlers (API)",
     summary: "REST in app/api, GET/POST, dynamic [id], this repo /api/products & cart.",
-    lessonPath: "lessons/nextjs/04-route-handlers-api.md",
+    lessonPath: "content/lessons/nextjs/04-route-handlers-api.md",
   },
   {
     slug: "05-data-fetching-caching",
@@ -416,7 +546,7 @@ const nextjsLessons: LessonMeta[] = [
     kind: "course",
     title: "Next.js — data fetching & caching",
     summary: "fetch cache, ISR, revalidatePath/tag, dynamic routes, Suspense.",
-    lessonPath: "lessons/nextjs/05-data-fetching-caching.md",
+    lessonPath: "content/lessons/nextjs/05-data-fetching-caching.md",
   },
   {
     slug: "06-layouts-loading-errors",
@@ -426,7 +556,7 @@ const nextjsLessons: LessonMeta[] = [
     kind: "course",
     title: "Next.js — layouts, loading & errors",
     summary: "layout.tsx, loading, error, not-found, metadata & SEO.",
-    lessonPath: "lessons/nextjs/06-layouts-loading-errors.md",
+    lessonPath: "content/lessons/nextjs/06-layouts-loading-errors.md",
   },
   {
     slug: "07-server-actions-forms",
@@ -436,7 +566,7 @@ const nextjsLessons: LessonMeta[] = [
     kind: "course",
     title: "Next.js — Server Actions & forms",
     summary: "use server, forms, revalidation, useActionState, vs Route Handlers.",
-    lessonPath: "lessons/nextjs/07-server-actions-forms.md",
+    lessonPath: "content/lessons/nextjs/07-server-actions-forms.md",
   },
   {
     slug: "08-middleware-auth-env",
@@ -446,7 +576,7 @@ const nextjsLessons: LessonMeta[] = [
     kind: "course",
     title: "Next.js — middleware, auth & env",
     summary: "Edge middleware, cookies, NEXT_PUBLIC_, security patterns.",
-    lessonPath: "lessons/nextjs/08-middleware-auth-env.md",
+    lessonPath: "content/lessons/nextjs/08-middleware-auth-env.md",
   },
   {
     slug: "09-config-build-deploy",
@@ -456,7 +586,7 @@ const nextjsLessons: LessonMeta[] = [
     kind: "course",
     title: "Next.js — config, build & deploy",
     summary: "next.config, images, build output, Vercel, Docker standalone.",
-    lessonPath: "lessons/nextjs/09-config-build-deploy.md",
+    lessonPath: "content/lessons/nextjs/09-config-build-deploy.md",
   },
   {
     slug: "10-interview-questions",
@@ -466,7 +596,7 @@ const nextjsLessons: LessonMeta[] = [
     kind: "course",
     title: "Next.js — interview Q&A recap",
     summary: "Full-stack Next interview cheat sheet: RSC, API, cache, deploy, Redux.",
-    lessonPath: "lessons/nextjs/10-interview-questions.md",
+    lessonPath: "content/lessons/nextjs/10-interview-questions.md",
   },
 ];
 
@@ -479,7 +609,7 @@ const cssLessons: LessonMeta[] = [
     kind: "course",
     title: "CSS — interview Q&A",
     summary: "Layout, specificity, responsive, performance, a11y, CSS in React/Next.",
-    lessonPath: "lessons/css/01-interview-questions.md",
+    lessonPath: "content/lessons/css/01-interview-questions.md",
   },
   {
     slug: "02-styling-libraries",
@@ -489,7 +619,7 @@ const cssLessons: LessonMeta[] = [
     kind: "course",
     title: "CSS — styling libraries & approaches",
     summary: "Tailwind, CSS Modules, Sass, CSS-in-JS, shadcn/ui — when to pick what.",
-    lessonPath: "lessons/css/02-styling-libraries.md",
+    lessonPath: "content/lessons/css/02-styling-libraries.md",
   },
 ];
 
@@ -502,7 +632,7 @@ const tailwindLessons: LessonMeta[] = [
     kind: "course",
     title: "Tailwind — setup with Next.js",
     summary: "Tailwind v4, PostCSS, globals.css, @import, zero runtime.",
-    lessonPath: "lessons/tailwind/01-setup-nextjs.md",
+    lessonPath: "content/lessons/tailwind/01-setup-nextjs.md",
   },
   {
     slug: "02-utility-first",
@@ -512,7 +642,7 @@ const tailwindLessons: LessonMeta[] = [
     kind: "course",
     title: "Tailwind — utility-first fundamentals",
     summary: "className, design tokens, merging classes, when utilities beat custom CSS.",
-    lessonPath: "lessons/tailwind/02-utility-first.md",
+    lessonPath: "content/lessons/tailwind/02-utility-first.md",
   },
   {
     slug: "03-layout-flex-grid",
@@ -522,7 +652,7 @@ const tailwindLessons: LessonMeta[] = [
     kind: "course",
     title: "Tailwind — Flexbox & Grid",
     summary: "flex, grid, gap, align, justify, responsive layouts in React.",
-    lessonPath: "lessons/tailwind/03-layout-flex-grid.md",
+    lessonPath: "content/lessons/tailwind/03-layout-flex-grid.md",
   },
   {
     slug: "04-spacing-sizing-typography",
@@ -532,7 +662,7 @@ const tailwindLessons: LessonMeta[] = [
     kind: "course",
     title: "Tailwind — spacing, sizing & typography",
     summary: "p/m, w/h, max-w, text-*, font-*, leading, tracking.",
-    lessonPath: "lessons/tailwind/04-spacing-sizing-typography.md",
+    lessonPath: "content/lessons/tailwind/04-spacing-sizing-typography.md",
   },
   {
     slug: "05-colors-borders-shadows",
@@ -542,7 +672,7 @@ const tailwindLessons: LessonMeta[] = [
     kind: "course",
     title: "Tailwind — colors, borders & shadows",
     summary: "bg-, text-, border-, ring-, shadow-, opacity, gradients.",
-    lessonPath: "lessons/tailwind/05-colors-borders-shadows.md",
+    lessonPath: "content/lessons/tailwind/05-colors-borders-shadows.md",
   },
   {
     slug: "06-responsive",
@@ -552,7 +682,7 @@ const tailwindLessons: LessonMeta[] = [
     kind: "course",
     title: "Tailwind — responsive design",
     summary: "sm/md/lg/xl breakpoints, mobile-first, container, hidden/show.",
-    lessonPath: "lessons/tailwind/06-responsive.md",
+    lessonPath: "content/lessons/tailwind/06-responsive.md",
   },
   {
     slug: "07-states-pseudo",
@@ -562,7 +692,7 @@ const tailwindLessons: LessonMeta[] = [
     kind: "course",
     title: "Tailwind — states & pseudo-classes",
     summary: "hover, focus, active, disabled, first/last, odd/even, aria-*.",
-    lessonPath: "lessons/tailwind/07-states-pseudo.md",
+    lessonPath: "content/lessons/tailwind/07-states-pseudo.md",
   },
   {
     slug: "08-dark-mode",
@@ -572,7 +702,7 @@ const tailwindLessons: LessonMeta[] = [
     kind: "course",
     title: "Tailwind — dark mode",
     summary: "dark: variant, prefers-color-scheme, class vs media strategy.",
-    lessonPath: "lessons/tailwind/08-dark-mode.md",
+    lessonPath: "content/lessons/tailwind/08-dark-mode.md",
   },
   {
     slug: "09-transitions-animations",
@@ -582,7 +712,7 @@ const tailwindLessons: LessonMeta[] = [
     kind: "course",
     title: "Tailwind — transitions & animations",
     summary: "transition, duration, ease, animate-*, motion-safe, micro-interactions.",
-    lessonPath: "lessons/tailwind/09-transitions-animations.md",
+    lessonPath: "content/lessons/tailwind/09-transitions-animations.md",
   },
   {
     slug: "10-theme-customization",
@@ -592,7 +722,7 @@ const tailwindLessons: LessonMeta[] = [
     kind: "course",
     title: "Tailwind — theme & customization",
     summary: "@theme, CSS variables, extend tokens, plugins overview (v4).",
-    lessonPath: "lessons/tailwind/10-theme-customization.md",
+    lessonPath: "content/lessons/tailwind/10-theme-customization.md",
   },
   {
     slug: "11-react-patterns",
@@ -602,7 +732,7 @@ const tailwindLessons: LessonMeta[] = [
     kind: "course",
     title: "Tailwind — React component patterns",
     summary: "Conditional className, variants, cn/clsx, compound components.",
-    lessonPath: "lessons/tailwind/11-react-patterns.md",
+    lessonPath: "content/lessons/tailwind/11-react-patterns.md",
   },
   {
     slug: "12-forms-a11y",
@@ -612,7 +742,7 @@ const tailwindLessons: LessonMeta[] = [
     kind: "course",
     title: "Tailwind — forms & accessibility",
     summary: "Input styling, focus-visible, sr-only, ring offsets, labels.",
-    lessonPath: "lessons/tailwind/12-forms-a11y.md",
+    lessonPath: "content/lessons/tailwind/12-forms-a11y.md",
   },
   {
     slug: "13-advanced-selectors",
@@ -622,7 +752,7 @@ const tailwindLessons: LessonMeta[] = [
     kind: "course",
     title: "Tailwind — advanced selectors & arbitrary values",
     summary: "group/peer, has:, arbitrary props, container queries, @layer.",
-    lessonPath: "lessons/tailwind/13-advanced-selectors.md",
+    lessonPath: "content/lessons/tailwind/13-advanced-selectors.md",
   },
   {
     slug: "14-nextjs-integration",
@@ -632,7 +762,7 @@ const tailwindLessons: LessonMeta[] = [
     kind: "course",
     title: "Tailwind — Next.js & RSC integration",
     summary: "Server Components, next/font, layouts, per-route styles, purge.",
-    lessonPath: "lessons/tailwind/14-nextjs-integration.md",
+    lessonPath: "content/lessons/tailwind/14-nextjs-integration.md",
   },
   {
     slug: "15-interview-questions",
@@ -642,7 +772,7 @@ const tailwindLessons: LessonMeta[] = [
     kind: "course",
     title: "Tailwind — interview Q&A recap",
     summary: "Tradeoffs, performance, readability, vs CSS Modules, common pitfalls.",
-    lessonPath: "lessons/tailwind/15-interview-questions.md",
+    lessonPath: "content/lessons/tailwind/15-interview-questions.md",
   },
 ];
 
@@ -655,7 +785,7 @@ const aiLessons: LessonMeta[] = [
     kind: "course",
     title: "AI for coding — mindset & VERIFY workflow",
     summary: "When to use AI, when to slow down, verify-before-merge loop.",
-    lessonPath: "lessons/ai/01-mindset-and-workflow.md",
+    lessonPath: "content/lessons/ai/01-mindset-and-workflow.md",
   },
   {
     slug: "02-prompts-and-context",
@@ -665,7 +795,7 @@ const aiLessons: LessonMeta[] = [
     kind: "course",
     title: "AI for coding — prompts & context",
     summary: "Prompt templates, @ files, iteration, good vs bad requests.",
-    lessonPath: "lessons/ai/02-prompts-and-context.md",
+    lessonPath: "content/lessons/ai/02-prompts-and-context.md",
   },
   {
     slug: "03-skills-rules-and-docs",
@@ -675,7 +805,7 @@ const aiLessons: LessonMeta[] = [
     kind: "course",
     title: "AI for coding — Skills, Rules & AGENTS.md",
     summary: "Cursor Skills vs Rules, .cursorignore, project playbooks.",
-    lessonPath: "lessons/ai/03-skills-rules-and-docs.md",
+    lessonPath: "content/lessons/ai/03-skills-rules-and-docs.md",
   },
   {
     slug: "04-documentation-for-ai",
@@ -685,7 +815,7 @@ const aiLessons: LessonMeta[] = [
     kind: "course",
     title: "AI for coding — documentation that helps",
     summary: "README structure, ADRs, types as docs, repo map for agents.",
-    lessonPath: "lessons/ai/04-documentation-for-ai.md",
+    lessonPath: "content/lessons/ai/04-documentation-for-ai.md",
   },
   {
     slug: "05-review-tests-security",
@@ -695,7 +825,7 @@ const aiLessons: LessonMeta[] = [
     kind: "course",
     title: "AI for coding — review, tests & security",
     summary: "Diff review checklist, hallucinations, secrets, CI bar.",
-    lessonPath: "lessons/ai/05-review-tests-security.md",
+    lessonPath: "content/lessons/ai/05-review-tests-security.md",
   },
   {
     slug: "06-interview-talking-points",
@@ -705,7 +835,7 @@ const aiLessons: LessonMeta[] = [
     kind: "course",
     title: "AI for coding — interview Q&A",
     summary: "How to talk about AI tools professionally in interviews.",
-    lessonPath: "lessons/ai/06-interview-talking-points.md",
+    lessonPath: "content/lessons/ai/06-interview-talking-points.md",
   },
 ];
 
@@ -718,7 +848,7 @@ const librariesLessons: LessonMeta[] = [
     kind: "course",
     title: "Essential front-end libraries",
     summary: "React Query, Zustand, Zod, React Hook Form, testing libs — what & why.",
-    lessonPath: "lessons/libraries/01-essential-libraries.md",
+    lessonPath: "content/lessons/libraries/01-essential-libraries.md",
   },
   {
     slug: "02-ui-and-tooling",
@@ -728,7 +858,7 @@ const librariesLessons: LessonMeta[] = [
     kind: "course",
     title: "UI kits, bundlers & DX tooling",
     summary: "Radix, MUI, Vite, ESLint, Prettier, Storybook — interview talking points.",
-    lessonPath: "lessons/libraries/02-ui-and-tooling.md",
+    lessonPath: "content/lessons/libraries/02-ui-and-tooling.md",
   },
 ];
 

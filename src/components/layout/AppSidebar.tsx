@@ -43,6 +43,7 @@ export function AppSidebar() {
   const isInterviews = pathname.startsWith("/interviews");
   const isAlgo = pathname.startsWith("/algo");
   const isNodejs = pathname.startsWith("/nodejs");
+  const isExpress = pathname.startsWith("/express");
   const isDemo = pathname.startsWith("/demo");
 
   const sidebarNav = (
@@ -77,6 +78,13 @@ export function AppSidebar() {
         onClick={() => setOpen(false)}
       >
         Node.js backend
+      </Link>
+      <Link
+        href="/express"
+        className={linkClass(isExpress)}
+        onClick={() => setOpen(false)}
+      >
+        Express servers
       </Link>
 
       <p className="mb-1 mt-5 px-3 text-[11px] font-semibold uppercase tracking-wider text-zinc-400 dark:text-zinc-500">

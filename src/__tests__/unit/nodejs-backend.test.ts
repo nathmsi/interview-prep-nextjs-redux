@@ -31,10 +31,10 @@ describe("nodejs-backend catalog", () => {
     const exercise = getNodeExercise("01-http-fundamentals", "01-parse-url");
     expect(exercise?.functionName).toBe("parseUrl");
     expect(exercise?.exercisePath).toBe(
-      "src/exercises/nodejs-backend/01-http-fundamentals/01-parse-url"
+      "content/exercises/nodejs-backend/01-http-fundamentals/01-parse-url"
     );
     expect(exercise?.lessonPath).toBe(
-      "lessons/nodejs-backend/01-http-fundamentals/01-parse-url.md"
+      "content/lessons/nodejs-backend/01-http-fundamentals/01-parse-url.md"
     );
   });
 

@@ -18,7 +18,7 @@ export const interviews: InterviewPrep[] = [
     location: "Tel Aviv — Virtual",
     summary:
       "6 cas pratiques · pseudo-code · réponses modèles · tradeoffs · edge cases",
-    markdownPath: "lessons/interviews/monday-com-e2e.md",
+    markdownPath: "content/lessons/interviews/monday-com-e2e.md",
   },
 ];
 

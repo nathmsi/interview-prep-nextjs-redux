@@ -45,7 +45,7 @@ export default defineConfig({
         extends: true,
         test: {
           name: "exercises",
-          include: ["src/exercises/**/*.test.{ts,tsx}"],
+          include: ["content/exercises/**/*.test.{ts,tsx}"],
           environment: "jsdom",
           setupFiles: ["./src/test/setup.ts"],
         },

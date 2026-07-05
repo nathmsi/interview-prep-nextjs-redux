@@ -1,3 +1,5 @@
+import { exercisePath, lessonPath } from "./content-paths";
+
 export type NodeExercise = {
   slug: string;
   number: number;
@@ -44,9 +46,9 @@ function exerciseMeta(
     summary,
     pattern,
     functionName,
-    exercisePath: `src/exercises/nodejs-backend/${categoryFolder}/${slug}`,
+    exercisePath: exercisePath("nodejs-backend", categoryFolder, slug),
     testCommand,
-    lessonPath: `lessons/nodejs-backend/${categoryFolder}/${slug}.md`,
+    lessonPath: lessonPath("nodejs-backend", categoryFolder, `${slug}.md`),
   };
 }
 

@@ -1,3 +1,5 @@
+import { exercisePath, lessonPath } from "./content-paths";
+
 export type AlgoExercise = {
   slug: string;
   number: number;
@@ -44,9 +46,9 @@ function exerciseMeta(
     summary,
     pattern,
     functionName,
-    exercisePath: `src/exercises/algo/${categoryFolder}/${slug}`,
+    exercisePath: exercisePath("algo", categoryFolder, slug),
     testCommand,
-    lessonPath: `lessons/algo/${categoryFolder}/${slug}.md`,
+    lessonPath: lessonPath("algo", categoryFolder, `${slug}.md`),
   };
 }
 
@@ -64,6 +66,8 @@ const hashmapExercises: AlgoExercise[] = [
   exerciseMeta("02-hashmap-set", "01-two-sum", 1, "Two Sum", "Find two indices whose values add up to target.", "HashMap", "twoSum", "npm run algo:08"),
   exerciseMeta("02-hashmap-set", "02-group-anagrams", 2, "Group Anagrams", "Group words that are anagrams of each other.", "HashMap", "groupAnagrams", "npm run algo:09"),
   exerciseMeta("02-hashmap-set", "03-contains-duplicate", 3, "Contains Duplicate", "Return true if any value appears twice.", "Set", "containsDuplicate", "npm run algo:10"),
+  exerciseMeta("02-hashmap-set", "04-valid-anagram", 4, "Valid Anagram", "Check if two strings are anagrams of each other.", "HashMap / sort", "isAnagram", "npm run algo:55"),
+  exerciseMeta("02-hashmap-set", "05-find-anagrams-in-string", 5, "Find Anagrams in String", "All start indices where a substring is an anagram of p.", "Sliding window", "findAnagrams", "npm run algo:56"),
 ];
 
 const twoPointerExercises: AlgoExercise[] = [
@@ -126,6 +130,7 @@ const fullstackExercises: AlgoExercise[] = [
   exerciseMeta("08-fullstack-js", "26-event-emitter", 26, "Event Emitter", "Minimal pub/sub with on, off, emit.", "Map + Set", "EventEmitter", "npm run algo:52"),
   exerciseMeta("08-fullstack-js", "27-ttl-cache", 27, "TTL Cache", "Key-value cache with per-entry expiration.", "Map + timers", "TTLCache", "npm run algo:53"),
   exerciseMeta("08-fullstack-js", "28-sleep", 28, "Sleep", "Promise that resolves after ms.", "Promises + timers", "sleep", "npm run algo:54"),
+  exerciseMeta("08-fullstack-js", "29-rand7", 29, "Rand7 from Rand5", "Uniform random 1–7 using only rand5 (rejection sampling).", "Probability", "rand7", "npm run algo:57"),
 ];
 
 export const algoSections: AlgoSection[] = [
@@ -161,7 +166,7 @@ export const algoSections: AlgoSection[] = [
     slug: "02-hashmap-set",
     number: 2,
     title: "HashMap / Set",
-    description: "Two Sum, group anagrams, frequency counts — O(1) lookups.",
+    description: "Two Sum, anagrams, sliding window on strings — O(1) lookups.",
     available: true,
     folder: "02-hashmap-set",
     subsections: [

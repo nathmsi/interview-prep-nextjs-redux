@@ -740,7 +740,7 @@ function writeExercise([section, slug, num, global, title, summary, pattern, fn]
   const detail = EXERCISE_DETAILS[slug];
   if (!detail) throw new Error(`Missing detail for ${slug}`);
 
-  const dir = path.join(ROOT, "src/exercises/nodejs-backend", section, slug);
+  const dir = path.join(ROOT, "content/exercises/nodejs-backend", section, slug);
   fs.mkdirSync(dir, { recursive: true });
 
   const testCmd = `npm run node:${String(global).padStart(2, "0")}`;
@@ -874,13 +874,13 @@ export function signJwt(payload: JwtPayload, secret: string): string {
   let tests = detail.tests.replace(/describe\("[^"]+"/, `describe("${describePath}"`);
   fs.writeFileSync(path.join(dir, "exercise.test.ts"), tests);
 
-  const lessonDir = path.join(ROOT, "lessons/nodejs-backend", section);
+  const lessonDir = path.join(ROOT, "content/lessons/nodejs-backend", section);
   fs.mkdirSync(lessonDir, { recursive: true });
   const lesson = `# Node.js ${String(global).padStart(2, "0")} — ${title}
 
 > **Pattern:** ${pattern}  
 > **Function:** \`${fn}\`  
-> **Exercise:** \`src/exercises/nodejs-backend/${section}/${slug}/\`
+> **Exercise:** \`content/exercises/nodejs-backend/${section}/${slug}/\`
 
 ## Problem
 

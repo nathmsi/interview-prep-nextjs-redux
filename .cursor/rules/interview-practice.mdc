@@ -7,7 +7,7 @@ alwaysApply: true
 
 This repo is for **learning and interview preparation**. The user solves exercises without AI help.
 
-## When editing `src/exercises/**`
+## When editing `content/exercises/**`
 
 - Do **not** fill in TODOs or write full solutions unless the user explicitly asks.
 - Give hints, concepts, or point to the lesson — not copy-paste answers.

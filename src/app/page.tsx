@@ -7,13 +7,20 @@ import {
   nodeSections,
   totalAvailableNodeExercises,
 } from "@/lib/nodejs-backend";
+import {
+  expressHref,
+  expressSections,
+  totalAvailableExpressExercises,
+} from "@/lib/nodejs-express";
 import { subjects } from "@/lib/subjects";
 
 export default function HomePage() {
   const algoCount = totalAvailableExercises();
   const nodeCount = totalAvailableNodeExercises();
+  const expressCount = totalAvailableExpressExercises();
   const firstAlgoSection = algoSections.find((s) => s.available);
   const firstNodeSection = nodeSections.find((s) => s.available);
+  const firstExpressSection = expressSections.find((s) => s.available);
   return (
     <div className="space-y-10">
       <header className="space-y-3">
@@ -62,6 +69,35 @@ export default function HomePage() {
             Toutes les fiches sur{" "}
             <Link href="/interviews" className="font-medium underline">
               /interviews
+            </Link>
+            .
+          </p>
+        </section>
+      )}
+
+      {firstExpressSection && (
+        <section>
+          <h2 className="mb-4 text-sm font-semibold uppercase tracking-wide text-zinc-500">
+            Express server exercises
+          </h2>
+          <Link
+            href={expressHref(firstExpressSection.slug)}
+            className="block rounded-lg border border-violet-200 bg-violet-50/80 p-4 transition-colors hover:border-violet-300 dark:border-violet-900/60 dark:bg-violet-950/30 dark:hover:border-violet-800"
+          >
+            <p className="font-medium text-zinc-900 dark:text-zinc-50">
+              {firstExpressSection.title}
+            </p>
+            <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-400">
+              {firstExpressSection.description}
+            </p>
+            <p className="mt-2 text-sm text-zinc-500">
+              {expressCount} real Express apps · supertest, Zod, bcrypt, JWT
+            </p>
+          </Link>
+          <p className="mt-3 text-sm text-zinc-500">
+            Guide + index on{" "}
+            <Link href="/express" className="font-medium underline">
+              /express
             </Link>
             .
           </p>
@@ -151,7 +187,7 @@ export default function HomePage() {
         <p className="mt-2 text-zinc-500">
           Hands-on Redux / Next.js labs stay in{" "}
           <code className="rounded bg-white px-1 dark:bg-zinc-950">
-            src/exercises/easy|medium|hard/
+            content/exercises/easy|medium|hard/
           </code>{" "}
           — run{" "}
           <code className="rounded bg-white px-1 dark:bg-zinc-950">
@@ -164,6 +200,10 @@ export default function HomePage() {
           . Node.js backend exercises are on{" "}
           <Link href="/nodejs" className="font-medium underline">
             /nodejs
+          </Link>
+          . Express server labs are on{" "}
+          <Link href="/express" className="font-medium underline">
+            /express
           </Link>
           .
         </p>

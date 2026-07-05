@@ -10,7 +10,7 @@ Technical interview preparation for **front-end developers**: JavaScript, TypeSc
 |---------|---------|
 | **JavaScript** | Basic / medium / hard Q&A (+ TypeScript tie-ins) |
 | **TypeScript** | 20-question interactive quiz |
-| **React** | 14 hook lessons + quiz |
+| **React** | 14 hook lessons + quiz + 10 coding exercises |
 | **Next.js** | 10-lesson framework course (App Router, API, RSC…) |
 | **CSS** | Interview Q&A + styling libraries (Tailwind, Modules, shadcn…) |
 | **Libraries** | What to use and why (React Query, Zod, RHF, testing…) |
@@ -20,14 +20,27 @@ Browse: `npm run dev` → http://localhost:3000
 
 Each subject has its own page: `/subjects/javascript`, `/subjects/css`, `/subjects/react`, etc.
 
-## Hands-on exercises (repo only, not in site UI)
-
-Redux + Next.js labs remain under:
+## Repository layout
 
 ```
-src/exercises/{easy|medium|hard}/
-solutions/{easy|medium|hard}/
-lessons/{easy|medium|hard}/*.md
+content/
+  lessons/      ← markdown courses (theory + exercise instructions)
+  exercises/    ← coding stubs + Vitest tests (your workspace)
+src/
+  app/          ← Next.js routes (/lessons, /algo, /nodejs, /express…)
+  lib/          ← metadata registries linking lessons ↔ exercises
+solutions/      ← reference answers (verify with npm run test:solutions)
+```
+
+See [content/README.md](./content/README.md) for the full curriculum map.
+
+## Hands-on exercises
+
+Redux + Next.js labs:
+
+```
+content/exercises/{easy|medium|hard}/
+content/lessons/{easy|medium|hard}/*.md
 ```
 
 ```bash
@@ -48,13 +61,4 @@ npm run test:all
 npm run build
 ```
 
-## Structure
-
-```
-lessons/{javascript|typescript|react|nextjs|css|libraries}/  ← courses (web UI)
-src/app/lessons/          ← lesson pages
-src/exercises/            ← coding labs (local)
-src/app/api/              ← Route Handlers for exercises
-```
-
-Index: [lessons/README.md](./lessons/README.md)
+Index: [content/lessons/README.md](./content/lessons/README.md)

@@ -68,7 +68,7 @@ export const subjects: Subject[] = [
   {
     id: "react",
     label: "React",
-    description: "Hooks (React 19), patterns, and a 20-question interview quiz.",
+    description: "Hooks (React 19), 10 hands-on exercises, patterns, and a 20-question quiz.",
     tracks: ["react"],
     entryHref: "/lessons/react/01-use-state",
   },
