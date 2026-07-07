@@ -40,7 +40,6 @@ export function AppSidebar() {
 
   const isHome = pathname === "/";
   const isSubjectsIndex = pathname === "/subjects";
-  const isInterviews = pathname.startsWith("/interviews");
   const isAlgo = pathname.startsWith("/algo");
   const isNodejs = pathname.startsWith("/nodejs");
   const isExpress = pathname.startsWith("/express");
@@ -57,13 +56,6 @@ export function AppSidebar() {
         onClick={() => setOpen(false)}
       >
         All lessons
-      </Link>
-      <Link
-        href="/interviews"
-        className={linkClass(isInterviews)}
-        onClick={() => setOpen(false)}
-      >
-        Interview angles
       </Link>
       <Link
         href="/algo"

@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { SubjectCard } from "@/components/layout/SubjectCard";
 import { algoHref, algoSections, totalAvailableExercises } from "@/lib/algo";
-import { interviewHref, interviews } from "@/lib/interviews";
 import {
   nodeHref,
   nodeSections,
@@ -34,46 +33,6 @@ export default function HomePage() {
           in your editor.
         </p>
       </header>
-
-      {interviews.length > 0 && (
-        <section>
-          <h2 className="mb-4 text-sm font-semibold uppercase tracking-wide text-zinc-500">
-            Interview prep
-          </h2>
-          <ul className="space-y-3">
-            {interviews.map((interview) => (
-              <li key={interview.slug}>
-                <Link
-                  href={interviewHref(interview.slug)}
-                  className="group block overflow-hidden rounded-2xl border border-violet-200 bg-gradient-to-br from-white to-violet-50/80 transition hover:border-violet-300 hover:shadow-lg hover:shadow-violet-500/10 dark:border-violet-900/50 dark:from-zinc-900 dark:to-violet-950/30"
-                >
-                  <div className="border-b border-violet-100 bg-gradient-to-r from-violet-600 to-fuchsia-600 px-4 py-3 dark:border-violet-900">
-                    <p className="text-xs font-semibold uppercase tracking-wider text-violet-200">
-                      {interview.company}
-                    </p>
-                    <p className="font-semibold text-white">{interview.role}</p>
-                  </div>
-                  <div className="p-4">
-                    <p className="text-sm text-zinc-600 dark:text-zinc-400">
-                      {interview.date} · {interview.summary}
-                    </p>
-                    <p className="mt-2 text-sm font-medium text-violet-700 group-hover:underline dark:text-violet-300">
-                      Ouvrir →
-                    </p>
-                  </div>
-                </Link>
-              </li>
-            ))}
-          </ul>
-          <p className="mt-3 text-sm text-zinc-500">
-            Toutes les fiches sur{" "}
-            <Link href="/interviews" className="font-medium underline">
-              /interviews
-            </Link>
-            .
-          </p>
-        </section>
-      )}
 
       {firstExpressSection && (
         <section>
