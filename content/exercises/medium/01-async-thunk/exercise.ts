@@ -23,9 +23,9 @@ export const loadProducts = createAsyncThunk<
   void,
   { rejectValue: string }
 >("exercise/products/load", async (_arg, { rejectWithValue }) => {
-  const res = await fetch('/api/products');
-  if (!res.ok) return rejectWithValue(`HTTP ${res.status}`);
-  return res.json();
+  // TODO: your code here
+  void rejectWithValue;
+  return [];
 });
 
 export const productsExerciseReducer = createSlice({
@@ -33,15 +33,7 @@ export const productsExerciseReducer = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder
-      .addCase(loadProducts.pending, (state) => { state.status = "loading"; })
-      .addCase(loadProducts.fulfilled, (state, action) => {
-        state.status = "succeeded";
-        state.items = action.payload;
-      })
-      .addCase(loadProducts.rejected, (state, action) => {
-        state.status = "failed";
-        state.error = action.payload ?? "Error";
-      });
+    // TODO: your code here — handle loadProducts.pending/fulfilled/rejected
+    void builder;
   },
 }).reducer;

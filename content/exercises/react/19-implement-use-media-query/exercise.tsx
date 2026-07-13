@@ -1,11 +1,11 @@
 /**
  * EXERCISE react/19 — Implement useMediaQuery
  *
- * Implémente `useMediaQuery(query)` qui renvoie un booléen indiquant si la
- * media query CSS `query` matche actuellement :
- * - Utilise `window.matchMedia(query)` pour l'état initial.
- * - S'abonne à l'événement "change" du MediaQueryList pour rester à jour.
- * - Se désabonne proprement au démontage / si `query` change.
+ * Implement `useMediaQuery(query)` that returns a boolean indicating
+ * whether the CSS media query `query` currently matches:
+ * - Uses `window.matchMedia(query)` for the initial state.
+ * - Subscribes to the MediaQueryList "change" event to stay up to date.
+ * - Unsubscribes cleanly on unmount / when `query` changes.
  *
  * Run: npm run react:19
  */
@@ -15,7 +15,7 @@
 import { useEffect, useState } from "react";
 
 // ---------------------------------------------------------------------------
-// À implémenter
+// To implement
 // ---------------------------------------------------------------------------
 
 export function useMediaQuery(query: string): boolean {
@@ -26,7 +26,7 @@ export function useMediaQuery(query: string): boolean {
 }
 
 // ---------------------------------------------------------------------------
-// Démo — ne pas modifier
+// Demo — do not modify
 // ---------------------------------------------------------------------------
 
 export function ResponsiveLabel() {

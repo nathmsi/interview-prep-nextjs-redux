@@ -1,16 +1,16 @@
 /**
  * EXERCISE react/15 — Implement useLocalStorage
  *
- * Implémente `useLocalStorage(key, initialValue)` qui se comporte comme
- * `useState`, mais persiste la valeur dans `localStorage` :
- * - Au montage, lit `localStorage.getItem(key)` : s'il existe, l'utilise
- *   (parsé en JSON) comme valeur initiale, sinon utilise `initialValue`.
- * - Le setter retourné accepte une valeur ou une fonction updater (comme
- *   `setState`), met à jour l'état ET écrit la nouvelle valeur dans
- *   `localStorage` (sérialisée en JSON) sous `key`.
+ * Implement `useLocalStorage(key, initialValue)` that behaves like
+ * `useState`, but persists the value to `localStorage`:
+ * - On mount, reads `localStorage.getItem(key)`: if it exists, uses it
+ *   (parsed as JSON) as the initial value, otherwise uses `initialValue`.
+ * - The returned setter accepts a value or an updater function (like
+ *   `setState`), updates the state AND writes the new value to
+ *   `localStorage` (serialized as JSON) under `key`.
  *
- * Indice : useState avec une fonction d'initialisation paresseuse pour lire
- * localStorage une seule fois.
+ * Hint: useState with a lazy initializer function to read localStorage
+ * only once.
  *
  * Run: npm run react:15
  */
@@ -20,7 +20,7 @@
 import { useState } from "react";
 
 // ---------------------------------------------------------------------------
-// À implémenter
+// To implement
 // ---------------------------------------------------------------------------
 
 export function useLocalStorage<T>(
@@ -38,7 +38,7 @@ export function useLocalStorage<T>(
 }
 
 // ---------------------------------------------------------------------------
-// Démo — ne pas modifier
+// Demo — do not modify
 // ---------------------------------------------------------------------------
 
 export function PersistedCounter() {

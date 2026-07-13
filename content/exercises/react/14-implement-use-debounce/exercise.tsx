@@ -1,15 +1,15 @@
 /**
  * EXERCISE react/14 — Implement useDebounce
  *
- * Implémente `useDebounce(value, delay)` qui renvoie une version "retardée"
- * de `value` :
- * - Au montage, renvoie la valeur initiale.
- * - Quand `value` change, attend `delay` ms AVANT de mettre à jour la valeur
- *   renvoyée. Si `value` rechange avant la fin du délai, le timer précédent
- *   est annulé (debounce).
+ * Implement `useDebounce(value, delay)` that returns a "delayed" version of
+ * `value`:
+ * - On mount, returns the initial value.
+ * - When `value` changes, waits `delay` ms BEFORE updating the returned
+ *   value. If `value` changes again before the delay ends, the previous
+ *   timer is cancelled (debounce).
  *
- * Indice : useState pour la valeur debouncée, useEffect + setTimeout, et
- * n'oublie pas de nettoyer le timer dans la fonction de cleanup.
+ * Hint: useState for the debounced value, useEffect + setTimeout, and don't
+ * forget to clean up the timer in the cleanup function.
  *
  * Run: npm run react:14
  */
@@ -19,27 +19,21 @@
 import { useEffect, useState } from "react";
 
 // ---------------------------------------------------------------------------
-// À implémenter
+// To implement
 // ---------------------------------------------------------------------------
 
 
 export function useDebounce<T>(value: T, delay: number): T | null {
-  const [debounceValue,setDebounceValue] = useState<T | null>(null);
-
-  useEffect(()=>{
-    const idTimeOut = setTimeout(()=>{
-      setDebounceValue(value);
-    },delay);
-    return () => {
-      clearTimeout(idTimeOut);
-    }
-  },[value,delay]);
-  return debounceValue;
+  // TODO: your code here
+  const [debouncedValue] = useState<T | null>(null);
+  void value;
+  void delay;
+  return debouncedValue;
 }
 
 
 // ---------------------------------------------------------------------------
-// Démo — ne pas modifier
+// Demo — do not modify
 // ---------------------------------------------------------------------------
 
 export function SearchBox() {
@@ -52,7 +46,7 @@ export function SearchBox() {
         data-testid="input"
         value={text}
         onChange={(e) => setText(e.target.value)}
-        placeholder="Rechercher..."
+        placeholder="Search..."
       />
       <span data-testid="debounced">{debounced}</span>
     </div>

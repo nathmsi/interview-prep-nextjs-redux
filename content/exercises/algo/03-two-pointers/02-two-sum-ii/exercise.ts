@@ -15,22 +15,6 @@
  */
 
 export function twoSumII(nums: number[], target: number): [number, number] | null {
-  let left = 0;
-  let right = nums.length - 1;
-
-  while (left < right) {
-    const sum = nums[left] + nums[right];
-
-    if (sum === target) {
-      return [left + 1, right + 1];
-    }
-
-    if (sum < target) {
-      left++;
-    } else {
-      right--;
-    }
-  }
-
+  // TODO: your code here
   return null;
 }

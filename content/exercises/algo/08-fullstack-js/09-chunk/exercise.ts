@@ -14,27 +14,7 @@
  */
 
 export function chunk<T>(items: T[], size: number): T[][] {
-  
-
-  const copiedItems = [...items];
-  const result: Array<T>[] = [];
-
-  let i = 0;
-  let j = 0;
-  while(copiedItems.length > 0) {
-    if (i === size) {
-      i = 0;
-      j++;
-    }
-    const items = copiedItems.shift();
-    if (items) {
-      if (!result[j]) {
-        result[j] = []
-      }
-      result[j].push(items);
-    }
-    i++;
-  }
-
-  return result;
+  // TODO: your code here
+  void size;
+  return [items];
 }

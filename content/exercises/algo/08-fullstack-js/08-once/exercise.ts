@@ -14,13 +14,6 @@
 export function once<T extends (...args: unknown[]) => unknown>(
   fn: T,
 ): (...args: Parameters<T>) => ReturnType<T> {
-  let result: unknown = null;
-
-  return (...args) => {
-    if (result) {
-      return result as ReturnType<T>;
-    }
-    result = fn(...args);
-    return result as ReturnType<T>;
-  };
+  // TODO: your code here
+  return fn as (...args: Parameters<T>) => ReturnType<T>;
 }

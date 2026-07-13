@@ -20,20 +20,24 @@ export function ProductSearch({
   const [term, setTerm] = useState("");
 
   const onSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const value = event.target.value;
-    setTerm(value);
+    setTerm(event.target.value);
   };
 
-  
+  // TODO: your code here — filter `products` by `term` (case-insensitive)
+  const visible = products;
+
   return (
     <div>
-      <input data-testid="search" type="search" value={term} onChange={onSearchChange} />
+      <input
+        data-testid="search"
+        type="search"
+        value={term}
+        onChange={onSearchChange}
+      />
       <ul data-testid="list">
-        {products
-          .filter((product) => product.name.toLowerCase().includes(term.toLowerCase()))
-          .map((product) => (
-            <li key={product.id}>{product.name}</li>
-          ))}
+        {visible.map((product) => (
+          <li key={product.id}>{product.name}</li>
+        ))}
       </ul>
     </div>
   );

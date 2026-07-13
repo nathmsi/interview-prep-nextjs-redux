@@ -11,8 +11,9 @@
 import { useState } from "react";
 
 export function useToggle(initial = false): [boolean, () => void] {
-  const [value, setValue] = useState(initial);
-  return [value, ()=> setValue(old => !old)];
+  // TODO: your code here
+  const [value] = useState(initial);
+  return [value, () => {}];
 }
 
 export function ToggleButton(): React.ReactElement {

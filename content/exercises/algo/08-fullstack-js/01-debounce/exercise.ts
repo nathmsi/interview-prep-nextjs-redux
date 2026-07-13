@@ -15,12 +15,7 @@ export function debounce<T extends (...args: unknown[]) => void>(
   fn: T,
   wait: number,
 ): (...args: Parameters<T>) => void {
-  let idInterval: NodeJS.Timeout | null = null;
-  return (...args: Parameters<T>) => {
-    if (idInterval) {
-      clearTimeout(idInterval);
-      idInterval = null;
-    }
-    idInterval = setTimeout(() => fn(...args), wait);
-  };
+  // TODO: your code here
+  void wait;
+  return fn;
 }

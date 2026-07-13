@@ -39,12 +39,12 @@ describe("react/19-implement-use-media-query", () => {
     vi.unstubAllGlobals();
   });
 
-  it("renvoie la valeur initiale de matchMedia", () => {
+  it("returns the initial value from matchMedia", () => {
     render(<ResponsiveLabel />);
     expect(screen.getByTestId("label")).toHaveTextContent("narrow");
   });
 
-  it("se met à jour quand la media query change", () => {
+  it("updates when the media query changes", () => {
     render(<ResponsiveLabel />);
     expect(screen.getByTestId("label")).toHaveTextContent("narrow");
 
@@ -54,7 +54,7 @@ describe("react/19-implement-use-media-query", () => {
     expect(screen.getByTestId("label")).toHaveTextContent("wide");
   });
 
-  it("se désabonne au démontage sans planter", () => {
+  it("unsubscribes on unmount without crashing", () => {
     const { unmount } = render(<ResponsiveLabel />);
     unmount();
     expect(() => trigger(true)).not.toThrow();

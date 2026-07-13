@@ -1,13 +1,14 @@
 /**
  * EXERCISE react/13 — Implement usePrevious
  *
- * Implémente `usePrevious(value)` qui renvoie la valeur du render PRÉCÉDENT.
- * - Au premier render : renvoie `undefined` (pas de valeur précédente).
- * - Aux renders suivants : renvoie la valeur telle qu'elle était au render d'avant.
+ * Implement `usePrevious(value)` that returns the value from the PREVIOUS
+ * render.
+ * - On the first render: returns `undefined` (no previous value).
+ * - On subsequent renders: returns the value as it was on the previous render.
  *
- * Indice : useRef pour stocker la valeur, useEffect pour la mettre à jour
- * APRÈS le render (l'effet s'exécute après le commit, donc pendant le render
- * courant la ref contient encore la valeur précédente).
+ * Hint: useRef to store the value, useEffect to update it AFTER the render
+ * (the effect runs after commit, so during the current render the ref still
+ * holds the previous value).
  *
  * Run: npm run react:13
  */
@@ -17,7 +18,7 @@
 import { useEffect, useRef, useState } from "react";
 
 // ---------------------------------------------------------------------------
-// À implémenter
+// To implement
 // ---------------------------------------------------------------------------
 
 export function usePrevious<T>(value: T): T | undefined {
@@ -33,7 +34,7 @@ export function usePrevious<T>(value: T): T | undefined {
 }
 
 // ---------------------------------------------------------------------------
-// Démo — ne pas modifier
+// Demo — do not modify
 // ---------------------------------------------------------------------------
 
 export function CounterWithPrevious() {

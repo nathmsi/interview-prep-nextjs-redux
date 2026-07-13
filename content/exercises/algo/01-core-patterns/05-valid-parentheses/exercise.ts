@@ -41,24 +41,10 @@ const PAIRS: Record<string, string> = {
   "}": "{",
 };
 
-// ([)]
 export function isValidParentheses(s: string): boolean {
-  const stack: Array<string> = [];
-
-  for (const letter of s) {
-    if (PAIRS[letter]) {
-      const lastStackLetter = stack.at(-1);
-      if (lastStackLetter !== PAIRS[letter]) {
-        return false;
-      } else {
-        stack.pop();
-      }
-    } else {
-      stack.push(letter);
-    }
-  }
-
-  return stack.length === 0;
+  // TODO: your code here
+  void PAIRS;
+  return false;
 }
 
 export { PAIRS };

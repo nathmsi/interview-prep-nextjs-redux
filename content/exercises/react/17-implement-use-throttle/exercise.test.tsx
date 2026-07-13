@@ -10,12 +10,12 @@ describe("react/17-implement-use-throttle", () => {
     cleanup();
   });
 
-  it("commence avec la valeur initiale (vide)", () => {
+  it("starts with the initial value (empty)", () => {
     render(<SearchBox />);
     expect(screen.getByTestId("throttled")).toHaveTextContent("");
   });
 
-  it("laisse passer un changement isolé après le délai", () => {
+  it("lets an isolated change through after the delay", () => {
     render(<SearchBox />);
     fireEvent.change(screen.getByTestId("input"), {
       target: { value: "hello" },
@@ -32,7 +32,7 @@ describe("react/17-implement-use-throttle", () => {
     expect(screen.getByTestId("throttled")).toHaveTextContent("hello");
   });
 
-  it("regroupe les changements rapprochés et n'applique que la dernière valeur", () => {
+  it("batches rapid changes and only applies the last value", () => {
     render(<SearchBox />);
     const input = screen.getByTestId("input");
 
@@ -46,13 +46,13 @@ describe("react/17-implement-use-throttle", () => {
     });
     fireEvent.change(input, { target: { value: "abc" } });
 
-    // Toujours dans la fenêtre des 300ms depuis le tout premier changement
+    // Still within the 300ms window since the very first change
     expect(screen.getByTestId("throttled")).toHaveTextContent("");
 
     act(() => {
       vi.advanceTimersByTime(100);
     });
-    // 300ms depuis "a" → mise à jour directe vers la dernière valeur connue
+    // 300ms since "a" → jumps directly to the last known value
     expect(screen.getByTestId("throttled")).toHaveTextContent("abc");
   });
 });

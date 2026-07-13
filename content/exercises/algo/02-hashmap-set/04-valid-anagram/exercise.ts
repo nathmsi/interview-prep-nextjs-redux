@@ -14,24 +14,7 @@
  */
 
 export function isAnagram(s: string, t: string): boolean {
-  const dictionary: Record<string,number> = {};
-
-  for (const letter of s) {
-    if (Object.hasOwn(dictionary, letter)) {
-      dictionary[letter]++;
-    } else {
-      dictionary[letter] = 1;
-    }
-  }
-
-  for (const letter of t) {
-    if (Object.hasOwn(dictionary, letter)) {
-      dictionary[letter]--;
-    } else {
-      return false;
-    }
-  }
-
-  return Object.keys(dictionary).every(letter => dictionary[letter] === 0);
+  // TODO: your code here
+  return false;
 }
 

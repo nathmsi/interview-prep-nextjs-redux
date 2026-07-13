@@ -18,12 +18,15 @@ function makeExerciseStore() {
 }
 
 function CounterInner(): React.ReactElement {
+  // TODO: your code here
   const counterValue = useAppSelector(state => state.counter.value);
-  const dispacth = useAppDispatch();
+  void useAppDispatch;
+  void increment;
+  void decrement;
   return <>
-    <button data-testid="inc" onClick={() => dispacth(decrement())}>increment</button>
+    <button data-testid="inc">increment</button>
     <span data-testid="value">{counterValue}</span>
-    <button data-testid="dec" onClick={() => dispacth(increment())}>decrement</button>
+    <button data-testid="dec">decrement</button>
   </>;
 }
 

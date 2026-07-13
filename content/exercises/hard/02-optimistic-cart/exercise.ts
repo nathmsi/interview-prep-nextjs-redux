@@ -12,16 +12,12 @@ export const optimisticAddToCart = createAsyncThunk<
   { productId: string },
   { state: { cart: CartState } }
 >("cart/optimisticAdd", async ({ productId }, { dispatch, getState, rejectWithValue }) => {
-    try {
-      const { cart } = getState();
-      if (cart.productsById[productId]) {
-        dispatch(replaceItems([]))
-      } else {
-        dispatch(addItem({
-          productId,
-        }));
-      }
-    } catch (error) {
-      rejectWithValue(error);
-    }
+  // TODO: your code here — use addItem/replaceItems + dispatch/getState
+  void productId;
+  void dispatch;
+  void getState;
+  void rejectWithValue;
+  void addItem;
+  void replaceItems;
+  return [];
 });

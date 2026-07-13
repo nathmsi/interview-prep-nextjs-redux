@@ -1,11 +1,11 @@
 /**
  * EXERCISE react/11 — Implement useMyCallback
  *
- * Implémente `useMyCallback(fn, deps)` qui se comporte comme `useCallback` :
- * - Retourne la même référence de fonction tant que les deps ne changent pas.
- * - Retourne une nouvelle référence si au moins une dep change (comparaison Object.is).
+ * Implement `useMyCallback(fn, deps)` that behaves like `useCallback`:
+ * - Returns the same function reference as long as the deps don't change.
+ * - Returns a new reference if at least one dep changes (Object.is comparison).
  *
- * Contraintes : useRef uniquement — pas de useEffect, pas de useMemo.
+ * Constraints: useRef only — no useEffect, no useMemo.
  *
  * Run: npm run react:11
  */
@@ -15,7 +15,7 @@
 import { memo, useRef, useState, type DependencyList } from "react";
 
 // ---------------------------------------------------------------------------
-// À implémenter
+// To implement
 // ---------------------------------------------------------------------------
 
 function areDepsEqual(prev: DependencyList, next: DependencyList): boolean {
@@ -26,18 +26,16 @@ export function useMyCallback<T extends (...args: never[]) => unknown>(
   callback: T,
   deps: DependencyList
 ): T {
-  const refDeps = useRef<{ callback: T, deps: DependencyList} | null>(null);
+  // TODO: your code here
+  const refDeps = useRef<{ callback: T; deps: DependencyList } | null>(null);
+  void areDepsEqual;
+  refDeps.current = { callback, deps };
   // eslint-disable-next-line react-hooks/refs
-  if (refDeps.current === null || !areDepsEqual(refDeps?.current?.deps,deps)) {
-    // eslint-disable-next-line react-hooks/refs
-    refDeps.current = { callback, deps };
-  }
-  // eslint-disable-next-line react-hooks/refs
-  return refDeps?.current?.callback;
+  return refDeps.current.callback;
 }
 
 // ---------------------------------------------------------------------------
-// Composant de démo — ne pas modifier
+// Demo component — do not modify
 // ---------------------------------------------------------------------------
 
 let childRenderCount = 0;
@@ -60,7 +58,7 @@ export const TodoItem = memo(function TodoItem({
         data-testid={`remove-${id}`}
         onClick={() => onRemove(id)}
       >
-        Supprimer
+        Remove
       </button>
     </li>
   );
@@ -76,9 +74,9 @@ export function resetChildRenderCount() {
 
 export function TodoList() {
   const [todos, setTodos] = useState([
-    { id: 1, label: "Apprendre useCallback" },
-    { id: 2, label: "Passer l'entretien" },
-    { id: 3, label: "Fêter ça" },
+    { id: 1, label: "Learn useCallback" },
+    { id: 2, label: "Pass the interview" },
+    { id: 3, label: "Celebrate" },
   ]);
   const [filter, setFilter] = useState("");
 
@@ -96,7 +94,7 @@ export function TodoList() {
         data-testid="filter"
         value={filter}
         onChange={(e) => setFilter(e.target.value)}
-        placeholder="Filtrer..."
+        placeholder="Filter..."
       />
       <ul data-testid="list">
         {visible.map((todo) => (

@@ -37,39 +37,9 @@ const OPERATORS = new Set(["+", "-", "*", "/"]);
 
 
 export function evaluateRPN(tokens: string[]): number {
-  const stack: number[] = [];
-  for (const token of tokens) {
-    switch (token) {
-      case "+": {
-        const b = stack.pop();
-        const a = stack.pop();
-        stack.push(Number(b) + Number(a));
-        break;
-      }
-      case "-": {
-        const b = stack.pop();
-        const a = stack.pop();
-        stack.push(Number(a) - Number(b));
-        break;
-      }
-      case "*": {
-        const b = stack.pop();
-        const a = stack.pop();
-        stack.push(Number(b) * Number(a));
-        break;
-      }
-      case "/": {
-        const b = stack.pop();
-        const a = stack.pop();
-        stack.push(Math.trunc(Number(a) / Number(b)));
-        break;
-      }
-      default: {
-        stack.push(Number(token));
-      }
-    }
-  }
-  return Number(stack[0]);
+  // TODO: your code here
+  void OPERATORS;
+  return 0;
 }
 
 export { OPERATORS };

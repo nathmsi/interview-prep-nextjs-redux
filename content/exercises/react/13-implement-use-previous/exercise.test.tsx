@@ -5,13 +5,13 @@ import { CounterWithPrevious } from "./exercise";
 describe("react/13-implement-use-previous", () => {
   afterEach(() => cleanup());
 
-  it("n'a pas de valeur précédente au premier render", () => {
+  it("has no previous value on the first render", () => {
     render(<CounterWithPrevious />);
     expect(screen.getByTestId("current")).toHaveTextContent("0");
     expect(screen.getByTestId("previous")).toHaveTextContent("none");
   });
 
-  it("expose la valeur du render précédent après un changement", () => {
+  it("exposes the previous render's value after a change", () => {
     render(<CounterWithPrevious />);
 
     fireEvent.click(screen.getByTestId("inc"));

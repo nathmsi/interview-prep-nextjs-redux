@@ -21,19 +21,8 @@ export async function retry<T>(
   fn: () => Promise<T>,
   options: RetryOptions
 ): Promise<T> {
-  const run = async (retries: number) => {
-    try { 
-      return await fn();
-    } catch(error) {
-      if (retries > 0) {
-        if (options.delay) {
-          await new Promise((resolve)=> setTimeout(()=>{resolve(true)},options.delay))
-        }
-        return run(retries - 1);
-      } else {
-       throw error;
-      }
-    }
-  }
-  return run(options.retries);
+  // TODO: your code here
+  void fn;
+  void options;
+  throw new Error("Not implemented");
 }

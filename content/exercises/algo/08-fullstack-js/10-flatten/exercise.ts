@@ -13,12 +13,6 @@
  */
 
 export function flatten<T>(items: unknown[]): T[] {
-  return items.reduce<Array<T>>((acc, el) => {
-    if (Array.isArray(el)) {
-      el.forEach((el) => acc.push(el));
-      return acc;
-    }
-    acc.push(el as T);
-    return acc;
-  }, [] as T[]);
+  // TODO: your code here
+  return items as T[];
 }

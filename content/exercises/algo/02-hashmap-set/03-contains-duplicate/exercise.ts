@@ -13,15 +13,6 @@
  */
 
 export function containsDuplicate(nums: number[]): boolean {
-
-  const numbersSet: Set<number> = new Set();
-
-  for (const num of nums) {
-    if (numbersSet.has(num)) {
-      return true;
-    }
-    numbersSet.add(num);
-  }
-
+  // TODO: your code here
   return false;
 }

@@ -1,14 +1,14 @@
 /**
  * EXERCISE react/12 — Implement useMyMemo
  *
- * Implémente `useMyMemo(factory, deps)` qui se comporte comme `useMemo` :
- * - Appelle `factory()` au premier render et met le résultat en cache.
- * - Tant que les deps ne changent pas, renvoie la valeur en cache SANS
- *   rappeler `factory`.
- * - Si au moins une dep change (comparaison Object.is), rappelle `factory`
- *   et met à jour le cache.
+ * Implement `useMyMemo(factory, deps)` that behaves like `useMemo`:
+ * - Calls `factory()` on the first render and caches the result.
+ * - As long as the deps don't change, returns the cached value WITHOUT
+ *   calling `factory` again.
+ * - If at least one dep changes (Object.is comparison), calls `factory`
+ *   again and updates the cache.
  *
- * Contraintes : useRef uniquement — pas de useMemo, pas de useEffect.
+ * Constraints: useRef only — no useMemo, no useEffect.
  *
  * Run: npm run react:12
  */
@@ -23,21 +23,20 @@ function areDepsEqual(prev: DependencyList, next: DependencyList): boolean {
 }
 
 // ---------------------------------------------------------------------------
-// À implémenter
+// To implement
 // ---------------------------------------------------------------------------
 export function useMyMemo<T>(factory: () => T, deps: DependencyList): T {
+  // TODO: your code here
+  void areDepsEqual;
+  void deps;
   const refResult = useRef<T>(undefined as T);
-  const refDeps = useRef<DependencyList | null>(null);
-  if (refDeps.current === null || !areDepsEqual(refDeps.current, deps)) {
-    refResult.current = factory();
-    refDeps.current = deps;
-  }
+  refResult.current = factory();
   // eslint-disable-next-line react-hooks/refs
   return refResult.current;
 }
 
 // ---------------------------------------------------------------------------
-// Démo + compteur d'appels — ne pas modifier
+// Demo + call counter — do not modify
 // ---------------------------------------------------------------------------
 
 let factoryCallCount = 0;

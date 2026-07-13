@@ -15,16 +15,6 @@
  */
 
 export function twoSum(nums: number[], target: number): [number, number] | null {
-  const mapSeenNumberAlready: Map<number,number> = new Map();
-
-  for (let i = 0 ; i <= nums.length -1 ; i++){
-    const neededValue = target - nums[i];
-    if (neededValue && mapSeenNumberAlready.has(neededValue)){
-      return [Number(mapSeenNumberAlready.get(neededValue)),i]
-    }
-    mapSeenNumberAlready.set(nums[i],i);
-  }
-
-
+  // TODO: your code here
   return null;
 }

@@ -32,15 +32,6 @@
  */
 
 export function removeAdjacentDuplicates(s: string): string {
-  const stack: string[] = [];
-  
-  for(const letter of s) {
-    if (letter === stack.at(-1)) {
-      stack.pop();
-    } else {
-      stack.push(letter);
-    }
-  }
-
-  return stack.join('');
+  // TODO: your code here
+  return "";
 }

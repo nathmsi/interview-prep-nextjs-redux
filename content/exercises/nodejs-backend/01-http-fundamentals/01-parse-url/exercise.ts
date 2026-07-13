@@ -9,11 +9,6 @@
 
 export type ParsedUrl = { pathname: string; query: Record<string, string> };
 export function parseUrl(path: string): ParsedUrl {
-  const [pathname, queryPath] = path.replaceAll('%20',' ').split("?");
-  const query = queryPath?.split("&").reduce((acc, el) => {
-    const [key, value] = el.split("=");
-    acc[key] = value;
-    return acc;
-  }, {} as Record<string, string>) || {};
-  return { pathname, query };
+  // TODO: your code here
+  return { pathname: "", query: {} };
 }

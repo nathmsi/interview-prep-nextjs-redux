@@ -16,18 +16,7 @@ export async function withTimeout<T>(
   promise: Promise<T>,
   ms: number,
 ): Promise<T> {
-  return new Promise(async (resolve, reject) => {
-    const timer = setTimeout(() => {
-      reject(new Error("Timeout"));
-    }, ms);
-
-    try {
-      const result = await promise;
-      resolve(result);
-    } catch (error) {
-      reject(error);
-    } finally {
-      clearTimeout(timer);
-    }
-  });
+  // TODO: your code here
+  void ms;
+  return promise;
 }

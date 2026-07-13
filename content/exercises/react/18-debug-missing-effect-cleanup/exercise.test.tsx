@@ -8,7 +8,7 @@ describe("react/18-debug-missing-effect-cleanup", () => {
     vi.restoreAllMocks();
   });
 
-  it("incrémente de 1 à chaque pression de touche", () => {
+  it("increments by 1 on each key press", () => {
     render(<KeyCounter />);
 
     fireEvent.keyDown(window);
@@ -21,7 +21,7 @@ describe("react/18-debug-missing-effect-cleanup", () => {
     expect(screen.getByTestId("count")).toHaveTextContent("3");
   });
 
-  it("n'ajoute qu'un seul listener keydown au montage", () => {
+  it("adds only one keydown listener on mount", () => {
     const addSpy = vi.spyOn(window, "addEventListener");
     render(<KeyCounter />);
 
@@ -34,7 +34,7 @@ describe("react/18-debug-missing-effect-cleanup", () => {
     expect(keydownCalls.length).toBe(1);
   });
 
-  it("retire le listener au démontage", () => {
+  it("removes the listener on unmount", () => {
     const removeSpy = vi.spyOn(window, "removeEventListener");
     const { unmount } = render(<KeyCounter />);
     unmount();

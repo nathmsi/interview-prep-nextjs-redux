@@ -6,18 +6,18 @@ describe("react/15-implement-use-local-storage", () => {
   beforeEach(() => localStorage.clear());
   afterEach(() => cleanup());
 
-  it("utilise initialValue quand localStorage est vide", () => {
+  it("uses initialValue when localStorage is empty", () => {
     render(<PersistedCounter />);
     expect(screen.getByTestId("count")).toHaveTextContent("0");
   });
 
-  it("lit la valeur existante dans localStorage au montage", () => {
+  it("reads the existing value from localStorage on mount", () => {
     localStorage.setItem("count", JSON.stringify(5));
     render(<PersistedCounter />);
     expect(screen.getByTestId("count")).toHaveTextContent("5");
   });
 
-  it("persiste les mises à jour dans localStorage", () => {
+  it("persists updates to localStorage", () => {
     render(<PersistedCounter />);
     fireEvent.click(screen.getByTestId("inc"));
     expect(screen.getByTestId("count")).toHaveTextContent("1");
@@ -27,7 +27,7 @@ describe("react/15-implement-use-local-storage", () => {
     expect(localStorage.getItem("count")).toBe(JSON.stringify(2));
   });
 
-  it("une nouvelle instance relit la valeur persistée", () => {
+  it("a new instance reads the persisted value back", () => {
     const { unmount } = render(<PersistedCounter />);
     fireEvent.click(screen.getByTestId("inc"));
     fireEvent.click(screen.getByTestId("inc"));

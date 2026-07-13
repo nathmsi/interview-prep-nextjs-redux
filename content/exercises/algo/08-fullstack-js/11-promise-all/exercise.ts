@@ -13,23 +13,7 @@
  */
 
 export function promiseAll<T>(promises: Promise<T>[]): Promise<T[]> {
-  return new Promise((resolve, reject) => {
-    if (promises.length === 0) {
-      resolve([]);
-      return;
-    }
-
-    const results: T[] = new Array(promises.length);
-    let remaining = promises.length;
-
-    promises.forEach((promise, index) => {
-      Promise.resolve(promise)
-        .then((value) => {
-          results[index] = value;
-          remaining--;
-          if (remaining === 0) resolve(results);
-        })
-        .catch(reject);
-    });
-  });
+  // TODO: your code here
+  promises.forEach((p) => void p.catch(() => {}));
+  return Promise.resolve([]);
 }

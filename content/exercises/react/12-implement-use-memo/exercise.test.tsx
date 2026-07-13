@@ -10,7 +10,7 @@ describe("react/12-implement-use-memo", () => {
   beforeEach(() => resetFactoryCallCount());
   afterEach(() => cleanup());
 
-  it("calcule et affiche la valeur triée", () => {
+  it("computes and shows the sorted value", () => {
     render(<SortedList items={["banana", "apple", "cherry"]} />);
     const items = within(screen.getByTestId("list")).getAllByRole("listitem");
     expect(items.map((li) => li.textContent)).toEqual([
@@ -20,23 +20,23 @@ describe("react/12-implement-use-memo", () => {
     ]);
   });
 
-  it("appelle factory une seule fois au montage", () => {
+  it("calls factory only once on mount", () => {
     render(<SortedList items={["b", "a"]} />);
     expect(getFactoryCallCount()).toBe(1);
   });
 
-  it("ne rappelle PAS factory quand les deps ne changent pas", () => {
+  it("does NOT call factory again when deps haven't changed", () => {
     render(<SortedList items={["b", "a"]} />);
     expect(getFactoryCallCount()).toBe(1);
 
-    // Re-render via un state interne (count) → deps [items] inchangées
+    // Re-render via internal state (count) → deps [items] unchanged
     fireEvent.click(screen.getByTestId("inc"));
     fireEvent.click(screen.getByTestId("inc"));
 
     expect(getFactoryCallCount()).toBe(1);
   });
 
-  it("rappelle factory quand la dep change", () => {
+  it("calls factory again when the dep changes", () => {
     const { rerender } = render(<SortedList items={["b", "a"]} />);
     expect(getFactoryCallCount()).toBe(1);
 

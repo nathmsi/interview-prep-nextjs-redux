@@ -16,21 +16,8 @@ export type Res = {
 export type Next = (err?: unknown) => void;
 export type Middleware = (req: Req, res: Res, next: Next) => void;
 export function composeMiddleware(middlewares: Middleware[]): Middleware {
+  // TODO: your code here
   return (req, res, next) => {
-    let index = 0;
-
-    function dispatch(err?: unknown): void {
-      if (err) return;
-
-      if (index >= middlewares.length) {
-        next();
-        return;
-      }
-
-      const middleware = middlewares[index++];
-      middleware(req, res, dispatch);
-    }
-
-    dispatch();
+    next();
   };
 }

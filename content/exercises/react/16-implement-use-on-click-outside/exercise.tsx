@@ -1,16 +1,15 @@
 /**
  * EXERCISE react/16 — Implement useOnClickOutside
  *
- * Implémente `useOnClickOutside(ref, handler)` :
- * - Écoute les clics sur `document`.
- * - Si le clic a lieu EN DEHORS de l'élément référencé par `ref`, appelle
+ * Implement `useOnClickOutside(ref, handler)`:
+ * - Listens for clicks on `document`.
+ * - If the click happens OUTSIDE the element referenced by `ref`, calls
  *   `handler`.
- * - Si le clic a lieu à l'intérieur, ne fait rien.
- * - Nettoie le listener au démontage.
+ * - If the click happens inside, does nothing.
+ * - Cleans up the listener on unmount.
  *
- * Indice : useEffect + document.addEventListener("mousedown", ...), et
- * `ref.current.contains(event.target)` pour savoir si le clic est à
- * l'intérieur.
+ * Hint: useEffect + document.addEventListener("mousedown", ...), and
+ * `ref.current.contains(event.target)` to know if the click is inside.
  *
  * Run: npm run react:16
  */
@@ -20,7 +19,7 @@
 import { useEffect, useRef, useState, type RefObject } from "react";
 
 // ---------------------------------------------------------------------------
-// À implémenter
+// To implement
 // ---------------------------------------------------------------------------
 
 export function useOnClickOutside<T extends HTMLElement>(
@@ -31,7 +30,7 @@ export function useOnClickOutside<T extends HTMLElement>(
 }
 
 // ---------------------------------------------------------------------------
-// Démo — ne pas modifier
+// Demo — do not modify
 // ---------------------------------------------------------------------------
 
 export function Dropdown() {

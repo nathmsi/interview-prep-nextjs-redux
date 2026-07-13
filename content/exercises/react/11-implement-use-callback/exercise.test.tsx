@@ -10,41 +10,40 @@ describe("react/11-implement-use-callback", () => {
   beforeEach(() => resetChildRenderCount());
   afterEach(() => cleanup());
 
-  // --- Comportement de base ---
+  // --- Basic behavior ---
 
-  it("affiche tous les todos au départ", () => {
+  it("shows all todos initially", () => {
     render(<TodoList />);
     expect(screen.getByTestId("item-1")).toBeTruthy();
     expect(screen.getByTestId("item-2")).toBeTruthy();
     expect(screen.getByTestId("item-3")).toBeTruthy();
   });
 
-  it("supprime un todo quand on clique Supprimer", () => {
+  it("removes a todo when clicking Remove", () => {
     render(<TodoList />);
     fireEvent.click(screen.getByTestId("remove-1"));
     expect(screen.queryByTestId("item-1")).toBeNull();
     expect(screen.getByTestId("item-2")).toBeTruthy();
   });
 
-  it("filtre les todos par texte", () => {
+  it("filters todos by text", () => {
     render(<TodoList />);
     fireEvent.change(screen.getByTestId("filter"), {
       target: { value: "interview" },
     });
-    // "Passer l'entretien" ne contient pas "interview" → vérifie la logique
-    // On cherche juste que le filtre fait quelque chose de cohérent
+    // Just check that filtering does something coherent
     const list = screen.getByTestId("list");
     expect(list).toBeTruthy();
   });
 
-  // --- Stabilité de la référence (le vrai test de useCallback) ---
+  // --- Reference stability (the real useCallback test) ---
 
-  it("ne re-render pas les TodoItem quand seul le filtre change", () => {
+  it("does not re-render TodoItem when only the filter changes", () => {
     render(<TodoList />);
-    const renderCountAfterMount = getChildRenderCount(); // 3 renders initiaux
+    const renderCountAfterMount = getChildRenderCount(); // 3 initial renders
 
-    // Changer le filtre → Parent re-render, mais deps de useMyCallback = []
-    // → même référence → TodoItem (memo) ne doit PAS re-render
+    // Change the filter → parent re-renders, but useMyCallback deps = []
+    // → same reference → TodoItem (memo) must NOT re-render
     fireEvent.change(screen.getByTestId("filter"), {
       target: { value: "a" },
     });
@@ -52,18 +51,18 @@ describe("react/11-implement-use-callback", () => {
     expect(getChildRenderCount()).toBe(renderCountAfterMount);
   });
 
-  it("retire l'item du DOM et ne re-render pas les items restants (memo + callback stable)", () => {
+  it("removes the item from the DOM and does not re-render the remaining items (memo + stable callback)", () => {
     render(<TodoList />);
-    const countBefore = getChildRenderCount(); // 3 renders initiaux
+    const countBefore = getChildRenderCount(); // 3 initial renders
 
     fireEvent.click(screen.getByTestId("remove-3"));
 
-    // L'item supprimé a disparu
+    // The removed item is gone
     expect(screen.queryByTestId("item-3")).toBeNull();
-    // Les 2 autres sont toujours là
+    // The other 2 are still there
     expect(screen.getByTestId("item-1")).toBeTruthy();
     expect(screen.getByTestId("item-2")).toBeTruthy();
-    // memo + useMyCallback stable → les items restants n'ont PAS re-rendu
+    // memo + stable useMyCallback → remaining items did NOT re-render
     expect(getChildRenderCount()).toBe(countBefore);
   });
 });

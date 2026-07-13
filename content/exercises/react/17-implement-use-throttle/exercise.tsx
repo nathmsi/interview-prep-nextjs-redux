@@ -1,20 +1,19 @@
 /**
  * EXERCISE react/17 — Implement useThrottle
  *
- * Implémente `useThrottle(value, limit)` qui renvoie une version "throttlée"
- * de `value` : au plus une mise à jour toutes les `limit` ms.
- * - Au montage, renvoie la valeur initiale.
- * - Si `value` change plusieurs fois pendant la fenêtre de `limit` ms, seule
- *   la DERNIÈRE valeur est appliquée, exactement `limit` ms après la
- *   dernière mise à jour effective (pas après chaque changement individuel).
+ * Implement `useThrottle(value, limit)` that returns a "throttled" version
+ * of `value`: at most one update every `limit` ms.
+ * - On mount, returns the initial value.
+ * - If `value` changes several times within the `limit` ms window, only the
+ *   LAST value is applied, exactly `limit` ms after the last effective
+ *   update (not after each individual change).
  *
- * Contrairement à useDebounce, le throttle ne réinitialise pas le timer à
- * chaque changement : la fenêtre reste ancrée sur la dernière mise à jour
- * effective.
+ * Unlike useDebounce, throttle does not reset the timer on every change:
+ * the window stays anchored to the last effective update.
  *
- * Indice : useRef pour mémoriser le timestamp de la dernière mise à jour,
- * useEffect + setTimeout pour planifier la prochaine, et n'oublie pas de
- * nettoyer le timer dans le cleanup.
+ * Hint: useRef to remember the timestamp of the last update, useEffect +
+ * setTimeout to schedule the next one, and don't forget to clean up the
+ * timer in the cleanup.
  *
  * Run: npm run react:17
  */
@@ -24,7 +23,7 @@
 import { useEffect, useRef, useState } from "react";
 
 // ---------------------------------------------------------------------------
-// À implémenter
+// To implement
 // ---------------------------------------------------------------------------
 
 export function useThrottle<T>(value: T, limit: number): T {
@@ -35,7 +34,7 @@ export function useThrottle<T>(value: T, limit: number): T {
 }
 
 // ---------------------------------------------------------------------------
-// Démo — ne pas modifier
+// Demo — do not modify
 // ---------------------------------------------------------------------------
 
 export function SearchBox() {
@@ -48,7 +47,7 @@ export function SearchBox() {
         data-testid="input"
         value={text}
         onChange={(e) => setText(e.target.value)}
-        placeholder="Rechercher..."
+        placeholder="Search..."
       />
       <span data-testid="throttled">{throttled}</span>
     </div>

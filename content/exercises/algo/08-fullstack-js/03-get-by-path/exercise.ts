@@ -18,9 +18,8 @@
 
 
 export function getByPath(obj: unknown, path: string): unknown {
-  return path.split(".").reduce<unknown>((acc, key) => {
-    if (acc === null || acc === undefined) return undefined;
-    if (typeof acc !== "object") return undefined;
-    return (acc as Record<string, unknown>)[key];
-  }, obj);
+  // TODO: your code here
+  void obj;
+  void path;
+  return undefined;
 }

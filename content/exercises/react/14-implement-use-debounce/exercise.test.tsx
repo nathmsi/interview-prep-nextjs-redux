@@ -10,19 +10,19 @@ describe("react/14-implement-use-debounce", () => {
     cleanup();
   });
 
-  it("commence avec la valeur debouncée vide", () => {
+  it("starts with an empty debounced value", () => {
     render(<SearchBox />);
     expect(screen.getByTestId("debounced")).toHaveTextContent("");
   });
 
-  it("ne met pas à jour la valeur debouncée avant la fin du délai", () => {
+  it("does not update the debounced value before the delay ends", () => {
     render(<SearchBox />);
 
     fireEvent.change(screen.getByTestId("input"), { target: { value: "a" } });
 
-    // L'input change immédiatement...
+    // The input changes immediately...
     expect(screen.getByTestId("input")).toHaveValue("a");
-    // ...mais pas la valeur debouncée
+    // ...but not the debounced value
     expect(screen.getByTestId("debounced")).toHaveTextContent("");
 
     act(() => {
@@ -36,7 +36,7 @@ describe("react/14-implement-use-debounce", () => {
     expect(screen.getByTestId("debounced")).toHaveTextContent("a");
   });
 
-  it("annule le timer précédent si la valeur rechange (debounce)", () => {
+  it("cancels the previous timer if the value changes again (debounce)", () => {
     render(<SearchBox />);
     const input = screen.getByTestId("input");
 
@@ -45,18 +45,18 @@ describe("react/14-implement-use-debounce", () => {
       vi.advanceTimersByTime(200);
     });
 
-    // Rechange avant les 300ms → reset du timer
+    // Changes again before 300ms → timer resets
     fireEvent.change(input, { target: { value: "ab" } });
     act(() => {
       vi.advanceTimersByTime(200);
     });
-    // Total 400ms depuis "a" mais seulement 200ms depuis "ab" → toujours vide
+    // Total 400ms since "a" but only 200ms since "ab" → still empty
     expect(screen.getByTestId("debounced")).toHaveTextContent("");
 
     act(() => {
       vi.advanceTimersByTime(100);
     });
-    // 300ms depuis "ab" → mise à jour, on saute directement à "ab"
+    // 300ms since "ab" → update, jumps directly to "ab"
     expect(screen.getByTestId("debounced")).toHaveTextContent("ab");
   });
 });

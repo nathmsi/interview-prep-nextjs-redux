@@ -18,11 +18,7 @@ export const cartExerciseSlice = createSlice({
       _state,
       _action: PayloadAction<{ productId: string; quantity?: number }>
     ) => {
-      const { productId, quantity } = _action.payload;
-      _state.items.push({
-        productId,
-        quantity: quantity ?? 1
-      });
+      // TODO: your code here
     },
   },
 });
@@ -31,5 +27,7 @@ export const { addItem } = cartExerciseSlice.actions;
 export const cartExerciseReducer = cartExerciseSlice.reducer;
 
 export function selectItemCount(state: { cartExercise: CartExerciseState }): number {
-  return state.cartExercise.items.reduce((acc,item)=>acc+=item.quantity,0);
+  // TODO: your code here
+  void state;
+  return 0;
 }
