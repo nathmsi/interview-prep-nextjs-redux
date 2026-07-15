@@ -95,6 +95,12 @@
     "rq:04": "vitest run content/exercises/react-query/04-implement-dependent-query/exercise.test.tsx",
     "rq:05": "vitest run content/exercises/react-query/05-implement-use-infinite-query/exercise.test.tsx",
     "rq:all": "vitest run content/exercises/react-query/**/*.test.tsx",
+    "zustand:01": "vitest run content/exercises/zustand/01-implement-basic-store/exercise.test.tsx",
+    "zustand:02": "vitest run content/exercises/zustand/02-implement-selector/exercise.test.tsx",
+    "zustand:03": "vitest run content/exercises/zustand/03-implement-async-action/exercise.test.tsx",
+    "zustand:04": "vitest run content/exercises/zustand/04-implement-persist-middleware/exercise.test.tsx",
+    "zustand:05": "vitest run content/exercises/zustand/05-implement-computed-selector/exercise.test.tsx",
+    "zustand:all": "vitest run content/exercises/zustand/**/*.test.tsx",
     "test:watch": "vitest --project unit --project api",
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
@@ -153,7 +159,8 @@
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "react-redux": "^9.2.0",
-    "sass": "^1.100.0"
+    "sass": "^1.100.0",
+    "zustand": "^5.0.14"
   },
   "devDependencies": {
     "@playwright/test": "^1.60.0",
