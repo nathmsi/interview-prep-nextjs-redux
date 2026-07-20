@@ -34,7 +34,23 @@ export const useUsersStore = create<UsersState>((set) => ({
   loading: false,
   error: null,
   fetchUsers: async () => {
-    // TODO: your code here
+    set((state) => ({
+      ...state,
+      loading: true,
+    }));
+    const res = await fetch("");
+    if (res?.ok) {
+      const data = (await res.json()) as User[];
+      set(() => ({
+        loading: false,
+        data
+      }));
+    } else {
+      set(() => ({
+        loading: false,
+        error: 'error',
+      }));
+    }
   },
 }));
 
@@ -54,7 +70,9 @@ export function UserList() {
         Load
       </button>
       <ul data-testid="status">
-        {data?.map((user) => <li key={user.id}>{user.name}</li>)}
+        {data?.map((user) => (
+          <li key={user.id}>{user.name}</li>
+        ))}
       </ul>
     </div>
   );

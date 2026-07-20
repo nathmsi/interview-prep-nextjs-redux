@@ -38,9 +38,8 @@ export const useAppStore = create<AppState>((set) => ({
 // ---------------------------------------------------------------------------
 
 function useCount(): number {
-  // TODO: your code here
-  const state = useAppStore();
-  return state.count;
+  const count = useAppStore(state => state.count);
+  return count;
 }
 
 // ---------------------------------------------------------------------------
